@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cinmc2fvl6hga"]
+
+[node name="Login_Scene" type="Control"]
+layout_mode = 3
+anchor_right = 0.39
+anchor_bottom = 0.378
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 9.71998
+offset_bottom = 14.056
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.132
+anchor_top = 0.179
+anchor_right = 0.885
+anchor_bottom = 0.92
+offset_left = 10.28
+offset_top = 29.997
+offset_right = -50.11
+offset_bottom = -14.588
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Login"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Username: "
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.2
