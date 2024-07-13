@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8jog8xi6n8xw"]
+
+[ext_resource type="Script" path="res://scenes/chest.gd" id="1_41wuc"]
+[ext_resource type="Texture2D" uid="uid://c7inapapawlkg" path="res://assets/sprites/Animated Chests/Chests.png" id="2_eam2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6msp"]
+size = Vector2(37.25, 25)
+
+[sub_resource type="Animation" id="Animation_f1uo6"]
+resource_name = "open_chest"
+length = 0.47
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_560qp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cg5wd"]
+_data = {
+"RESET": SubResource("Animation_560qp"),
+"open_chest": SubResource("Animation_f1uo6")
+}
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_41wuc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(104.779, 15.8095)
+scale = Vector2(1.34253, 1.1369)
+texture = ExtResource("2_eam2d")
+hframes = 5
+vframes = 8
+region_rect = Rect2(50, 41, 30, 23)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(234, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-140.625, 0.5)
+shape = SubResource("RectangleShape2D_p6msp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cg5wd")
+}
+speed_scale = 0.621
