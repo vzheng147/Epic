@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://brqddj0l2kgj3"]
+
+[ext_resource type="PackedScene" uid="uid://bqfhvvm8pn7co" path="res://scenes/UI/inventory_row.tscn" id="1_tfdwn"]
+
+[node name="inventory" type="Control"]
+layout_mode = 3
+anchor_right = 0.596354
+anchor_bottom = 0.600309
+offset_right = -2.28882e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="inventory_row" parent="." instance=ExtResource("1_tfdwn")]
+layout_mode = 1
+anchor_left = 0.304221
+anchor_top = 0.257069
+anchor_right = 0.749533
+anchor_bottom = 0.422192
+offset_left = -1.0103e-05
+offset_right = 1.26958e-05

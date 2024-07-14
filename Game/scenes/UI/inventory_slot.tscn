@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://jdwh8ua5itis"]
+
+[ext_resource type="Texture2D" uid="uid://cpvgujd34bhac" path="res://assets/sprites/fruit.png" id="1_6iuqe"]
+[ext_resource type="Script" path="res://scripts/inventory_slot.gd" id="1_atw75"]
+
+[node name="inventory_slot" type="Control"]
+layout_mode = 3
+anchor_right = 0.0694444
+anchor_bottom = 0.123457
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_atw75")
+metadata/_edit_use_anchors_ = true
+
+[node name="Border" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.901961, 0.901961, 0.901961, 0.705882)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.0625
+anchor_right = 0.9375
+anchor_bottom = 0.9375
+color = Color(0.235294, 0.235294, 0.235294, 0.54902)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(34, 31)
+scale = Vector2(3, 3)
+texture = ExtResource("1_6iuqe")
+region_enabled = true
+region_rect = Rect2(2, 2, 11, 13)
+metadata/_edit_lock_ = true
+
+[node name="Quantity" type="Label" parent="Background"]
+layout_mode = 0
+anchor_left = 0.642857
+anchor_top = 0.671429
+anchor_right = 1.11429
+anchor_bottom = 1.0
+text = "3"
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Drop_Down_Button" type="MenuButton" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Use_Button" type="Button" parent="Drop_Down_Button"]
+visible = false
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0125
+anchor_bottom = 1.3875
+text = "Use"
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Drop_Down_Button" to="." method="_on_drop_down_button_pressed"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqfhvvm8pn7co"]
+
+[ext_resource type="PackedScene" uid="uid://jdwh8ua5itis" path="res://scenes/UI/inventory_slot.tscn" id="1_0t2r3"]
+
+[node name="inventory_row" type="Control"]
+layout_mode = 3
+anchor_right = 0.454861
+anchor_bottom = 0.165123
+offset_right = -3.05176e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="inventory_slot" parent="." instance=ExtResource("1_0t2r3")]
+layout_mode = 1
+anchor_left = 0.0389864
+anchor_top = 0.140187
+anchor_right = 0.194932
+anchor_bottom = 0.88785
+
+[node name="inventory_slot2" parent="." instance=ExtResource("1_0t2r3")]
+layout_mode = 1
+anchor_left = 0.214425
+anchor_top = 0.140187
+anchor_right = 0.37037
+anchor_bottom = 0.88785
+
+[node name="inventory_slot3" parent="." instance=ExtResource("1_0t2r3")]
+layout_mode = 1
+anchor_left = 0.389864
+anchor_top = 0.140187
+anchor_right = 0.545809
+anchor_bottom = 0.88785
+
+[node name="inventory_slot4" parent="." instance=ExtResource("1_0t2r3")]
+layout_mode = 1
+anchor_left = 0.565302
+anchor_top = 0.140187
+anchor_right = 0.721248
+anchor_bottom = 0.88785
+
+[node name="inventory_slot5" parent="." instance=ExtResource("1_0t2r3")]
+layout_mode = 1
+anchor_left = 0.740741
+anchor_top = 0.140187
+anchor_right = 0.896686
+anchor_bottom = 0.88785
+offset_left = 1.24574e-05
+offset_right = 1.18613e-05
+
+[node name="inventory_slot6" parent="." instance=ExtResource("1_0t2r3")]
+layout_mode = 1
+anchor_left = 0.916179
+anchor_top = 0.140187
+anchor_right = 1.07212
+anchor_bottom = 0.88785
+offset_left = -1.11461e-05
+offset_right = 1.88351e-05

@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://co7d4p68xss72"]
 
-[ext_resource type="PackedScene" uid="uid://dshih00g3t21r" path="res://scenes/tile_map.tscn" id="1_18c6b"]
-[ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/player.tscn" id="1_px3tl"]
-[ext_resource type="PackedScene" uid="uid://b04l5pufpclxg" path="res://scenes/platform.tscn" id="3_sana5"]
-[ext_resource type="PackedScene" uid="uid://cn0xw0gwm8j2w" path="res://scenes/coin.tscn" id="4_vlp72"]
-[ext_resource type="PackedScene" uid="uid://dn7urbgdvogly" path="res://scenes/killzone.tscn" id="5_l0u3y"]
-[ext_resource type="PackedScene" uid="uid://bxdlan5lexjdb" path="res://scenes/sign.tscn" id="6_m55pt"]
+[ext_resource type="PackedScene" uid="uid://dshih00g3t21r" path="res://scenes/World/tile_map.tscn" id="1_18c6b"]
+[ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="1_px3tl"]
+[ext_resource type="PackedScene" uid="uid://b04l5pufpclxg" path="res://scenes/Build/platform.tscn" id="3_sana5"]
+[ext_resource type="PackedScene" uid="uid://cn0xw0gwm8j2w" path="res://scenes/Collectables/coin.tscn" id="4_vlp72"]
+[ext_resource type="PackedScene" uid="uid://dn7urbgdvogly" path="res://scenes/Build/killzone.tscn" id="5_l0u3y"]
+[ext_resource type="PackedScene" uid="uid://bxdlan5lexjdb" path="res://scenes/Build/sign.tscn" id="6_m55pt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pa8fm"]
 
@@ -129,3 +129,6 @@ autoplay = "RESET"
 
 [node name="Sign" parent="." instance=ExtResource("6_m55pt")]
 position = Vector2(110, 60)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
