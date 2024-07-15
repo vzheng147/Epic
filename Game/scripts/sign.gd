@@ -11,8 +11,6 @@ func _process(delta):
 	pass
 	
 
-
-
 func _on_detection_zone_body_entered(body):# Replace with function body.
 	signLabel.visible = true;
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://co7d4p68xss72"]
+[gd_scene load_steps=15 format=3 uid="uid://co7d4p68xss72"]
 
 [ext_resource type="PackedScene" uid="uid://dshih00g3t21r" path="res://scenes/World/tile_map.tscn" id="1_18c6b"]
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="1_px3tl"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cn0xw0gwm8j2w" path="res://scenes/Collectables/coin.tscn" id="4_vlp72"]
 [ext_resource type="PackedScene" uid="uid://dn7urbgdvogly" path="res://scenes/Build/killzone.tscn" id="5_l0u3y"]
 [ext_resource type="PackedScene" uid="uid://bxdlan5lexjdb" path="res://scenes/Build/sign.tscn" id="6_m55pt"]
+[ext_resource type="PackedScene" uid="uid://b373tg7fcoviw" path="res://scenes/Collectables/wooden_chest.tscn" id="7_m7rm6"]
+[ext_resource type="PackedScene" uid="uid://cg71whtwrqrm6" path="res://scenes/Collectables/copper_chest.tscn" id="8_c55l5"]
+[ext_resource type="PackedScene" uid="uid://2a04tp0dey8f" path="res://scenes/Collectables/diamond_chest.tscn" id="9_7m5ol"]
+[ext_resource type="PackedScene" uid="uid://66reec06pf5j" path="res://scenes/Collectables/golden_chest.tscn" id="10_b2ksb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pa8fm"]
 
@@ -132,3 +136,15 @@ position = Vector2(110, 60)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
+
+[node name="wooden_chest" parent="." instance=ExtResource("7_m7rm6")]
+position = Vector2(19, 66)
+
+[node name="copper_chest" parent="." instance=ExtResource("8_c55l5")]
+position = Vector2(16, 34)
+
+[node name="diamond_chest" parent="." instance=ExtResource("9_7m5ol")]
+position = Vector2(143, 51)
+
+[node name="golden_chest" parent="." instance=ExtResource("10_b2ksb")]
+position = Vector2(133, -11)
