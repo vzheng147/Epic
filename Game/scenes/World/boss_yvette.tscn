@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://c25nky0pmrvl4"]
+
+[ext_resource type="Texture2D" uid="uid://duahccvr2qfpw" path="res://assets/sprites/sara-cal.png" id="1_uutn1"]
+[ext_resource type="PackedScene" uid="uid://dn7urbgdvogly" path="res://scenes/Build/killzone.tscn" id="2_eun4f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qa2n"]
+atlas = ExtResource("1_uutn1")
+region = Rect2(35, 7, 35, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myj5t"]
+atlas = ExtResource("1_uutn1")
+region = Rect2(70, 7, 35, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_116og"]
+atlas = ExtResource("1_uutn1")
+region = Rect2(105, 7, 35, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_743td"]
+atlas = ExtResource("1_uutn1")
+region = Rect2(140, 7, 35, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70ho4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qa2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myj5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_116og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_743td")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yxaq"]
+size = Vector2(39, 60)
+
+[node name="Boss_Yvette" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -34)
+scale = Vector2(1.1, 1.08929)
+sprite_frames = SubResource("SpriteFrames_70ho4")
+autoplay = "default"
+frame_progress = 0.161077
+
+[node name="Killzone" parent="." instance=ExtResource("2_eun4f")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-0.5, -34)
+shape = SubResource("RectangleShape2D_8yxaq")
