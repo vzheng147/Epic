@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jdwh8ua5itis"]
 
 [ext_resource type="Texture2D" uid="uid://cpvgujd34bhac" path="res://assets/sprites/fruit.png" id="1_6iuqe"]
-[ext_resource type="Script" path="res://scripts/inventory_slot.gd" id="1_atw75"]
+[ext_resource type="Script" path="res://scripts/UI/inventory_slot.gd" id="1_atw75"]
 
 [node name="inventory_slot" type="Control"]
 layout_mode = 3
