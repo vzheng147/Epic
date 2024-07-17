@@ -2,11 +2,25 @@ extends CharacterBody2D
 #this is the script that will move around our character 
 
 const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -350.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# Health variables and functions
+
+var max_health = 100
+var health = max_health
+
+func take_damage(damage):
+	health -= damage
+	print(health)
+	if (health <= 0):
+		die()
+		
+
+func die():
+	get_tree().reload_current_scene()
 
 func _physics_process(delta):
 	# Add the gravity.

@@ -153,3 +153,12 @@ position = Vector2(133, -11)
 
 [node name="rat_boss" parent="." instance=ExtResource("11_2m8t2")]
 position = Vector2(682, -133)
+
+[node name="copper_chest2" parent="." instance=ExtResource("8_c55l5")]
+position = Vector2(560, -97)
+
+[node name="diamond_chest2" parent="." instance=ExtResource("9_7m5ol")]
+position = Vector2(612, -80)
+
+[node name="golden_chest2" parent="." instance=ExtResource("10_b2ksb")]
+position = Vector2(464, -124)

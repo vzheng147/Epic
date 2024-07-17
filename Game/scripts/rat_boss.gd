@@ -6,15 +6,19 @@ enum State {
 	ATTACKING,
 }
 
-@onready var rat = $rat_sprite
+@onready var rat := $rat_sprite
+@onready var attack_area2d := $attack_range
+@onready var skill_timer := $skill_timer
 
 var player : CharacterBody2D = null
 var current_state : State = State.IDLE
+var player_in_attack_range : bool = false
+var skill_ready : bool = true
 
 # Adjust these ranges as per your game design
-var chase_range: float = 300
+var chase_range: float = 500
 var attack_range: float = 30
-var speed: float = 75  # Rat's movement speed
+var speed: float = 85  # Rat's movement speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,28 +50,54 @@ func chasing_state(delta):
 		current_state = State.IDLE
 
 func attacking_state(delta):
-	rat.play("attack")
-	if player_in_range(attack_range):
-		apply_damage_to_player()
-	if not player_in_range(attack_range):
-		current_state = State.CHASING
+	if skill_ready:
+		rat.play("attack2")
+		await rat.animation_finished
+		skill_ready = false
+		skill_timer.start()
+		if player_in_attack_range:
+			player.take_damage(150 * delta)
+	else:
+		rat.play("attack")
+		await rat.animation_finished
+		if player_in_attack_range:
+			player.take_damage(50 * delta)
+	current_state = State.CHASING
 
 func player_in_range(range: float) -> bool:
 	return position.distance_to(player.position) < range
 
 func move_towards_player(delta):
 	var direction = (player.position - position).normalized()
+	direction.y = 0;
 	position += direction * speed * delta
 
-func apply_damage_to_player():
-	if player:
-		pass # Assuming your player node has a take_damage method
+
+# Function to flip the Area2D horizontally
+func flip_area2d_horizontally(area: Area2D, flip: bool):
+	var scale = Vector2(-1 if flip else 1, 1)
+	area.scale = scale
 
 
 func flip_towards_player():
 	if player.position.x < position.x:
 		rat.flip_h = true  # Player is to the left, flip horizontally
+		flip_area2d_horizontally(attack_area2d, true)
 	else:
 		rat.flip_h = false
+		flip_area2d_horizontally(attack_area2d, false)
 	
 
+func _on_attack_range_body_entered(body):
+	if body.name == "Player":
+		player_in_attack_range = true
+	
+
+
+func _on_attack_range_body_exited(body):
+	if body.name == "Player":
+		player_in_attack_range = false
+
+
+func _on_skill_timer_timeout():
+	skill_ready = true

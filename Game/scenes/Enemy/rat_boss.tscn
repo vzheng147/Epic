@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c8wdvlhvu2pwq"]
+[gd_scene load_steps=42 format=3 uid="uid://c8wdvlhvu2pwq"]
 
 [ext_resource type="Script" path="res://scripts/rat_boss.gd" id="1_dr3b0"]
 [ext_resource type="Texture2D" uid="uid://e5y1cdo3tnp5" path="res://assets/sprites/Ratfolk Warrior Sprite Sheet.png" id="1_poo8x"]
@@ -174,7 +174,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uwsed")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 8.0
 }, {
@@ -203,9 +203,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yth3l")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack2",
-"speed": 8.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -291,6 +291,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oavk"]
+size = Vector2(33, 43.5)
+
 [node name="rat_boss" type="Node2D"]
 script = ExtResource("1_dr3b0")
 
@@ -305,6 +308,18 @@ texture_filter = 1
 position = Vector2(3, -4)
 scale = Vector2(2, 2.071)
 sprite_frames = SubResource("SpriteFrames_p8one")
-animation = &"death"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.95078
+
+[node name="attack_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
+position = Vector2(22.5, 9.75)
+shape = SubResource("RectangleShape2D_3oavk")
+
+[node name="skill_timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="skill_timer" to="." method="_on_skill_timer_timeout"]
