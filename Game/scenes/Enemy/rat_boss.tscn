@@ -308,7 +308,7 @@ texture_filter = 1
 position = Vector2(2, -3)
 scale = Vector2(2, 2.071)
 sprite_frames = SubResource("SpriteFrames_p8one")
-animation = &"attack"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="attack_range" type="Area2D" parent="."]

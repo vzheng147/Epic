@@ -73,7 +73,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("5_l0u3y")]
-position = Vector2(92, 144)
+position = Vector2(165, 178)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(63, -36)
