@@ -7,7 +7,6 @@ const JUMP_VELOCITY = -350.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-<<<<<<< HEAD
 # Health variables and functions
 
 var max_health = 100
@@ -22,9 +21,9 @@ func take_damage(damage):
 
 func die():
 	get_tree().reload_current_scene()
-=======
+
 @onready var animated_sprite = $AnimatedSprite2D
->>>>>>> origin/main
+
 
 func _physics_process(delta):
 	# Add the gravity.

@@ -169,18 +169,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ebqx"]
-radius = 5.0
+radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
-collision_layer = 2
 script = ExtResource("1_0hjod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_ilihh")
-animation = &"jump"
-autoplay = "run"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)

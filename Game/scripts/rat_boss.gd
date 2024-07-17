@@ -17,7 +17,7 @@ var skill_ready : bool = true
 
 # Adjust these ranges as per your game design
 var chase_range: float = 500
-var attack_range: float = 30
+var attack_range: float = 35
 var speed: float = 85  # Rat's movement speed
 
 # Called when the node enters the scene tree for the first time.
@@ -50,6 +50,7 @@ func chasing_state(delta):
 		current_state = State.IDLE
 
 func attacking_state(delta):
+	print(player_in_attack_range)
 	if skill_ready:
 		rat.play("attack2")
 		await rat.animation_finished
@@ -61,8 +62,9 @@ func attacking_state(delta):
 		rat.play("attack")
 		await rat.animation_finished
 		if player_in_attack_range:
+			print("HI")
 			player.take_damage(50 * delta)
-	current_state = State.CHASING
+		current_state = State.CHASING
 
 func player_in_range(range: float) -> bool:
 	return position.distance_to(player.position) < range
@@ -89,12 +91,14 @@ func flip_towards_player():
 	
 
 func _on_attack_range_body_entered(body):
+	print(body.name)
 	if body.name == "Player":
 		player_in_attack_range = true
-	
+
 
 
 func _on_attack_range_body_exited(body):
+	print(body.name)
 	if body.name == "Player":
 		player_in_attack_range = false
 
