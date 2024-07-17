@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b42n5r3ytpfss" path="res://assets/sprites/Minotaur - Sprite Sheet.png" id="2_6id5q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgma8"]
-radius = 21.095
+radius = 19.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v45qy"]
 atlas = ExtResource("2_6id5q")
@@ -328,7 +328,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6360p")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack1",
 "speed": 10.0
 }, {
@@ -348,7 +348,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f51ao")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack2",
 "speed": 10.0
 }, {
@@ -371,7 +371,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sujkn")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack3",
 "speed": 10.0
 }, {
@@ -403,7 +403,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5m7x3")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack4",
 "speed": 10.0
 }, {
@@ -459,7 +459,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6ggkm")
 }],
-"loop": true,
+"loop": false,
 "name": &"charge",
 "speed": 15.0
 }, {
@@ -473,7 +473,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ndmcl")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
 "speed": 10.0
 }, {
@@ -571,7 +571,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxq3e"]
-size = Vector2(66, 63.75)
+size = Vector2(70.5, 60.1094)
 
 [node name="minotaur_boss" type="Node2D"]
 script = ExtResource("1_wevah")
@@ -583,17 +583,22 @@ position = Vector2(0, -20)
 shape = SubResource("CircleShape2D_lgma8")
 
 [node name="minotaur_sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, -18)
+position = Vector2(3, -15)
 sprite_frames = SubResource("SpriteFrames_7n7m5")
-animation = &"charge"
+animation = &"attack1"
 autoplay = "idle"
-frame_progress = 0.524064
+frame = 8
+frame_progress = 1.0
 
 [node name="attack_range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
-position = Vector2(9, -33.875)
+position = Vector2(19, -28)
 shape = SubResource("RectangleShape2D_xxq3e")
 
 [node name="charge_timer" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 8.0
+
+[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="charge_timer" to="." method="_on_charge_timer_timeout"]
