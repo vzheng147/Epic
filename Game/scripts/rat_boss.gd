@@ -10,10 +10,12 @@ enum State {
 @onready var attack_area2d := $attack_range
 @onready var skill_timer := $skill_timer
 
+# initializing game-state variables (do not change!)
 var player : CharacterBody2D = null
 var current_state : State = State.IDLE
 var player_in_attack_range : bool = false
 var skill_ready : bool = true
+var is_attacking : bool = false
 
 # Adjust these ranges as per your game design
 var chase_range: float = 500
@@ -50,20 +52,27 @@ func chasing_state(delta):
 		current_state = State.IDLE
 
 func attacking_state(delta):
-	print(player_in_attack_range)
+	
+	if is_attacking:
+		return
+	is_attacking = true
+	
 	if skill_ready:
 		rat.play("attack2")
 		await rat.animation_finished
 		skill_ready = false
 		skill_timer.start()
 		if player_in_attack_range:
-			player.take_damage(150 * delta)
+			player.take_damage(150)
 	else:
 		rat.play("attack")
 		await rat.animation_finished
 		if player_in_attack_range:
-			player.take_damage(50 * delta)
-		current_state = State.CHASING
+			player.take_damage(60)
+		
+	is_attacking = false
+	current_state = State.CHASING
+	
 
 func player_in_range(range: float) -> bool:
 	return position.distance_to(player.position) < range

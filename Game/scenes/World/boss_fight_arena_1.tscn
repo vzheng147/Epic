@@ -420,7 +420,7 @@ position = Vector2(118, -6)
 zoom = Vector2(3, 3)
 
 [node name="rat_boss" parent="." instance=ExtResource("3_37ebo")]
-position = Vector2(525, -22)
+position = Vector2(510, -13)
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_euot2")
