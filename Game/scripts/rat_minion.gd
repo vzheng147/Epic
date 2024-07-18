@@ -12,9 +12,11 @@ enum State {
 var max_health = 300
 var health
 
+# initializing game-state variables (do not change!)
 var player : CharacterBody2D = null
 var current_state : State = State.IDLE
 var player_in_attack_range : bool = false
+var is_attacking : bool = false
 
 # Adjust these ranges as per your game design
 var chase_range: float = 500
@@ -51,11 +53,17 @@ func chasing_state(delta):
 		current_state = State.IDLE
 
 func attacking_state(delta):
+	if is_attacking:
+		return
+		
+	is_attacking = true
 	rat.play("attack")
 	await rat.animation_finished
-	print(player_in_attack_range)
+	
 	if player_in_attack_range:
-		player.take_damage(50 * delta)
+		player.take_damage(30)
+	
+	is_attacking = false
 	current_state = State.CHASING
 
 func player_in_range(range: float) -> bool:
