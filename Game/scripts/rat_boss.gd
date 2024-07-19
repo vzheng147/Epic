@@ -4,6 +4,7 @@ enum State {
 	IDLE,
 	CHASING,
 	ATTACKING,
+	SUMMON
 }
 
 @onready var rat := $rat_sprite
@@ -36,10 +37,13 @@ func _process(delta):
 			chasing_state(delta)
 		State.ATTACKING:
 			attacking_state(delta)
+		State.SUMMON:
+			summon_state(delta)
 	flip_towards_player()
 
 func idle_state(delta):
 	rat.play("idle")
+	current_state = State.SUMMON
 	if player_in_range(chase_range):
 		current_state = State.CHASING
 
@@ -72,7 +76,12 @@ func attacking_state(delta):
 		
 	is_attacking = false
 	current_state = State.CHASING
-	
+
+func summon_state(delta):
+	var rat_minion_scene = preload("res://scenes/Enemy/rat_minion.tscn")
+	var rat_minion_instance = rat_minion_scene.instance()
+	owner.add_child(rat_minion_instance)
+	current_state = State.CHASING
 
 func player_in_range(range: float) -> bool:
 	return position.distance_to(player.position) < range
