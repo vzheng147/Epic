@@ -78,12 +78,12 @@ func attack_state(delta):
 		minotaur.play("attack2")
 		await minotaur.animation_finished
 		if in_attack_1_range:
-			player.take_damage(30)
+			player.take_damage(10)
 	else:
 		minotaur.play("attack1")  
 		await minotaur.animation_finished
 		if in_attack_2_range:
-			player.take_damage(50)
+			player.take_damage(20)
 	
 	is_attacking = false
 	current_state = State.CHASE
@@ -100,7 +100,7 @@ func swirl_state(delta):
 	swirl_ready = false
 	
 	if in_swirl_range:
-		player.take_damage(100)
+		player.take_damage(50)
 	
 	is_attacking = false
 	current_state = State.CHASE
