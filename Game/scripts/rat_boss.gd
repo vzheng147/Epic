@@ -4,18 +4,21 @@ enum State {
 	IDLE,
 	CHASING,
 	ATTACKING,
+	SKILL,
 	SUMMON
 }
 
 @onready var rat := $rat_sprite
 @onready var attack_area2d := $attack_range
 @onready var skill_timer := $skill_timer
+@onready var summon_timer := $summon_timer
 
 # initializing game-state variables (do not change!)
 var player : CharacterBody2D = null
 var current_state : State = State.IDLE
 var player_in_attack_range : bool = false
 var skill_ready : bool = true
+var summon_ready : bool = true
 var is_attacking : bool = false
 
 # Adjust these ranges as per your game design
@@ -37,21 +40,27 @@ func _process(delta):
 			chasing_state(delta)
 		State.ATTACKING:
 			attacking_state(delta)
+		State.SKILL:
+			skill_state(delta)
 		State.SUMMON:
 			summon_state(delta)
 	flip_towards_player()
 
 func idle_state(delta):
 	rat.play("idle")
-	current_state = State.SUMMON
 	if player_in_range(chase_range):
 		current_state = State.CHASING
 
 func chasing_state(delta):
 	rat.play("run")
 	move_towards_player(delta)
-	if player_in_range(attack_range):
-		current_state = State.ATTACKING
+	if (summon_ready):
+		current_state = State.SUMMON
+	elif player_in_range(attack_range):
+		if (skill_ready):
+			current_state = State.SKILL
+		else:
+			current_state = State.ATTACKING
 	elif not player_in_range(chase_range):
 		current_state = State.IDLE
 
@@ -61,27 +70,47 @@ func attacking_state(delta):
 		return
 	is_attacking = true
 	
-	if skill_ready:
-		rat.play("attack2")
-		await rat.animation_finished
-		skill_ready = false
-		skill_timer.start()
-		if player_in_attack_range:
-			player.take_damage(150)
-	else:
-		rat.play("attack")
-		await rat.animation_finished
-		if player_in_attack_range:
-			player.take_damage(60)
+	rat.play("attack")
+	await rat.animation_finished
+	if player_in_attack_range:
+		player.take_damage(60)
 		
 	is_attacking = false
-	current_state = State.CHASING
+	
+	if (summon_ready):
+		current_state = State.SUMMON
+	else:
+		current_state = State.CHASING
+		
+func skill_state(delta):
+	if is_attacking:
+		return
+	is_attacking = true
+	
+	rat.play("skill")
+	await rat.animation_finished
+	skill_ready = false
+	skill_timer.start()
+	if player_in_attack_range:
+		player.take_damage(150)
+		
+	is_attacking = false
+	
+	if (summon_ready):
+		current_state = State.SUMMON
+	else:
+		current_state = State.CHASING
 
 func summon_state(delta):
 	var rat_minion_scene = preload("res://scenes/Enemy/rat_minion.tscn")
-	var rat_minion_instance = rat_minion_scene.instance()
-	owner.add_child(rat_minion_instance)
-	current_state = State.CHASING
+	rat.play("summon");
+	await rat.animation_finished	
+	var rat_minion_instance = rat_minion_scene.instantiate()
+	rat_minion_instance.position = position + Vector2(10, 30)# Set the position to the boss's position
+	get_tree().current_scene.add_child(rat_minion_instance)  # Add the rat minion to the root of the current scen
+	summon_ready = false  
+	summon_timer.start()
+	current_state = State.CHASING  # Transition to the CHASING state
 
 func player_in_range(range: float) -> bool:
 	return position.distance_to(player.position) < range
@@ -120,3 +149,7 @@ func _on_attack_range_body_exited(body):
 
 func _on_skill_timer_timeout():
 	skill_ready = true
+
+
+func _on_summon_timer_timeout():
+	summon_ready = true

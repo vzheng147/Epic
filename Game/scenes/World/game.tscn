@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://co7d4p68xss72"]
+[gd_scene load_steps=16 format=3 uid="uid://co7d4p68xss72"]
 
 [ext_resource type="PackedScene" uid="uid://dshih00g3t21r" path="res://scenes/World/tile_map.tscn" id="1_18c6b"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_k31nw"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cg71whtwrqrm6" path="res://scenes/Collectables/copper_chest.tscn" id="8_c55l5"]
 [ext_resource type="PackedScene" uid="uid://2a04tp0dey8f" path="res://scenes/Collectables/diamond_chest.tscn" id="9_7m5ol"]
 [ext_resource type="PackedScene" uid="uid://66reec06pf5j" path="res://scenes/Collectables/golden_chest.tscn" id="10_b2ksb"]
-[ext_resource type="PackedScene" uid="uid://c8wdvlhvu2pwq" path="res://scenes/Enemy/rat_boss.tscn" id="11_2m8t2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pa8fm"]
 distance = 166.0
@@ -65,12 +64,7 @@ layer_0/tile_data = PackedInt32Array(524281, 0, 14, 589817, 0, 15, 524282, 0, 14
 position = Vector2(514, -82)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -4)
-offset = Vector2(4, 4)
-zoom = Vector2(3.7, 3.7)
-limit_bottom = 130
-limit_smoothed = true
-position_smoothing_enabled = true
+zoom = Vector2(3.5, 3.5)
 
 [node name="Killzone" parent="." instance=ExtResource("5_l0u3y")]
 position = Vector2(165, 178)
@@ -140,9 +134,6 @@ autoplay = "RESET"
 [node name="Sign" parent="." instance=ExtResource("6_m55pt")]
 position = Vector2(110, 60)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
 [node name="wooden_chest" parent="." instance=ExtResource("7_m7rm6")]
 position = Vector2(19, 66)
 
@@ -155,9 +146,6 @@ position = Vector2(143, 51)
 [node name="golden_chest" parent="." instance=ExtResource("10_b2ksb")]
 position = Vector2(133, -11)
 
-[node name="rat_boss" parent="." instance=ExtResource("11_2m8t2")]
-position = Vector2(682, -133)
-
 [node name="copper_chest2" parent="." instance=ExtResource("8_c55l5")]
 position = Vector2(560, -97)
 
@@ -169,3 +157,6 @@ position = Vector2(464, -124)
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("1_k31nw")
+
+[node name="wooden_chest2" parent="." instance=ExtResource("7_m7rm6")]
+position = Vector2(546, -135)

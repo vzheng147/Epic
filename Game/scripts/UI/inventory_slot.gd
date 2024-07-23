@@ -1,7 +1,10 @@
-extends Control
+class_name InventorySlot
+extends PanelContainer
 
-@onready var use_button := $Drop_Down_Button/Use_Button;
+@export var type : itemData.TYPE
 
-func _on_drop_down_button_pressed():
-	use_button.visible = !use_button.visible;
+func init(t: itemData.TYPE, cms: Vector2):
+	type = t
+	custom_minimum_size = cms
+
 	

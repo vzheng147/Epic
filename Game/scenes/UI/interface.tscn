@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmiytugleusg4"]
+
+[ext_resource type="Script" path="res://scripts/UI/interface.gd" id="1_embta"]
+[ext_resource type="PackedScene" uid="uid://cjh8wxdo6qxtg" path="res://scenes/UI/inventory.tscn" id="2_jrgqe"]
+
+[node name="Interface" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_embta")
+
+[node name="Inventory" parent="." instance=ExtResource("2_jrgqe")]

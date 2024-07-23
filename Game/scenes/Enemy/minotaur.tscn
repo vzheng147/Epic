@@ -1,6 +1,5 @@
-[gd_scene load_steps=78 format=3 uid="uid://byr3erpyflee2"]
+[gd_scene load_steps=77 format=3 uid="uid://byr3erpyflee2"]
 
-[ext_resource type="Script" path="res://Minotaur.gd" id="1_vs6cj"]
 [ext_resource type="Texture2D" uid="uid://b42n5r3ytpfss" path="res://assets/sprites/Minotaur - Sprite Sheet.png" id="2_3pjsq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v45qy"]
@@ -571,7 +570,6 @@ animations = [{
 size = Vector2(32, 38)
 
 [node name="Minotaur" type="Node2D"]
-script = ExtResource("1_vs6cj")
 
 [node name="minotaur_sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-33, -16)

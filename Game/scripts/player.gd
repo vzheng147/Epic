@@ -1,5 +1,6 @@
 extends CharacterBody2D
 #this is the script that will move around our character 
+@onready var inventory_ui = $InventoryUI
 @onready var flash_animation = $FlashAnimation
 @onready var health_bar = $HealthBar
 
@@ -28,13 +29,13 @@ func _on_subtract_health_pressed():
 	hp -= 10
 	if health_bar:
 		health_bar.value = hp
-	flash_animation.play("flash") #play flash effect
+	# flash_animation.play("flash") #play flash effect
 
 func take_damage(damage):
-	_on_subtract_health_pressed()
+	# _on_subtract_health_pressed()
 	health -= damage
 	print(health)
-	if (hp <= 0):
+	if (health <= 0):
 		die()
 		
 

@@ -1,44 +1,44 @@
 [gd_scene load_steps=16 format=3 uid="uid://bihlnq70ecrlv"]
 
-[ext_resource type="Script" path="res://scripts/wooden_door.gd" id="1_b1ibi"]
-[ext_resource type="Texture2D" uid="uid://bfrporh1cvil8" path="res://assets/sprites/fourSeasonsPlatformer_ [tileset, version 2.0]/Kings and Pigs (1)/Sprites/11-Door/Closiong (46x56).png" id="2_kq3up"]
-[ext_resource type="Texture2D" uid="uid://bvsybbwg22u33" path="res://assets/sprites/fourSeasonsPlatformer_ [tileset, version 2.0]/Kings and Pigs (1)/Sprites/11-Door/Idle.png" id="3_inhy1"]
-[ext_resource type="Texture2D" uid="uid://bp17ug0v6kfsa" path="res://assets/sprites/fourSeasonsPlatformer_ [tileset, version 2.0]/Kings and Pigs (1)/Sprites/11-Door/Opening (46x56).png" id="4_xlrht"]
+[ext_resource type="Script" path="res://scripts/wooden_door.gd" id="1_f5wyf"]
+[ext_resource type="Texture2D" uid="uid://bfrporh1cvil8" path="res://assets/sprites/fourSeasonsPlatformer_ [tileset, version 2.0]/Kings and Pigs (1)/Sprites/11-Door/Closiong (46x56).png" id="2_15fi4"]
+[ext_resource type="Texture2D" uid="uid://bvsybbwg22u33" path="res://assets/sprites/fourSeasonsPlatformer_ [tileset, version 2.0]/Kings and Pigs (1)/Sprites/11-Door/Idle.png" id="3_kh3s0"]
+[ext_resource type="Texture2D" uid="uid://bp17ug0v6kfsa" path="res://assets/sprites/fourSeasonsPlatformer_ [tileset, version 2.0]/Kings and Pigs (1)/Sprites/11-Door/Opening (46x56).png" id="4_we8y3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30mr8"]
-atlas = ExtResource("2_kq3up")
+atlas = ExtResource("2_15fi4")
 region = Rect2(0, 0, 46, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyyg7"]
-atlas = ExtResource("2_kq3up")
+atlas = ExtResource("2_15fi4")
 region = Rect2(46, 0, 46, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_naagr"]
-atlas = ExtResource("2_kq3up")
+atlas = ExtResource("2_15fi4")
 region = Rect2(92, 0, 46, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vqj5"]
-atlas = ExtResource("3_inhy1")
+atlas = ExtResource("3_kh3s0")
 region = Rect2(0, 0, 46, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vo4vv"]
-atlas = ExtResource("4_xlrht")
+atlas = ExtResource("4_we8y3")
 region = Rect2(0, 0, 46, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_unp3c"]
-atlas = ExtResource("4_xlrht")
+atlas = ExtResource("4_we8y3")
 region = Rect2(46, 0, 46, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0odf2"]
-atlas = ExtResource("4_xlrht")
+atlas = ExtResource("4_we8y3")
 region = Rect2(92, 0, 46, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2y7v"]
-atlas = ExtResource("4_xlrht")
+atlas = ExtResource("4_we8y3")
 region = Rect2(138, 0, 46, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klglv"]
-atlas = ExtResource("4_xlrht")
+atlas = ExtResource("4_we8y3")
 region = Rect2(184, 0, 46, 56)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hpkdy"]
@@ -90,7 +90,7 @@ animations = [{
 size = Vector2(43, 38)
 
 [node name="wooden_door" type="Node2D"]
-script = ExtResource("1_b1ibi")
+script = ExtResource("1_f5wyf")
 
 [node name="door_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hpkdy")

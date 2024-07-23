@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c8wdvlhvu2pwq"]
+[gd_scene load_steps=46 format=3 uid="uid://c8wdvlhvu2pwq"]
 
 [ext_resource type="Script" path="res://scripts/rat_boss.gd" id="1_dr3b0"]
 [ext_resource type="Texture2D" uid="uid://e5y1cdo3tnp5" path="res://assets/sprites/Ratfolk Warrior Sprite Sheet.png" id="1_poo8x"]
@@ -33,38 +33,6 @@ region = Rect2(160, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_uwsed"]
 atlas = ExtResource("1_poo8x")
 region = Rect2(192, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ayc57"]
-atlas = ExtResource("1_poo8x")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ge721"]
-atlas = ExtResource("1_poo8x")
-region = Rect2(32, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0bvw"]
-atlas = ExtResource("1_poo8x")
-region = Rect2(64, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ssfo"]
-atlas = ExtResource("1_poo8x")
-region = Rect2(96, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_okyvd"]
-atlas = ExtResource("1_poo8x")
-region = Rect2(128, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6it3e"]
-atlas = ExtResource("1_poo8x")
-region = Rect2(160, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kqj58"]
-atlas = ExtResource("1_poo8x")
-region = Rect2(192, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yth3l"]
-atlas = ExtResource("1_poo8x")
-region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olxdg"]
 atlas = ExtResource("1_poo8x")
@@ -150,6 +118,54 @@ region = Rect2(192, 32, 32, 32)
 atlas = ExtResource("1_poo8x")
 region = Rect2(224, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayc57"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge721"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0bvw"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ssfo"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okyvd"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6it3e"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqj58"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yth3l"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a01hx"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0ef2"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as3m4"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nkjt"]
+atlas = ExtResource("1_poo8x")
+region = Rect2(64, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_p8one"]
 animations = [{
 "frames": [{
@@ -177,35 +193,6 @@ animations = [{
 "loop": false,
 "name": &"attack",
 "speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ayc57")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ge721")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c0bvw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ssfo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_okyvd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6it3e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kqj58")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yth3l")
-}],
-"loop": false,
-"name": &"attack2",
-"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -289,6 +276,52 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayc57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge721")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0bvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ssfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6it3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqj58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yth3l")
+}],
+"loop": false,
+"name": &"skill",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a01hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0ef2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as3m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nkjt")
+}],
+"loop": false,
+"name": &"summon",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3oavk"]
@@ -300,6 +333,7 @@ script = ExtResource("1_dr3b0")
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+visibility_layer = 4
 position = Vector2(3, 16)
 shape = SubResource("CircleShape2D_cpho5")
 
@@ -308,7 +342,7 @@ texture_filter = 1
 position = Vector2(2, -3)
 scale = Vector2(2, 2.071)
 sprite_frames = SubResource("SpriteFrames_p8one")
-animation = &"run"
+animation = &"skill"
 autoplay = "idle"
 
 [node name="attack_range" type="Area2D" parent="."]
@@ -320,6 +354,10 @@ shape = SubResource("RectangleShape2D_3oavk")
 [node name="skill_timer" type="Timer" parent="."]
 wait_time = 4.0
 
+[node name="summon_timer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="skill_timer" to="." method="_on_skill_timer_timeout"]
+[connection signal="timeout" from="summon_timer" to="." method="_on_summon_timer_timeout"]
