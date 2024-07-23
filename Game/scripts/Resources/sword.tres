@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bpo0mpi8nkh48"]
+
+[ext_resource type="Texture2D" uid="uid://cdqtfbwqx8jv2" path="res://scripts/Resources/Screenshot 2024-07-23 at 7.20.08 PM.png" id="1_vsrhh"]
+[ext_resource type="Script" path="res://scripts/Resources/item_data.gd" id="2_wsp70"]
+
+[resource]
+script = ExtResource("2_wsp70")
+type = 0
+item_name = "Sword"
+item_texture = ExtResource("1_vsrhh")
+description = ""
+attack = 5
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0

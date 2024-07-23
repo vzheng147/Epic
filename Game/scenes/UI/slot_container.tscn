@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/UI/inventory_slot.gd" id="2_harmd"]
 
 [node name="slot_container" type="Control"]
-custom_minimum_size = Vector2(15, 15)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 47.0
@@ -31,4 +31,5 @@ layout_mode = 0
 offset_right = 47.0
 offset_bottom = 45.0
 
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

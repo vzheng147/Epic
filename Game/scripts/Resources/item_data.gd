@@ -1,4 +1,4 @@
-class_name itemData
+class_name ItemData
 extends Resource
 
 enum TYPE {EQUIPMENT, POTION, STONE, EMPTY}
