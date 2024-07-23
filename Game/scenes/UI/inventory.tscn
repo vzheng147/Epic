@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/UI/inventory.gd" id="1_gh2cy"]
 
 [node name="Inventory" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_gh2cy")
@@ -14,6 +15,6 @@ offset_left = -119.0
 offset_top = -58.0
 offset_right = 99.0
 offset_bottom = 76.0
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 35
 columns = 6

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d3o16yirjiwgd"]
+[gd_scene load_steps=25 format=3 uid="uid://d3o16yirjiwgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0hjod"]
 [ext_resource type="Texture2D" uid="uid://dwmyfwc7wgdbp" path="res://assets/sprites/new/rougelikegame-Sheet.png" id="2_h0jss"]
@@ -135,23 +135,40 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6ebqx"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j00qv"]
 radius = 6.0
+height = 26.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t8yk"]
+bg_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eu12n"]
+bg_color = Color(0.838493, 0.197884, 0.180875, 1)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_0hjod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
-scale = Vector2(0.35, 0.35)
+position = Vector2(-1, -13)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ilihh")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 7
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_6ebqx")
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_j00qv")
 
 [node name="Inventory" parent="." instance=ExtResource("4_5u5gl")]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -12.0
+offset_top = -34.0
+offset_right = 72.0
+offset_bottom = -11.0
+scale = Vector2(0.3, 0.3)
+theme_override_styles/background = SubResource("StyleBoxFlat_5t8yk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eu12n")
+value = 50.0
