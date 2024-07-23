@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3o16yirjiwgd"]
+[gd_scene load_steps=23 format=3 uid="uid://d3o16yirjiwgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0hjod"]
 [ext_resource type="Texture2D" uid="uid://dwmyfwc7wgdbp" path="res://assets/sprites/new/rougelikegame-Sheet.png" id="2_h0jss"]
+[ext_resource type="PackedScene" uid="uid://cjh8wxdo6qxtg" path="res://scenes/UI/inventory.tscn" id="4_5u5gl"]
 [ext_resource type="Texture2D" uid="uid://cqooof82uq0j4" path="res://assets/sprites/new/epic_run.png" id="4_rhvro"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydy6e"]
@@ -152,3 +153,5 @@ autoplay = "idle"
 light_mask = 7
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_6ebqx")
+
+[node name="Inventory" parent="." instance=ExtResource("4_5u5gl")]
