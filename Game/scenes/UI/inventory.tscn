@@ -31,8 +31,9 @@ columns = 4
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -93.0
-offset_top = -158.0
-offset_right = -25.0
-offset_bottom = -135.0
+offset_left = -92.0
+offset_top = -152.0
+offset_right = -24.0
+offset_bottom = -129.0
+pivot_offset = Vector2(42, 13)
 text = "Equiped:"

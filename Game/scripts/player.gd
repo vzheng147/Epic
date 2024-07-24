@@ -1,5 +1,6 @@
 extends CharacterBody2D
 #this is the script that will move around our character 
+@onready var inventory = $Inventory
 @onready var flash_animation = $FlashAnimation
 @onready var health_bar = $HealthBar
 
@@ -11,25 +12,30 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_attacking = false
 
 # Player Stats
+var level = 1
+var xp = 0
 var attack = 5
 var defense = 1
 var max_health = 100
 var health = max_health
-var hp = 100
+
 
 func _ready():
+	var equip = inventory.equiped
+	for i in equip:
+		print(i)
 	if health_bar:
-		health_bar.value = hp
+		health_bar.value = health
 	
 func _on_add_health_pressed():
-	hp += 10
+	health += 10
 	if health_bar:
-		health_bar.value = hp
+		health_bar.value = health
 	
 func _on_subtract_health_pressed():
-	hp -= 10
+	health -= 10
 	if health_bar:
-		health_bar.value = hp
+		health_bar.value = health
 	# flash_animation.play("flash") #play flash effect
 
 func take_damage(damage):

@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnx7p36bou17f"]
-
-[ext_resource type="Script" path="res://scripts/UI/inventory_slot2.gd" id="1_cje2e"]
+[gd_scene format=3 uid="uid://doqqji8yu3gx3"]
 
 [node name="InventorySlot2" type="Control"]
 layout_mode = 3
@@ -11,7 +9,6 @@ offset_right = -1112.0
 offset_bottom = -608.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cje2e")
 metadata/_edit_use_anchors_ = true
 
 [node name="Border" type="ColorRect" parent="."]
