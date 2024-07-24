@@ -6,37 +6,33 @@
 [ext_resource type="PackedScene" uid="uid://cjh8wxdo6qxtg" path="res://scenes/UI/inventory.tscn" id="4_5u5gl"]
 [ext_resource type="Texture2D" uid="uid://cqooof82uq0j4" path="res://assets/sprites/new/epic_run.png" id="4_rhvro"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7ykc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_55s14"]
 atlas = ExtResource("2_w1fcr")
-region = Rect2(0, 0, 100, 64)
+region = Rect2(0, 0, 60, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_baxww"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jra5t"]
 atlas = ExtResource("2_w1fcr")
-region = Rect2(100, 0, 100, 64)
+region = Rect2(98, 0, 62, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_71o5a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r5yy"]
 atlas = ExtResource("2_w1fcr")
-region = Rect2(200, 0, 100, 64)
+region = Rect2(198, 0, 66, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yamn7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne3sg"]
 atlas = ExtResource("2_w1fcr")
-region = Rect2(300, 0, 100, 64)
+region = Rect2(302, 0, 58, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0yanb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdyoe"]
 atlas = ExtResource("2_w1fcr")
-region = Rect2(400, 0, 100, 64)
+region = Rect2(409, 0, 63, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8lgwt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ajaf"]
 atlas = ExtResource("2_w1fcr")
-region = Rect2(500, 0, 100, 64)
+region = Rect2(480, 0, 120, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dyqae"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5716"]
 atlas = ExtResource("2_w1fcr")
-region = Rect2(400, 0, 100, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wljg1"]
-atlas = ExtResource("2_w1fcr")
-region = Rect2(300, 0, 100, 64)
+region = Rect2(360, 0, 120, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydy6e"]
 atlas = ExtResource("2_h0jss")
@@ -106,32 +102,29 @@ region = Rect2(448, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c7ykc")
+"texture": SubResource("AtlasTexture_55s14")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_baxww")
+"texture": SubResource("AtlasTexture_jra5t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_71o5a")
+"texture": SubResource("AtlasTexture_0r5yy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yamn7")
+"texture": SubResource("AtlasTexture_ne3sg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0yanb")
+"texture": SubResource("AtlasTexture_gdyoe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8lgwt")
+"texture": SubResource("AtlasTexture_4ajaf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dyqae")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wljg1")
+"texture": SubResource("AtlasTexture_v5716")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -207,17 +200,21 @@ bg_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eu12n"]
 bg_color = Color(0.838493, 0.197884, 0.180875, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1efqh"]
+size = Vector2(20, 12)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_0hjod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -13)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.463333, 0.5)
 sprite_frames = SubResource("SpriteFrames_ilihh")
 animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.757219
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 7
@@ -236,3 +233,9 @@ scale = Vector2(0.3, 0.3)
 theme_override_styles/background = SubResource("StyleBoxFlat_5t8yk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eu12n")
 value = 50.0
+
+[node name="attack_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
+position = Vector2(19, -8)
+shape = SubResource("RectangleShape2D_1efqh")

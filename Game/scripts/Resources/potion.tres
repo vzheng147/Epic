@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bl2odb4ul4xh3"]
+
+[ext_resource type="Texture2D" uid="uid://cdqtfbwqx8jv2" path="res://scripts/Resources/Screenshot 2024-07-23 at 7.20.08 PM.png" id="1_wim8o"]
+[ext_resource type="Script" path="res://scripts/Resources/item_data.gd" id="2_vk5rq"]
+
+[resource]
+script = ExtResource("2_vk5rq")
+type = 1
+item_name = "Heal_Potion"
+item_texture = ExtResource("1_wim8o")
+description = "ajksdlfjaksdfkasdflkj
+"
+attack = 0
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0
