@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="First Game"
-run/main_scene="res://scenes/World/health_bar.tscn"
+run/main_scene="res://scenes/World/boss_fight_arena_4.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

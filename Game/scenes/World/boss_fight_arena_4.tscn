@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://07fkd6vd4jji"]
+
+[ext_resource type="PackedScene" uid="uid://6gfspg3eaey6" path="res://scenes/World/test_map.tscn" id="1_qnciy"]
+[ext_resource type="PackedScene" uid="uid://bsgilrpdfy1qp" path="res://scenes/World/player2.tscn" id="2_rnu82"]
+[ext_resource type="PackedScene" uid="uid://brxhaoplhcdxl" path="res://scenes/Enemy/cyclops_boss.tscn" id="3_82n6i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqob7"]
+bg_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krkv3"]
+bg_color = Color(0.838493, 0.197884, 0.180875, 1)
+
+[node name="boss_fight_arena_4" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="TestMap" parent="." instance=ExtResource("1_qnciy")]
+position = Vector2(42.2469, -9.5445)
+
+[node name="Player" parent="." instance=ExtResource("2_rnu82")]
+position = Vector2(63, -30)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1.5, 4)
+position_smoothing_enabled = true
+
+[node name="HealthBar" type="ProgressBar" parent="Player"]
+offset_left = -209.0
+offset_top = -98.0
+offset_right = 75.0
+offset_bottom = -75.0
+scale = Vector2(1.06233, 0.806745)
+theme_override_styles/background = SubResource("StyleBoxFlat_hqob7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_krkv3")
+value = 50.0
+
+[node name="FlashAnimation" type="AnimationPlayer" parent="Player"]
+
+[node name="cyclops_boss" parent="." instance=ExtResource("3_82n6i")]
+position = Vector2(-46, -26)

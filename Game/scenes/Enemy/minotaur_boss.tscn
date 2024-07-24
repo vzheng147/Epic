@@ -467,10 +467,9 @@ shape = SubResource("CircleShape2D_lgma8")
 [node name="minotaur_sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -15)
 sprite_frames = SubResource("SpriteFrames_7n7m5")
-animation = &"swirl"
+animation = &"run"
 autoplay = "idle"
-frame = 8
-frame_progress = 1.0
+frame_progress = 0.903768
 
 [node name="attack_1_range" type="Area2D" parent="."]
 

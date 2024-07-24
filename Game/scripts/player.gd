@@ -28,7 +28,7 @@ func _on_subtract_health_pressed():
 	hp -= 10
 	if health_bar:
 		health_bar.value = hp
-	flash_animation.play("flash") #play flash effect
+	#flash_animation.play("flash") #play flash effect
 
 func take_damage(damage):
 	_on_subtract_health_pressed()
