@@ -2,7 +2,7 @@ extends Control
 
 var isEmpty = true
 var data : ItemData
-@onready var use_button = $Button
+@onready var use_button = $MenuButton/Button
 @onready var menu_button = $MenuButton
 
 

@@ -17,3 +17,22 @@ offset_bottom = 21.0
 theme_override_constants/h_separation = 35
 theme_override_constants/v_separation = 35
 columns = 6
+
+[node name="Equiped" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -8.0
+offset_top = -163.0
+offset_right = 163.0
+offset_bottom = -123.0
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 35
+columns = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -93.0
+offset_top = -158.0
+offset_right = -25.0
+offset_bottom = -135.0
+text = "Equiped:"
