@@ -16,38 +16,38 @@ var level = 1
 var xp = 0
 var attack = 5
 var defense = 1
-var max_health = 100
-var health = max_health
+var health = 100
 
 
 func _ready():
+	health_bar.value = health
 	var equip = inventory.equiped
 	for i in equip:
 		print(i)
-	if health_bar:
-		health_bar.value = health
+	
 	
 func _on_add_health_pressed():
 	health += 10
-	if health_bar:
-		health_bar.value = health
+	health_bar.value = health
 	
 func _on_subtract_health_pressed():
 	health -= 10
-	if health_bar:
-		health_bar.value = health
-	# flash_animation.play("flash") #play flash effect
+	health_bar.value = health
+	flash_animation.play("flash") #play flash effect
 
 func take_damage(damage):
-	# _on_subtract_health_pressed()
+	print("take_damage called with damage:", damage)
 	health -= damage
-	print(health)
-	if (health <= 0):
+	print("Updated health:", health)
+	if health_bar:
+		health_bar.value = health
+	if health <= 0:
 		die()
 		
 
 func die():
 	print("You died!")
+	# Implement what happens when the player dies, e.g., reload the scene
 	get_tree().reload_current_scene()
 
 @onready var animated_sprite = $AnimatedSprite2D

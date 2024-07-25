@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="First Game"
-run/main_scene="res://scenes/World/boss_fight_arena_3.tscn"
+run/main_scene="res://scenes/World/minion_fight_arena_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
