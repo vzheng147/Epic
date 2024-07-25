@@ -294,11 +294,5 @@ shape = SubResource("RectangleShape2D_45oa7")
 position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_3t80e")
 
-[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
-offset_left = -6.0
-offset_top = -18.0
-offset_right = 6.0
-offset_bottom = -2.0
-
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]

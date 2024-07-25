@@ -5,10 +5,14 @@ extends CharacterBody2D
 @onready var health_bar = $HealthBar
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var attack_range = $attack_range
+@onready var recover_timer = $Recover_Timer
+@onready var one_second_heal = $OneSecondHeal
 
 # state variables (do not change)
 var is_attacking = false
 var in_attack_range = []
+var is_recovering = false
+var is_healing_one = false
 
 
 const SPEED = 130.0
@@ -29,14 +33,6 @@ var health = max_health
 func _ready():
 	health_bar.value = health
 	
-	
-func _on_add_health_pressed():
-	health += 10
-	health_bar.value = health
-	
-func _on_subtract_health_pressed():
-	health_bar.value = (health / max_health)
-	flash_animation.play("flash") #play flash effect
 
 func deal_damage(damage):
 	for enemy in in_attack_range:
@@ -50,6 +46,9 @@ func take_damage(damage):
 		health_bar.value = (float(health) / max_health) * 100
 	if health <= 0:
 		die()
+	is_recovering = false
+	recover_timer.start()
+	
 		
 
 func die():
@@ -67,7 +66,9 @@ func _input(event):
 		await animated_sprite.animation_finished
 		deal_damage(attack*5)
 		is_attacking = false
-		
+		is_recovering = false
+		recover_timer.start()
+	
 	
 func _physics_process(delta):
 	# Add the gravity.
@@ -120,3 +121,21 @@ func _on_attack_range_body_entered(body):
 func _on_attack_range_body_exited(body):
 	if body is RigidBody2D && body.get_parent().has_method("take_damage"):
 		in_attack_range.erase(body)
+
+
+func _on_recover_timer_timeout():
+	is_recovering = true
+	one_second_heal.start()
+
+
+func _on_one_second_heal_timeout():
+	if not is_recovering:
+		one_second_heal.stop()
+		return
+		
+	if health != max_health:
+		health += max_health * .05
+		if health > max_health:
+			health = max_health
+		health_bar.value = (float(health)/max_health) * 100
+	one_second_heal.start()

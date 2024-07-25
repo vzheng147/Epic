@@ -240,11 +240,12 @@ value = 50.0
 position = Vector2(19, -8)
 shape = SubResource("RectangleShape2D_1efqh")
 
-[node name="ColorRect" type="ColorRect" parent="attack_range"]
-offset_left = 10.0
-offset_top = -13.0
-offset_right = 30.0
-offset_bottom = -3.0
+[node name="Recover_Timer" type="Timer" parent="."]
+wait_time = 8.0
+
+[node name="OneSecondHeal" type="Timer" parent="."]
 
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="Recover_Timer" to="." method="_on_recover_timer_timeout"]
+[connection signal="timeout" from="OneSecondHeal" to="." method="_on_one_second_heal_timeout"]

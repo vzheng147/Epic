@@ -338,12 +338,6 @@ visibility_layer = 4
 position = Vector2(3, 16)
 shape = SubResource("CircleShape2D_cpho5")
 
-[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
-offset_left = -8.0
-offset_top = 4.0
-offset_right = 16.0
-offset_bottom = 29.0
-
 [node name="rat_sprite" type="AnimatedSprite2D" parent="RigidBody2D"]
 texture_filter = 1
 position = Vector2(2, -3)
