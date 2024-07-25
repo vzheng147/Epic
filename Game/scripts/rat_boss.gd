@@ -8,35 +8,40 @@ enum State {
 	SUMMON
 }
 
-@onready var rat := $rat_sprite
-@onready var attack_area2d := $attack_range
-@onready var skill_timer := $skill_timer
-@onready var summon_timer := $summon_timer
+@onready var rat := $RigidBody2D/rat_sprite
+@onready var health_bar = $RigidBody2D/HealthBar
+@onready var attack_area2d := $RigidBody2D/attack_range
+@onready var skill_timer := $RigidBody2D/skill_timer
+@onready var summon_timer := $RigidBody2D/summon_timer
 
 # initializing game-state variables (do not change!)
 var player : CharacterBody2D = null
 var current_state : State = State.IDLE
 var player_in_attack_range : bool = false
 var skill_ready : bool = true
-var summon_ready : bool = true
+var summon_ready : bool = false
 var is_attacking : bool = false
 var is_summoning : bool = false
 
 # Adjust these ranges as per your game design
+var max_health : int = 250
+var health : int = max_health
+var attack : int = 50
+var defense : int = 5
 var chase_range: float = 500
 var attack_range: float = 35
 var speed: float = 85  # Rat's movement speed
-
-func isEnemy():
-	pass
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	health_bar.value = (float(health) / max_health) * 100
 	player = get_parent().get_node("Player")
 
+@onready var body = $RigidBody2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	rat.rotation = 0
 	match current_state:
 		State.IDLE:
 			idle_state(delta)
@@ -50,6 +55,21 @@ func _process(delta):
 			summon_state(delta)
 	flip_towards_player()
 
+func take_damage(damage):
+	damage = damage - defense
+	health -= damage
+	if health_bar:
+		health_bar.value = (float(health) / max_health) * 100
+	if health <= 0:
+		rat.play("death")
+		await rat.animation_finished
+		queue_free()
+
+func deal_damage(target, damage):
+	if target.name == "Player":
+		target.take_damage(damage)
+	
+	
 func idle_state(delta):
 	rat.play("idle")
 	if player_in_range(chase_range):
@@ -77,7 +97,7 @@ func attacking_state(delta):
 	rat.play("attack")
 	await rat.animation_finished
 	if player_in_attack_range:
-		player.take_damage(60)
+		deal_damage(player, attack)
 		
 	is_attacking = false
 	
@@ -95,8 +115,9 @@ func skill_state(delta):
 	await rat.animation_finished
 	skill_ready = false
 	skill_timer.start()
+	
 	if player_in_attack_range:
-		player.take_damage(150)
+		deal_damage(player, attack * 3)
 		
 	is_attacking = false
 	

@@ -8,9 +8,11 @@ var inventory_slot_scene = preload("res://scenes/UI/slot_container.tscn")
 var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 
 @onready var player = get_parent()
-@onready var attack_label = $Attack
-@onready var defense_label = $Defense
-@onready var health_label = $Health
+@onready var level_label = $Stats/Level
+@onready var xp_label = $Stats/XP
+@onready var attack_label = $Stats/Attack
+@onready var defense_label = $Stats/Defense
+@onready var health_label = $Stats/Health
 @onready var description_background = $D_background
 @onready var description_label = $D_background/Description
 
@@ -37,9 +39,11 @@ func _ready():
 
 
 func update_label():
-	attack_label.text = "Attack: %s" % player.attack
-	defense_label.text = "Defense: %s" % player.defense
-	health_label.text = "Health: %s" % player.health
+	level_label.text = "Level: %d" % player.level
+	xp_label.text = "XP: %d / %d" % [player.xp, player.level * 100]
+	attack_label.text = "Attack: %d" % player.attack
+	defense_label.text = "Defense: %d" % player.defense
+	health_label.text = "Health: %d" % player.health
 
 func update_description(data):
 	if data:

@@ -1,8 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://otwpin5ufu6j"]
-
-[ext_resource type="PackedScene" uid="uid://6gfspg3eaey6" path="res://scenes/World/test_map.tscn" id="1_buyy5"]
-[ext_resource type="PackedScene" uid="uid://bsgilrpdfy1qp" path="res://scenes/World/player2.tscn" id="2_aywsn"]
-[ext_resource type="PackedScene" uid="uid://b7bwa8ti4go1g" path="res://scenes/Enemy/minotaur_boss.tscn" id="3_1poxw"]
+[gd_scene load_steps=3 format=3 uid="uid://otwpin5ufu6j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rqdnr"]
 bg_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
@@ -10,28 +6,11 @@ bg_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_271e2"]
 bg_color = Color(0.838493, 0.197884, 0.180875, 1)
 
-[node name="HealthBar" type="Node2D"]
-
-[node name="TestMap" parent="." instance=ExtResource("1_buyy5")]
-position = Vector2(42.2469, -9.5445)
-
-[node name="Player" parent="." instance=ExtResource("2_aywsn")]
-position = Vector2(113, -31)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(1, -7)
-position_smoothing_enabled = true
-
-[node name="HealthBar" type="ProgressBar" parent="Player"]
-offset_left = -209.0
-offset_top = -98.0
-offset_right = 75.0
-offset_bottom = -75.0
+[node name="HealthBar" type="ProgressBar"]
+offset_left = -151.0
+offset_top = -44.0
+offset_right = 133.0
+offset_bottom = -21.0
 theme_override_styles/background = SubResource("StyleBoxFlat_rqdnr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_271e2")
 value = 50.0
-
-[node name="FlashAnimation" type="AnimationPlayer" parent="Player"]
-
-[node name="minotaur_boss" parent="." instance=ExtResource("3_1poxw")]
-position = Vector2(-54, -27)

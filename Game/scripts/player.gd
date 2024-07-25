@@ -20,9 +20,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Player Stats
 var level = 1
 var xp = 0
-var attack = 5
+var attack = 100
 var defense = 1
-var health = 100
+var max_health = 240
+var health = max_health
 
 
 func _ready():
@@ -34,19 +35,19 @@ func _on_add_health_pressed():
 	health_bar.value = health
 	
 func _on_subtract_health_pressed():
-	health -= 10
-	health_bar.value = health
+	health_bar.value = (health / max_health)
 	flash_animation.play("flash") #play flash effect
 
 func deal_damage(damage):
 	for enemy in in_attack_range:
-		enemy.take_damage(20)
+		enemy.get_parent().take_damage(damage)
+		
 
-	
 func take_damage(damage):
+	damage = damage - defense
 	health -= damage
 	if health_bar:
-		health_bar.value = health
+		health_bar.value = (float(health) / max_health) * 100
 	if health <= 0:
 		die()
 		
@@ -112,13 +113,10 @@ func flip_area2d_horizontally(area: Area2D, flip: bool):
 	
 
 func _on_attack_range_body_entered(body):
-	if body is RigidBody2D && body.get_parent().has_method("isEnemy"):
-		print("Entered")
+	if body is RigidBody2D && body.get_parent().has_method("take_damage"):
 		in_attack_range.append(body)
 
 
-
 func _on_attack_range_body_exited(body):
-	if body is RigidBody2D && body.get_parent().has_method("isEnemy"):
-		print("Exited")
+	if body is RigidBody2D && body.get_parent().has_method("take_damage"):
 		in_attack_range.erase(body)

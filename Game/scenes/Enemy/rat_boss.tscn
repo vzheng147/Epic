@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://c8wdvlhvu2pwq"]
+[gd_scene load_steps=47 format=3 uid="uid://c8wdvlhvu2pwq"]
 
 [ext_resource type="Script" path="res://scripts/rat_boss.gd" id="1_dr3b0"]
 [ext_resource type="Texture2D" uid="uid://e5y1cdo3tnp5" path="res://assets/sprites/Ratfolk Warrior Sprite Sheet.png" id="1_poo8x"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="3_4krco"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cpho5"]
 radius = 16.0
@@ -343,7 +344,7 @@ offset_top = 4.0
 offset_right = 16.0
 offset_bottom = 29.0
 
-[node name="rat_sprite" type="AnimatedSprite2D" parent="."]
+[node name="rat_sprite" type="AnimatedSprite2D" parent="RigidBody2D"]
 texture_filter = 1
 position = Vector2(2, -3)
 scale = Vector2(2, 2.071)
@@ -351,19 +352,26 @@ sprite_frames = SubResource("SpriteFrames_p8one")
 animation = &"skill"
 autoplay = "idle"
 
-[node name="attack_range" type="Area2D" parent="."]
+[node name="attack_range" type="Area2D" parent="RigidBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/attack_range"]
 position = Vector2(22.5, 9.75)
 shape = SubResource("RectangleShape2D_3oavk")
 
-[node name="skill_timer" type="Timer" parent="."]
+[node name="skill_timer" type="Timer" parent="RigidBody2D"]
 wait_time = 4.0
 
-[node name="summon_timer" type="Timer" parent="."]
-wait_time = 3.0
+[node name="summon_timer" type="Timer" parent="RigidBody2D"]
+wait_time = 8.0
 
-[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
-[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
-[connection signal="timeout" from="skill_timer" to="." method="_on_skill_timer_timeout"]
-[connection signal="timeout" from="summon_timer" to="." method="_on_summon_timer_timeout"]
+[node name="HealthBar" parent="RigidBody2D" instance=ExtResource("3_4krco")]
+offset_left = -17.0
+offset_top = -11.0
+offset_right = 113.0
+offset_bottom = 15.0
+scale = Vector2(0.3, 0.3)
+
+[connection signal="body_entered" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="RigidBody2D/skill_timer" to="." method="_on_skill_timer_timeout"]
+[connection signal="timeout" from="RigidBody2D/summon_timer" to="." method="_on_summon_timer_timeout"]

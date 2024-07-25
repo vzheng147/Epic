@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv2378uj17o6g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4ft4"]
+
+[node name="216Maze" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h4ft4")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjh8wxdo6qxtg"]
+[gd_scene load_steps=3 format=3 uid="uid://cjh8wxdo6qxtg"]
 
 [ext_resource type="Script" path="res://scripts/UI/inventory.gd" id="1_gh2cy"]
+[ext_resource type="Texture2D" uid="uid://dno4bvhw4c6c8" path="res://assets/sprites/Screenshot 2024-07-25 at 3.02.07 PM.png" id="2_8bq6t"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -38,7 +39,7 @@ offset_bottom = -129.0
 pivot_offset = Vector2(42, 13)
 text = "Equiped:"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Stats" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -275.0
 offset_top = -160.0
@@ -46,31 +47,59 @@ offset_right = -119.0
 offset_bottom = 83.0
 color = Color(0.196078, 0.196078, 0.196078, 0.784314)
 
-[node name="Attack" type="Label" parent="."]
+[node name="Raven" type="TextureRect" parent="Stats"]
 layout_mode = 0
-offset_left = -247.0
-offset_top = -133.0
-offset_right = -188.0
-offset_bottom = -110.0
+offset_left = 37.0
+offset_top = 162.0
+offset_right = 114.838
+offset_bottom = 234.0
+texture = ExtResource("2_8bq6t")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Level" type="Label" parent="Stats"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 65.0
+offset_bottom = 33.0
+text = "Level: 
+"
+
+[node name="XP" type="Label" parent="Stats"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 60.0
+offset_bottom = 63.0
+text = "XP: "
+
+[node name="Attack" type="Label" parent="Stats"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 70.0
+offset_right = 79.0
+offset_bottom = 93.0
 text = "Attack: "
 
-[node name="Defense" type="Label" parent="."]
+[node name="Defense" type="Label" parent="Stats"]
 layout_mode = 0
-offset_left = -248.0
-offset_top = -91.0
-offset_right = -176.0
-offset_bottom = -68.0
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 92.0
+offset_bottom = 123.0
 text = "Defense: "
 
-[node name="Health" type="Label" parent="."]
+[node name="Health" type="Label" parent="Stats"]
 layout_mode = 0
-offset_left = -248.0
-offset_top = -46.0
-offset_right = -188.0
-offset_bottom = -23.0
+offset_left = 20.0
+offset_top = 130.0
+offset_right = 80.0
+offset_bottom = 153.0
 text = "Health: "
 
 [node name="D_background" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -133.0
 offset_top = 84.0
 offset_right = 209.0
