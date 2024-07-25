@@ -36,3 +36,11 @@ func _on_body_entered(body):
 		body.take_damage(damage_amount)
 	else:
 		print("Non-player body entered")
+
+
+func _on_damage_zone_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_damage_zone_body_exited(body):
+	pass # Replace with function body.

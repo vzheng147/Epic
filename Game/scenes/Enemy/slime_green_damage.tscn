@@ -64,3 +64,6 @@ target_position = Vector2(11, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
 target_position = Vector2(-11, 0)
+
+[connection signal="body_entered" from="Damage_zone" to="." method="_on_damage_zone_body_entered"]
+[connection signal="body_exited" from="Damage_zone" to="." method="_on_damage_zone_body_exited"]

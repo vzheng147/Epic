@@ -803,9 +803,9 @@ shape = SubResource("CircleShape2D_aletv")
 [node name="cyclops_sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -31)
 sprite_frames = SubResource("SpriteFrames_hiryb")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
-frame_progress = 0.874938
+frame_progress = 0.938676
 
 [node name="Stomp_range" type="Area2D" parent="."]
 
