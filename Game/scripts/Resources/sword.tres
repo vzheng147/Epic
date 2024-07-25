@@ -9,7 +9,9 @@ type = 0
 item_name = "Copper Sword"
 item_texture = ExtResource("1_jnikb")
 description = "Copper Sword
-Attack: 10"
+Attack: 10
+Defense: 20
+Health: 30"
 attack = 10
 defense = 0
 health = 0

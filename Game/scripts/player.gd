@@ -3,13 +3,19 @@ extends CharacterBody2D
 @onready var inventory = $Inventory
 @onready var flash_animation = $FlashAnimation
 @onready var health_bar = $HealthBar
+@onready var animated_sprite = $AnimatedSprite2D
+@onready var attack_range = $attack_range
+
+# state variables (do not change)
+var is_attacking = false
+var in_attack_range = []
+
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -350.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var is_attacking = false
 
 # Player Stats
 var level = 1
@@ -32,6 +38,11 @@ func _on_subtract_health_pressed():
 	health_bar.value = health
 	flash_animation.play("flash") #play flash effect
 
+func deal_damage(damage):
+	for enemy in in_attack_range:
+		enemy.take_damage(20)
+
+	
 func take_damage(damage):
 	health -= damage
 	if health_bar:
@@ -45,14 +56,15 @@ func die():
 	# Implement what happens when the player dies, e.g., reload the scene
 	get_tree().reload_current_scene()
 
-@onready var animated_sprite = $AnimatedSprite2D
 
 func _input(event):
 	if event.is_action_pressed("Attack"):
+		if is_attacking:
+			return
 		is_attacking = true
-		print("ATTACK")
 		animated_sprite.play("attack")
 		await animated_sprite.animation_finished
+		deal_damage(attack*5)
 		is_attacking = false
 		
 	
@@ -71,7 +83,9 @@ func _physics_process(delta):
 	# Flip the Sprite
 	if direction > 0:
 		animated_sprite.flip_h = false
+		flip_area2d_horizontally(attack_range, false)
 	elif direction < 0:
+		flip_area2d_horizontally(attack_range, true)
 		animated_sprite.flip_h = true
 	
 	if (!is_attacking):
@@ -91,3 +105,20 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+# Function to flip the Area2D horizontally
+func flip_area2d_horizontally(area: Area2D, flip: bool):
+	var scale = Vector2(-1 if flip else 1, 1)
+	area.scale = scale
+	
+
+func _on_attack_range_body_entered(body):
+	if body is RigidBody2D && body.get_parent().has_method("isEnemy"):
+		print("Entered")
+		in_attack_range.append(body)
+
+
+
+func _on_attack_range_body_exited(body):
+	if body is RigidBody2D && body.get_parent().has_method("isEnemy"):
+		print("Exited")
+		in_attack_range.erase(body)

@@ -10,6 +10,7 @@ var data : ItemData
 func _on_menu_button_pressed():
 	if not isEmpty:
 		use_button.visible = !use_button.visible
+		inventoryNode.update_description(data)
 
 
 func _on_button_pressed():
@@ -19,3 +20,4 @@ func _on_button_pressed():
 		2: inventoryNode.remove_item_from_equiped(2)
 		3: inventoryNode.remove_item_from_equiped(3)
 	use_button.visible = false
+	inventoryNode.update_description(null)

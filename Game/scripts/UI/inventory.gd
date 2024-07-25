@@ -11,6 +11,8 @@ var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 @onready var attack_label = $Attack
 @onready var defense_label = $Defense
 @onready var health_label = $Health
+@onready var description_background = $D_background
+@onready var description_label = $D_background/Description
 
 func _ready():
 	# initializing equiped
@@ -32,13 +34,18 @@ func _ready():
 		%Grid.get_child(i).get_child(0).add_child(item)
 		%Grid.get_child(i).data = item.data
 		%Grid.get_child(i).isEmpty = false
-		%Grid.get_child(i).update_tooltip()
 
 
 func update_label():
 	attack_label.text = "Attack: %s" % player.attack
 	defense_label.text = "Defense: %s" % player.defense
 	health_label.text = "Health: %s" % player.health
+
+func update_description(data):
+	if data:
+		description_label.text = data.description
+	else:
+		description_label.text = ""
 	
 
 func add_item_to_equiped(equipment, index):

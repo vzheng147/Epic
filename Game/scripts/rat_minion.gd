@@ -23,6 +23,10 @@ var chase_range: float = 500
 var attack_range: float = 30
 var speed: float = 85  # Rat's movement speed
 
+
+func isEnemya():
+	pass
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_node("Player")

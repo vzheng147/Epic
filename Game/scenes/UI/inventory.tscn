@@ -69,3 +69,15 @@ offset_top = -46.0
 offset_right = -188.0
 offset_bottom = -23.0
 text = "Health: "
+
+[node name="D_background" type="ColorRect" parent="."]
+offset_left = -133.0
+offset_top = 84.0
+offset_right = 209.0
+offset_bottom = 159.0
+color = Color(0.196078, 0.196078, 0.196078, 0.784314)
+
+[node name="Description" type="RichTextLabel" parent="D_background"]
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 74.0

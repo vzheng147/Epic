@@ -6,22 +6,12 @@ var data : ItemData
 @onready var use_button = $MenuButton/Button
 @onready var menu_button = $MenuButton
 @onready var inventoryNode = get_parent().get_parent()
-
-
-func _ready():
-	if not isEmpty:
-		update_tooltip()
 		
-func update_tooltip():
-	if not isEmpty and data:
-		tooltip_text = data.description
-	else:
-		tooltip_text = ""
 	
 func _on_menu_button_pressed():
 	if not isEmpty:
 		use_button.visible = !use_button.visible
-
+		inventoryNode.update_description(data)
 
 func _on_button_pressed():
 	match data.type: # {WEAPON, ARMOR, ACCESSORY, SPIRIT}
@@ -42,3 +32,4 @@ func _on_button_pressed():
 				inventoryNode.remove_item_from_equiped(3) 
 			inventoryNode.add_item_to_equiped(data, 3)
 	use_button.visible = false
+	inventoryNode.update_description(null)

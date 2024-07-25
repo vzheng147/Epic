@@ -20,12 +20,16 @@ var player_in_attack_range : bool = false
 var skill_ready : bool = true
 var summon_ready : bool = true
 var is_attacking : bool = false
+var is_summoning : bool = false
 
 # Adjust these ranges as per your game design
 var chase_range: float = 500
 var attack_range: float = 35
 var speed: float = 85  # Rat's movement speed
 
+func isEnemy():
+	pass
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_node("Player")
@@ -102,6 +106,9 @@ func skill_state(delta):
 		current_state = State.CHASING
 
 func summon_state(delta):
+	if is_summoning:
+		return
+	is_summoning = true
 	var rat_minion_scene = preload("res://scenes/Enemy/rat_minion.tscn")
 	rat.play("summon");
 	await rat.animation_finished	
@@ -109,6 +116,7 @@ func summon_state(delta):
 	rat_minion_instance.position = position + Vector2(10, 30)# Set the position to the boss's position
 	get_tree().current_scene.add_child(rat_minion_instance)  # Add the rat minion to the root of the current scen
 	summon_ready = false  
+	is_summoning = false
 	summon_timer.start()
 	current_state = State.CHASING  # Transition to the CHASING state
 
