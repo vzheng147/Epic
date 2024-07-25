@@ -6,12 +6,15 @@
 [resource]
 script = ExtResource("2_vk5rq")
 type = 1
-item_name = "Heal_Potion"
+item_name = "Basic Armor"
 item_texture = ExtResource("1_wim8o")
-description = "ajksdlfjaksdfkasdflkj
+description = "Basic Armor
+Defense: 5
+Health: 50
+
 "
 attack = 0
-defense = 0
-health = 0
+defense = 5
+health = 50
 heal_amount = 0
 success_chance = 0

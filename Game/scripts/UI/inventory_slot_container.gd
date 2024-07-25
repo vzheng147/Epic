@@ -7,6 +7,17 @@ var data : ItemData
 @onready var menu_button = $MenuButton
 @onready var inventoryNode = get_parent().get_parent()
 
+
+func _ready():
+	if not isEmpty:
+		update_tooltip()
+		
+func update_tooltip():
+	if not isEmpty and data:
+		tooltip_text = data.description
+	else:
+		tooltip_text = ""
+	
 func _on_menu_button_pressed():
 	if not isEmpty:
 		use_button.visible = !use_button.visible

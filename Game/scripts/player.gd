@@ -21,9 +21,6 @@ var health = 100
 
 func _ready():
 	health_bar.value = health
-	var equip = inventory.equiped
-	for i in equip:
-		print(i)
 	
 	
 func _on_add_health_pressed():
@@ -36,9 +33,7 @@ func _on_subtract_health_pressed():
 	flash_animation.play("flash") #play flash effect
 
 func take_damage(damage):
-	print("take_damage called with damage:", damage)
 	health -= damage
-	print("Updated health:", health)
 	if health_bar:
 		health_bar.value = health
 	if health <= 0:

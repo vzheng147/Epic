@@ -1,11 +1,16 @@
 
 extends Control
 
-var equiped = [null, "res://scripts/Resources/potion.tres", null, null]
+# "res://scripts/Resources/potion.tres"
+var equiped = [null, "res://scripts/Resources/sword.tres", null, null]
 var inventory = ["res://scripts/Resources/sword.tres"]
 var inventory_slot_scene = preload("res://scenes/UI/slot_container.tscn")
 var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 
+@onready var player = get_parent()
+@onready var attack_label = $Attack
+@onready var defense_label = $Defense
+@onready var health_label = $Health
 
 func _ready():
 	# initializing equiped
@@ -27,26 +32,54 @@ func _ready():
 		%Grid.get_child(i).get_child(0).add_child(item)
 		%Grid.get_child(i).data = item.data
 		%Grid.get_child(i).isEmpty = false
+		%Grid.get_child(i).update_tooltip()
 
+
+func update_label():
+	attack_label.text = "Attack: %s" % player.attack
+	defense_label.text = "Defense: %s" % player.defense
+	health_label.text = "Health: %s" % player.health
+	
 
 func add_item_to_equiped(equipment, index):
+	# add the item and initialize data
 	var item = InventoryItem.new()
 	item.init(equipment, Vector2(16, 16))
 	item.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	%Equiped.get_child(index).get_child(0).add_child(item)
 	%Equiped.get_child(index).data = item.data
 	%Equiped.get_child(index).isEmpty = false
+	
+	# update equiped array
 	equiped[index] = equipment
+	
+	# update player stats
+	player.attack += equipment.attack
+	player.defense += equipment.defense
+	player.health += equipment.health
+	
+	update_label()
+
 
 func remove_item_from_equiped(index):
+	# remove the item and reset data
 	var equipSlot = %Equiped.get_child(index)
 	equipSlot.get_child(0).get_child(0).queue_free()
 	equipSlot.isEmpty = true
 	equipSlot.data = null
 	
 	# Update the equipped array
-	print(equiped[index])
+	var equipment = equiped[index]
 	equiped[index] = null
+	
+	# Update player stats
+	player.attack -= equipment.attack
+	player.defense -= equipment.defense
+	player.health -= equipment.health
+	
+	update_label()
+	
+	
 
 func _input(event):
 	if event.is_action_pressed("Inventory"):

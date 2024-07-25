@@ -5,11 +5,12 @@
 
 [resource]
 script = ExtResource("2_wsp70")
-type = 1
-item_name = "Sword"
+type = 0
+item_name = "Copper Sword"
 item_texture = ExtResource("1_jnikb")
-description = ""
-attack = 5
+description = "Copper Sword
+Attack: 10"
+attack = 10
 defense = 0
 health = 0
 heal_amount = 0

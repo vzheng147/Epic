@@ -9,6 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 47.0
 offset_bottom = 45.0
+tooltip_text = "SJLKDFJSDLFJ:LKSDJk"
 script = ExtResource("1_2ksak")
 
 [node name="InventorySlot" type="PanelContainer" parent="."]

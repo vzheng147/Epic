@@ -29,7 +29,7 @@ theme_override_constants/h_separation = 35
 theme_override_constants/v_separation = 35
 columns = 4
 
-[node name="Label" type="Label" parent="."]
+[node name="Equiped_Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = -92.0
 offset_top = -152.0
@@ -37,3 +37,35 @@ offset_right = -24.0
 offset_bottom = -129.0
 pivot_offset = Vector2(42, 13)
 text = "Equiped:"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -275.0
+offset_top = -160.0
+offset_right = -119.0
+offset_bottom = 83.0
+color = Color(0.196078, 0.196078, 0.196078, 0.784314)
+
+[node name="Attack" type="Label" parent="."]
+layout_mode = 0
+offset_left = -247.0
+offset_top = -133.0
+offset_right = -188.0
+offset_bottom = -110.0
+text = "Attack: "
+
+[node name="Defense" type="Label" parent="."]
+layout_mode = 0
+offset_left = -248.0
+offset_top = -91.0
+offset_right = -176.0
+offset_bottom = -68.0
+text = "Defense: "
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 0
+offset_left = -248.0
+offset_top = -46.0
+offset_right = -188.0
+offset_bottom = -23.0
+text = "Health: "
