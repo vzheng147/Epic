@@ -61,6 +61,7 @@ func take_damage(damage):
 	if health_bar:
 		health_bar.value = (float(health) / max_health) * 100
 	if health <= 0:
+		rat.stop()
 		rat.play("death")
 		await rat.animation_finished
 		queue_free()
