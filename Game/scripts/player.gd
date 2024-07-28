@@ -7,15 +7,18 @@ extends CharacterBody2D
 @onready var attack_range = $attack_range
 @onready var recover_timer = $Recover_Timer
 @onready var one_second_heal = $OneSecondHeal
+@onready var dash_timer = $Dash_Timer
 
 # state variables (do not change)
 var is_attacking = false
+var is_dashing = false
+var dash_ready = true
 var in_attack_range = []
 var is_recovering = false
 var is_healing_one = false
 
 
-const SPEED = 130.0
+var SPEED = 130.0
 const JUMP_VELOCITY = -350.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -68,7 +71,23 @@ func _input(event):
 		is_attacking = false
 		is_recovering = false
 		recover_timer.start()
+	if event.is_action_pressed("Dash") and dash_ready:
+		if is_dashing:
+			return
+		animated_sprite.stop()
+		
+		is_dashing = true
+		animated_sprite.play("dash")
+		
+		var original = SPEED
+		SPEED = SPEED * 2.2
+		
+		await get_tree().create_timer(1.0).timeout
 	
+		dash_ready = false
+		dash_timer.start()
+		is_dashing = false
+		SPEED = original
 	
 func _physics_process(delta):
 	# Add the gravity.
@@ -90,7 +109,7 @@ func _physics_process(delta):
 		flip_area2d_horizontally(attack_range, true)
 		animated_sprite.flip_h = true
 	
-	if (!is_attacking):
+	if (!is_attacking && !is_dashing):
 		if is_on_floor():
 			if direction == 0:
 				animated_sprite.play("idle")	
@@ -139,3 +158,7 @@ func _on_one_second_heal_timeout():
 			health = max_health
 		health_bar.value = (float(health)/max_health) * 100
 	one_second_heal.start()
+
+
+func _on_dash_timer_timeout():
+	dash_ready = true

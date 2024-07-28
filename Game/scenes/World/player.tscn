@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://d3o16yirjiwgd"]
+[gd_scene load_steps=44 format=3 uid="uid://d3o16yirjiwgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0hjod"]
 [ext_resource type="Texture2D" uid="uid://dwmyfwc7wgdbp" path="res://assets/sprites/new/rougelikegame-Sheet.png" id="2_h0jss"]
 [ext_resource type="Texture2D" uid="uid://dktu0edg15l6q" path="res://assets/sprites/attackanimation.png" id="2_w1fcr"]
+[ext_resource type="Texture2D" uid="uid://vqisuv43jvoe" path="res://assets/sprites/new/dash-Sheet.png" id="3_g5q8j"]
 [ext_resource type="PackedScene" uid="uid://cjh8wxdo6qxtg" path="res://scenes/UI/inventory.tscn" id="4_5u5gl"]
 [ext_resource type="Texture2D" uid="uid://cqooof82uq0j4" path="res://assets/sprites/new/epic_run.png" id="4_rhvro"]
 
@@ -33,6 +34,42 @@ region = Rect2(480, 0, 120, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5716"]
 atlas = ExtResource("2_w1fcr")
 region = Rect2(360, 0, 120, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88hcd"]
+atlas = ExtResource("3_g5q8j")
+region = Rect2(0, 0, 71, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57mbb"]
+atlas = ExtResource("3_g5q8j")
+region = Rect2(71, 0, 71, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocmwv"]
+atlas = ExtResource("3_g5q8j")
+region = Rect2(142, 0, 71, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjsag"]
+atlas = ExtResource("3_g5q8j")
+region = Rect2(213, 0, 71, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8qlj"]
+atlas = ExtResource("3_g5q8j")
+region = Rect2(284, 0, 71, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30cc7"]
+atlas = ExtResource("3_g5q8j")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehjp8"]
+atlas = ExtResource("3_g5q8j")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_448tn"]
+atlas = ExtResource("3_g5q8j")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc0br"]
+atlas = ExtResource("3_g5q8j")
+region = Rect2(576, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydy6e"]
 atlas = ExtResource("2_h0jss")
@@ -128,6 +165,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_88hcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57mbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocmwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjsag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8qlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30cc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehjp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_448tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc0br")
+}],
+"loop": false,
+"name": &"dash",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ydy6e")
 }, {
 "duration": 1.0,
@@ -156,7 +225,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ud5mw")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -185,9 +254,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e8fw6")
 }],
-"loop": true,
+"loop": false,
 "name": &"run",
-"speed": 10.0
+"speed": 11.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j00qv"]
@@ -211,9 +280,9 @@ script = ExtResource("1_0hjod")
 position = Vector2(-1, -13)
 scale = Vector2(0.463333, 0.5)
 sprite_frames = SubResource("SpriteFrames_ilihh")
-animation = &"attack"
+animation = &"dash"
 autoplay = "idle"
-frame = 6
+frame = 8
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -245,7 +314,10 @@ wait_time = 8.0
 
 [node name="OneSecondHeal" type="Timer" parent="."]
 
+[node name="Dash_Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="Recover_Timer" to="." method="_on_recover_timer_timeout"]
 [connection signal="timeout" from="OneSecondHeal" to="." method="_on_one_second_heal_timeout"]
+[connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
