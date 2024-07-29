@@ -280,10 +280,8 @@ script = ExtResource("1_0hjod")
 position = Vector2(-1, -13)
 scale = Vector2(0.463333, 0.5)
 sprite_frames = SubResource("SpriteFrames_ilihh")
-animation = &"dash"
+animation = &"idle"
 autoplay = "idle"
-frame = 8
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 7

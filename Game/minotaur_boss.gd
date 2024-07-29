@@ -13,6 +13,7 @@ enum State {
 @onready var attack_2_area2d = $attack_2_range
 @onready var swirl_area2d = $swirl_range
 @onready var swirl_timer = $swirl_cooldown
+@onready var health_bar = $RigidBody2D/HealthBar
 
 # initializing game-state variables (do not change!)
 var player : CharacterBody2D = null
@@ -24,6 +25,10 @@ var in_attack_2_range = false
 var in_swirl_range = false
 
 # adjust these accordingly
+var max_health : int = 350
+var health : int = max_health
+var attack : int = 75
+var defense : int = 10
 var chase_range: float = 500 # switches from Idle to Chase
 var attack_range: float = 35 # switches from Chase to Attack
 var speed: float = 85  # Minotaur's movement speed
@@ -33,9 +38,12 @@ var eruption_range = 200 # range that Minotaur will use eruption
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	health_bar.value = (float(health) / max_health) * 100
 	player = get_parent().get_node("Player")
 	
+@onready var body= $RigidBody2D
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	match current_state:
 		State.IDLE:
@@ -48,6 +56,20 @@ func _process(delta):
 			swirl_state(delta)
 	flip_towards_player()
 
+func take_damage(damage):
+	damage = damage - defense
+	health -= damage
+	if health_bar:
+		health_bar.value = (float(health) / max_health) * 100
+	if health <= 0:
+		minotaur.stop()
+		minotaur.play("death")
+		await minotaur.animation_finished
+		queue_free()
+
+func deal_damage(target, damage):
+	if target.name == "Player":
+		target.take_damage(damage)
 
 func idle_state(delta):
 	minotaur.play("idle")
@@ -119,7 +141,7 @@ func flip_area2d_horizontally(area: Area2D, flip: bool):
 	var scale = Vector2(-1 if flip else 1, 1)
 	area.scale = scale
 
-
+# Function to flip the Area2D horizontally
 func flip_towards_player():
 	if player.position.x < position.x:
 		minotaur.flip_h = true  # Player is to the left, flip horizontally

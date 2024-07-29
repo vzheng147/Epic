@@ -7,12 +7,13 @@
 [node name="boss_fight_arena_2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_q05vl")]
-position = Vector2(40, -21)
+position = Vector2(-40, -10)
+scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
 
-[node name="minotaur_boss" parent="." instance=ExtResource("2_yiwoi")]
-position = Vector2(-53, -16)
-
 [node name="TestMap" parent="." instance=ExtResource("3_f5q6h")]
+
+[node name="minotaur_boss" parent="." instance=ExtResource("2_yiwoi")]
+position = Vector2(1, -17)

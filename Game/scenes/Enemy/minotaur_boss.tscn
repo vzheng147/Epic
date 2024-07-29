@@ -1,7 +1,8 @@
-[gd_scene load_steps=64 format=3 uid="uid://b7bwa8ti4go1g"]
+[gd_scene load_steps=65 format=3 uid="uid://b7bwa8ti4go1g"]
 
 [ext_resource type="Script" path="res://minotaur_boss.gd" id="1_wevah"]
 [ext_resource type="Texture2D" uid="uid://b42n5r3ytpfss" path="res://assets/sprites/Minotaur - Sprite Sheet.png" id="2_6id5q"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_7ta87"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgma8"]
 radius = 19.0
@@ -303,7 +304,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f1uu7")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -453,7 +454,7 @@ size = Vector2(55.25, 60.1094)
 size = Vector2(42, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ah81"]
-size = Vector2(87, 20)
+size = Vector2(72, 23)
 
 [node name="minotaur_boss" type="Node2D"]
 script = ExtResource("1_wevah")
@@ -464,13 +465,17 @@ script = ExtResource("1_wevah")
 position = Vector2(0, -20)
 shape = SubResource("CircleShape2D_lgma8")
 
+[node name="HealthBar" parent="RigidBody2D" instance=ExtResource("2_7ta87")]
+offset_left = -47.0
+offset_top = -68.0
+offset_right = 44.0
+offset_bottom = -45.0
+
 [node name="minotaur_sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -15)
 sprite_frames = SubResource("SpriteFrames_7n7m5")
-animation = &"swirl"
+animation = &"death"
 autoplay = "idle"
-frame = 8
-frame_progress = 1.0
 
 [node name="attack_1_range" type="Area2D" parent="."]
 
@@ -490,7 +495,7 @@ wait_time = 8.0
 [node name="swirl_range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="swirl_range"]
-position = Vector2(-0.5, -11)
+position = Vector2(7, -9.5)
 shape = SubResource("RectangleShape2D_3ah81")
 
 [node name="swirl_cooldown" type="Timer" parent="."]

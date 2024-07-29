@@ -13,6 +13,7 @@ enum State {
 @onready var throw_rock_area2d = $throw_rock_range
 @onready var lazer_beam_area2d = $lazer_beam_range
 @onready var lazer_beam_timer = $lazer_beam_cooldown
+@onready var health_bar = $RigidBody2D/HealthBar
 
 # Initializing game-state variables (do not change!)
 var player : CharacterBody2D = null
@@ -24,6 +25,10 @@ var in_throw_rock_range = false
 var in_lazer_beam_range = false
 
 # Adjust these accordingly
+var max_health : int = 400
+var health : int = max_health
+var attack : int = 80
+var defense : int = 20
 var chase_range: float = 500 # Switches from Idle to Chase
 var attack_range: float = 35 # Switches from Chase to Attack
 var speed: float = 85  # Cyclops's movement speed
@@ -33,6 +38,7 @@ var eruption_range = 200 # Range that Cyclops will use eruption
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	health_bar.value = (float(health) / max_health) * 100
 	player = get_parent().get_node("Player")
 	if player:
 		print("Player node found: ", player)
@@ -59,6 +65,21 @@ func _process(delta):
 		State.LAZER_BEAM:
 			lazer_beam_state(delta)
 	flip_towards_player()
+	
+func take_damage(damage):
+	damage = damage - defense
+	health -= damage
+	if health_bar:
+		health_bar.value = (float(health) / max_health) * 100
+	if health <= 0:
+		cyclops_sprite.stop()
+		cyclops_sprite.play("death")
+		await cyclops_sprite.animation_finished
+		queue_free()
+
+func deal_damage(target, damage):
+	if target.name == "Player":
+		target.take_damage(damage)
 
 func idle_state(delta):
 	cyclops_sprite.play("idle")

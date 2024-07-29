@@ -1,7 +1,8 @@
-[gd_scene load_steps=112 format=3 uid="uid://bi4npw07neryb"]
+[gd_scene load_steps=113 format=3 uid="uid://bi4npw07neryb"]
 
 [ext_resource type="Script" path="res://scripts/cyclops_boss.gd" id="1_52cm1"]
 [ext_resource type="Texture2D" uid="uid://im68qh2imk8y" path="res://assets/sprites/Cyclops Sprite Sheet.png" id="2_kv26t"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_mqbik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aletv"]
 radius = 19.0
@@ -795,6 +796,12 @@ size = Vector2(87, 20)
 script = ExtResource("1_52cm1")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="HealthBar" parent="RigidBody2D" instance=ExtResource("2_mqbik")]
+offset_left = -35.0
+offset_top = -71.0
+offset_right = 54.0
+offset_bottom = -48.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0, -20)

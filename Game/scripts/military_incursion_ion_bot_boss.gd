@@ -18,8 +18,13 @@ enum State {
 @onready var lazer_beam_cooldown = $lazer_beam_cooldown
 @onready var shield_range = $shield_range
 @onready var shield_cooldown = $shield_cooldown
+@onready var health_bar = $RigidBody2D/HealthBar
 
 # Initializing game-state variables (do not change!)
+var max_health : int = 500
+var health : int = max_health
+var attack : int = 85
+var defense : int = 40
 var player : CharacterBody2D = null
 var current_state : State = State.IDLE
 var is_attacking : bool = false
@@ -39,6 +44,7 @@ var lazer_range = 60 # Range that Ion Bot will use lazer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	health_bar.value = (float(health) / max_health) * 100
 	player = get_parent().get_node("Player")
 	if player:
 		print("Player node found: ", player)
@@ -99,6 +105,21 @@ func _process(delta):
 		State.SHIELD:
 			shield_state(delta)
 	flip_towards_player()
+	
+func take_damage(damage):
+	damage = damage - defense
+	health -= damage
+	if health_bar:
+		health_bar.value = (float(health) / max_health) * 100
+	if health <= 0:
+		animated_sprite_2d.stop()
+		animated_sprite_2d.play("death")
+		await animated_sprite_2d.animation_finished
+		queue_free()
+
+func deal_damage(target, damage):
+	if target.name == "Player":
+		target.take_damage(damage)
 
 func idle_state(delta):
 	animated_sprite_2d.play("idle")
