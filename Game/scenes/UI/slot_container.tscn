@@ -23,15 +23,4 @@ layout_mode = 0
 offset_right = 47.0
 offset_bottom = 45.0
 
-[node name="Button" type="Button" parent="MenuButton"]
-visible = false
-z_index = 1
-layout_mode = 0
-offset_left = -1.0
-offset_top = 46.0
-offset_right = 48.0
-offset_bottom = 77.0
-text = "Use"
-
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="MenuButton/Button" to="." method="_on_button_pressed"]

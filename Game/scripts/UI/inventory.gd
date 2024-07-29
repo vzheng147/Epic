@@ -3,7 +3,9 @@ extends Control
 
 # "res://scripts/Resources/potion.tres"
 var equiped = [null, "res://scripts/Resources/sword.tres", null, null]
-var inventory = ["res://scripts/Resources/sword.tres"]
+var inventory = ["res://scripts/Resources/sword.tres", "1", "res://scripts/Resources/sword.tres", "2", "res://scripts/Resources/sword.tres"]
+var selected : ItemData = null
+var index : int
 var inventory_slot_scene = preload("res://scenes/UI/slot_container.tscn")
 var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 
@@ -15,6 +17,8 @@ var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 @onready var health_label = $Stats/Health
 @onready var description_background = $D_background
 @onready var description_label = $D_background/Description
+@onready var equip_button = $Use
+@onready var discard_button = $Discard
 
 func _ready():
 	# initializing equiped
@@ -35,6 +39,7 @@ func _ready():
 		item.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Ignore mouse input	
 		%Grid.get_child(i).get_child(0).add_child(item)
 		%Grid.get_child(i).data = item.data
+		%Grid.get_child(i).index = i
 		%Grid.get_child(i).isEmpty = false
 
 
@@ -95,3 +100,34 @@ func remove_item_from_equiped(index):
 func _input(event):
 	if event.is_action_pressed("Inventory"):
 		visible = !visible
+
+
+func _on_use_pressed():
+	match selected.type: # {WEAPON, ARMOR, ACCESSORY, SPIRIT}
+		0: 
+			if equiped[0]:
+				remove_item_from_equiped(0) 
+			add_item_to_equiped(selected, 0)
+		1: 	
+			if equiped[1]:
+				remove_item_from_equiped(1) 
+			add_item_to_equiped(selected, 1)
+		2: 
+			if equiped[2]:
+				remove_item_from_equiped(2) 
+			add_item_to_equiped(selected, 2)
+		3:  
+			if equiped[3]:
+				remove_item_from_equiped(3) 
+			add_item_to_equiped(selected, 3)
+			
+	update_description(null)
+	equip_button.visible = false
+	discard_button.visible = false
+
+
+func _on_discard_pressed():
+	inventory.remove_at(index)
+	
+	for i in range (24):
+		pass

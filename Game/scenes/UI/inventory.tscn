@@ -100,13 +100,40 @@ text = "Health: "
 
 [node name="D_background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -133.0
-offset_top = 84.0
-offset_right = 209.0
-offset_bottom = 159.0
+offset_left = -225.0
+offset_top = 85.0
+offset_right = 117.0
+offset_bottom = 160.0
 color = Color(0.196078, 0.196078, 0.196078, 0.784314)
 
 [node name="Description" type="RichTextLabel" parent="D_background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Use" type="Button" parent="."]
+visible = false
 layout_mode = 0
-offset_right = 343.0
-offset_bottom = 74.0
+offset_left = 119.0
+offset_top = 88.0
+offset_right = 202.0
+offset_bottom = 122.0
+scale = Vector2(0.9, 0.9)
+text = "Use
+"
+
+[node name="Discard" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 119.0
+offset_top = 121.0
+offset_right = 203.0
+offset_bottom = 154.0
+scale = Vector2(0.9, 0.9)
+text = "Discard"
+
+[connection signal="pressed" from="Use" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="Discard" to="." method="_on_discard_pressed"]
