@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://mfpl6qla4cqd"]
+
+[ext_resource type="Script" path="res://scripts/spinning_sword.gd" id="1_ejsaa"]
+[ext_resource type="Texture2D" uid="uid://dlmen737vy0bd" path="res://spinningsword-Sheet.png" id="2_byo23"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okhre"]
+atlas = ExtResource("2_byo23")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tww0j"]
+atlas = ExtResource("2_byo23")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlh85"]
+atlas = ExtResource("2_byo23")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sakqu"]
+atlas = ExtResource("2_byo23")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvciw"]
+atlas = ExtResource("2_byo23")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckckk"]
+atlas = ExtResource("2_byo23")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gcnvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okhre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tww0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlh85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sakqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvciw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckckk")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpcip"]
+size = Vector2(21, 11)
+
+[node name="Spinning_Sword" type="CharacterBody2D"]
+script = ExtResource("1_ejsaa")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_gcnvc")
+animation = &"spinning"
+autoplay = "spinning"
+frame_progress = 0.150079
+
+[node name="Life" type="Timer" parent="."]
+wait_time = 2.4
+
+[node name="damage_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_zone"]
+position = Vector2(1.5, -13)
+shape = SubResource("RectangleShape2D_jpcip")
+
+[connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
+[connection signal="body_entered" from="damage_zone" to="." method="_on_damage_zone_body_entered"]

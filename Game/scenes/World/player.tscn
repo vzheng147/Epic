@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://d3o16yirjiwgd"]
+[gd_scene load_steps=50 format=3 uid="uid://d3o16yirjiwgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0hjod"]
 [ext_resource type="Texture2D" uid="uid://dwmyfwc7wgdbp" path="res://assets/sprites/new/rougelikegame-Sheet.png" id="2_h0jss"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://vqisuv43jvoe" path="res://assets/sprites/new/dash-Sheet.png" id="3_g5q8j"]
 [ext_resource type="PackedScene" uid="uid://cjh8wxdo6qxtg" path="res://scenes/UI/inventory.tscn" id="4_5u5gl"]
 [ext_resource type="Texture2D" uid="uid://cqooof82uq0j4" path="res://assets/sprites/new/epic_run.png" id="4_rhvro"]
+[ext_resource type="Texture2D" uid="uid://ohn3tqlo3o66" path="res://rangeattack-Sheet.png" id="5_8qkeq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55s14"]
 atlas = ExtResource("2_w1fcr")
@@ -102,6 +103,26 @@ region = Rect2(384, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ud5mw"]
 atlas = ExtResource("2_h0jss")
 region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o68pv"]
+atlas = ExtResource("5_8qkeq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc2v8"]
+atlas = ExtResource("5_8qkeq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1epe"]
+atlas = ExtResource("5_8qkeq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdnu3"]
+atlas = ExtResource("5_8qkeq")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0cp2"]
+atlas = ExtResource("5_8qkeq")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpn5s"]
 atlas = ExtResource("4_rhvro")
@@ -231,6 +252,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_o68pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc2v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1epe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdnu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0cp2")
+}],
+"loop": false,
+"name": &"range",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vpn5s")
 }, {
 "duration": 1.0,
@@ -280,8 +321,10 @@ script = ExtResource("1_0hjod")
 position = Vector2(-1, -13)
 scale = Vector2(0.463333, 0.5)
 sprite_frames = SubResource("SpriteFrames_ilihh")
-animation = &"idle"
+animation = &"range"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 7
@@ -314,8 +357,12 @@ wait_time = 8.0
 
 [node name="Dash_Timer" type="Timer" parent="."]
 
+[node name="Range_Timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="Recover_Timer" to="." method="_on_recover_timer_timeout"]
 [connection signal="timeout" from="OneSecondHeal" to="." method="_on_one_second_heal_timeout"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Range_Timer" to="." method="_on_range_timer_timeout"]

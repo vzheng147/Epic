@@ -2,8 +2,8 @@
 extends Control
 
 # "res://scripts/Resources/potion.tres"
-var equiped = [null, "res://scripts/Resources/sword.tres", null, null]
-var inventory = ["res://scripts/Resources/sword.tres", "1", "res://scripts/Resources/sword.tres", "2", "res://scripts/Resources/sword.tres"]
+var equiped = ["res://scripts/Resources/sword.tres", null, null, null]
+var inventory = ["res://scripts/Resources/sword.tres", "res://scripts/Resources/sword.tres", "res://scripts/Resources/sword.tres"]
 var selected : ItemData = null
 var index : int
 var inventory_slot_scene = preload("res://scenes/UI/slot_container.tscn")
@@ -33,6 +33,11 @@ func _ready():
 	for i in range (24):
 		var slot := inventory_slot_scene.instantiate()
 		%Grid.add_child(slot)
+	update_inventory()
+
+
+func update_inventory():
+
 	for i in range (inventory.size()):
 		var item = InventoryItem.new()
 		item.init(load(inventory[i]), Vector2(16, 16))
@@ -41,7 +46,6 @@ func _ready():
 		%Grid.get_child(i).data = item.data
 		%Grid.get_child(i).index = i
 		%Grid.get_child(i).isEmpty = false
-
 
 func update_label():
 	level_label.text = "Level: %d" % player.level
@@ -56,7 +60,8 @@ func update_description(data):
 	else:
 		description_label.text = ""
 	
-
+	
+	
 func add_item_to_equiped(equipment, index):
 	# add the item and initialize data
 	var item = InventoryItem.new()
@@ -100,7 +105,7 @@ func remove_item_from_equiped(index):
 func _input(event):
 	if event.is_action_pressed("Inventory"):
 		visible = !visible
-
+	
 
 func _on_use_pressed():
 	match selected.type: # {WEAPON, ARMOR, ACCESSORY, SPIRIT}
@@ -127,7 +132,30 @@ func _on_use_pressed():
 
 
 func _on_discard_pressed():
-	inventory.remove_at(index)
 	
+	# store the item to check for item in equiped
+	var removed = load(inventory[index])
+	inventory.remove_at(index)
+
+	# remove the item visually and reset data
 	for i in range (24):
-		pass
+		var removedSlot = %Grid.get_child(i)
+		if removedSlot.get_child(0).get_child(0):
+			var remove = removedSlot.get_child(0).get_child(0)
+			removedSlot.get_child(0).remove_child(remove)
+			remove.queue_free()
+			removedSlot.isEmpty = true
+			removedSlot.data = null
+	update_inventory()
+	
+	# remove the item from equiped
+	for i in range (4):
+		if removed == equiped[i]:
+			remove_item_from_equiped(i)
+	
+	update_description(null)
+	equip_button.visible = false
+	discard_button.visible = false
+			
+	
+	

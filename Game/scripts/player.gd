@@ -8,18 +8,22 @@ extends CharacterBody2D
 @onready var recover_timer = $Recover_Timer
 @onready var one_second_heal = $OneSecondHeal
 @onready var dash_timer = $Dash_Timer
+@onready var range_timer = $Range_Timer
+@onready var spinning_sword = load("res://scenes/spinning_sword.tscn")
 
 # state variables (do not change)
 var is_attacking = false
 var is_dashing = false
 var dash_ready = true
+var is_range_attacking = false
+var range_ready = true
 var in_attack_range = []
 var is_recovering = false
 var is_healing_one = false
 
 
 var SPEED = 130.0
-const JUMP_VELOCITY = -350.0
+var JUMP_VELOCITY = -350.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -79,16 +83,48 @@ func _input(event):
 		is_dashing = true
 		animated_sprite.play("dash")
 		
-		var original = SPEED
+		# change the speed and jump velocity during interval
+		var original_speed = SPEED
+		var original_jump = JUMP_VELOCITY
 		SPEED = SPEED * 2.2
+		JUMP_VELOCITY += -50
 		
 		await get_tree().create_timer(1.0).timeout
 	
 		dash_ready = false
 		dash_timer.start()
+		
+		# revert them back to normal after 1 second
 		is_dashing = false
-		SPEED = original
-	
+		SPEED = original_speed
+		JUMP_VELOCITY = original_jump
+		
+	if event.is_action_pressed("Range") and range_ready:
+		if is_range_attacking:
+			return
+		animated_sprite.stop()
+		
+		is_range_attacking = true
+		animated_sprite.play("range")
+		
+		await animated_sprite.animation_finished
+		var instance = spinning_sword.instantiate()
+		instance.spawnPosition = global_position
+		instance.damage = attack * 1.2
+		instance.flip = animated_sprite.flip_h
+
+			
+		get_parent().add_child(instance)
+
+		
+		range_ready = false
+		range_timer.start()
+		
+		is_range_attacking = false
+		
+		
+		
+		
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -109,7 +145,7 @@ func _physics_process(delta):
 		flip_area2d_horizontally(attack_range, true)
 		animated_sprite.flip_h = true
 	
-	if (!is_attacking && !is_dashing):
+	if (!is_attacking && !is_dashing && !is_range_attacking):
 		if is_on_floor():
 			if direction == 0:
 				animated_sprite.play("idle")	
@@ -162,3 +198,7 @@ func _on_one_second_heal_timeout():
 
 func _on_dash_timer_timeout():
 	dash_ready = true
+
+
+func _on_range_timer_timeout():
+	range_ready = true
