@@ -65,7 +65,7 @@ position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_gcnvc")
 animation = &"spinning"
 autoplay = "spinning"
-frame_progress = 0.150079
+frame_progress = 0.659799
 
 [node name="Life" type="Timer" parent="."]
 wait_time = 2.4

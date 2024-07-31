@@ -35,7 +35,16 @@ func _ready():
 		%Grid.add_child(slot)
 	update_inventory()
 
-
+func reset_inventory_data():
+	for i in range (24):
+		var removedSlot = %Grid.get_child(i)
+		if removedSlot.get_child(0).get_child(0):
+			var remove = removedSlot.get_child(0).get_child(0)
+			removedSlot.get_child(0).remove_child(remove)
+			remove.queue_free()
+			removedSlot.isEmpty = true
+			removedSlot.data = null
+		
 func update_inventory():
 
 	for i in range (inventory.size()):
@@ -138,14 +147,8 @@ func _on_discard_pressed():
 	inventory.remove_at(index)
 
 	# remove the item visually and reset data
-	for i in range (24):
-		var removedSlot = %Grid.get_child(i)
-		if removedSlot.get_child(0).get_child(0):
-			var remove = removedSlot.get_child(0).get_child(0)
-			removedSlot.get_child(0).remove_child(remove)
-			remove.queue_free()
-			removedSlot.isEmpty = true
-			removedSlot.data = null
+	reset_inventory_data()
+	# add all items back to inventory
 	update_inventory()
 	
 	# remove the item from equiped

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://d3o16yirjiwgd"]
+[gd_scene load_steps=51 format=3 uid="uid://d3o16yirjiwgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0hjod"]
 [ext_resource type="Texture2D" uid="uid://dwmyfwc7wgdbp" path="res://assets/sprites/new/rougelikegame-Sheet.png" id="2_h0jss"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjh8wxdo6qxtg" path="res://scenes/UI/inventory.tscn" id="4_5u5gl"]
 [ext_resource type="Texture2D" uid="uid://cqooof82uq0j4" path="res://assets/sprites/new/epic_run.png" id="4_rhvro"]
 [ext_resource type="Texture2D" uid="uid://ohn3tqlo3o66" path="res://rangeattack-Sheet.png" id="5_8qkeq"]
+[ext_resource type="PackedScene" uid="uid://cpl2xsw8he3o" path="res://scenes/UI/shop.tscn" id="8_jfxgl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55s14"]
 atlas = ExtResource("2_w1fcr")
@@ -359,6 +360,12 @@ wait_time = 8.0
 
 [node name="Range_Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Shop" parent="." instance=ExtResource("8_jfxgl")]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = -19.0
+offset_bottom = -11.0
 
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]

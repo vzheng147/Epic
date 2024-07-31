@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cg71whtwrqrm6"]
+[gd_scene load_steps=16 format=3 uid="uid://cg71whtwrqrm6"]
 
 [ext_resource type="Script" path="res://scripts/Collectables/copper_chest.gd" id="1_6ccsj"]
 [ext_resource type="Texture2D" uid="uid://c7inapapawlkg" path="res://assets/sprites/Animated Chests/Chests.png" id="2_b6bec"]
+[ext_resource type="Resource" uid="uid://bl2odb4ul4xh3" path="res://scripts/Resources/armor.tres" id="2_o6q3t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnba2"]
 atlas = ExtResource("2_b6bec")
@@ -91,6 +92,7 @@ size = Vector2(29, 21)
 
 [node name="copper_chest" type="Node2D"]
 script = ExtResource("1_6ccsj")
+drop = ExtResource("2_o6q3t")
 
 [node name="chest_sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
