@@ -8,7 +8,8 @@ script = ExtResource("2_vk5rq")
 type = 1
 item_name = "Basic Armor"
 item_texture = ExtResource("1_wim8o")
-description = "Basic Armor
+price = 10
+description = "Basic Armor 
 Defense: 5
 Health: 50
 

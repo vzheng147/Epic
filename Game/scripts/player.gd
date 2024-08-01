@@ -30,16 +30,58 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Player Stats
 var level = 1
-var xp = 0
-var attack = 100
+var xp = 2000
+var total_xp = 10
+var gold = 200
+var attack = 5
 var defense = 1
-var max_health = 240
+var max_health = 100
 var health = max_health
 
 
 func _ready():
 	health_bar.value = health
 	
+func level_up():
+	level += 1
+	xp -= total_xp
+	
+	attack += 2
+	defense += 1
+	health += 10
+	
+	match level:
+		2: total_xp = 25
+		3: total_xp = 40
+		4: total_xp = 80
+		5: total_xp = 150
+		6: total_xp = 250
+		7: total_xp = 400
+		8: total_xp = 600
+		9: total_xp = 800
+		10: total_xp = 1000
+		11: total_xp = 1500
+		12: total_xp = 2000
+		13: total_xp = 2500
+		14: total_xp = 3000
+		15: total_xp = 4000
+		16: total_xp = 5000
+		17: total_xp = 6000
+		19: total_xp = 7000
+		20: total_xp = 8000
+		21: total_xp = 9000
+		22: total_xp = 10000
+		23: total_xp = 12000
+		24: total_xp = 14000
+		25: total_xp = 16000
+		26: total_xp = 18000
+		27: total_xp = 20000
+		28: total_xp = 25000
+		29: total_xp = 30000
+		
+	inventory.update_label()
+		
+
 
 func deal_damage(damage):
 	for enemy in in_attack_range:
@@ -71,10 +113,13 @@ func _input(event):
 		is_attacking = true
 		animated_sprite.play("attack")
 		await animated_sprite.animation_finished
-		deal_damage(attack*5)
+		deal_damage(attack)
 		is_attacking = false
+			
+		# restart recover timer
 		is_recovering = false
 		recover_timer.start()
+		
 	if event.is_action_pressed("Dash") and dash_ready:
 		if is_dashing:
 			return
@@ -99,6 +144,10 @@ func _input(event):
 		SPEED = original_speed
 		JUMP_VELOCITY = original_jump
 		
+		# restart recover timer
+		is_recovering = false
+		recover_timer.start()
+		
 	if event.is_action_pressed("Range") and range_ready:
 		if is_range_attacking:
 			return
@@ -112,19 +161,24 @@ func _input(event):
 		instance.spawnPosition = global_position
 		instance.damage = attack * 1.2
 		instance.flip = animated_sprite.flip_h
-
 			
 		get_parent().add_child(instance)
-
-		
+	
 		range_ready = false
 		range_timer.start()
 		
 		is_range_attacking = false
 		
+		# restart recover timer
+		is_recovering = false
+		recover_timer.start()
 		
-		
-		
+	
+func _process(delta):
+	if level < 30 and xp > total_xp:
+		level_up()
+	
+	
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

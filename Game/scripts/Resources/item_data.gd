@@ -8,6 +8,7 @@ enum TYPE {WEAPON, ARMOR, ACCESSORY, SPIRIT, POTION, STONE}
 # universal fields
 @export var item_name : String
 @export var item_texture : Texture2D
+@export var price : int # for items in shop
 @export_multiline var description : String
 
 # data fields for equipment

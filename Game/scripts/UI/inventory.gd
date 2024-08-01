@@ -4,10 +4,10 @@ extends Control
 # "res://scripts/Resources/potion.tres"
 var equiped = ["res://scripts/Resources/sword.tres", null, null, null]
 var inventory = ["res://scripts/Resources/sword.tres", "res://scripts/Resources/sword.tres", "res://scripts/Resources/sword.tres"]
-var selected : ItemData = null
-var index : int
 var inventory_slot_scene = preload("res://scenes/UI/slot_container.tscn")
 var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
+var selected : ItemData = null
+var index : int
 
 @onready var player = get_parent()
 @onready var level_label = $Stats/Level
@@ -15,6 +15,7 @@ var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 @onready var attack_label = $Stats/Attack
 @onready var defense_label = $Stats/Defense
 @onready var health_label = $Stats/Health
+@onready var gold_label = $Stats/Gold
 @onready var description_background = $D_background
 @onready var description_label = $D_background/Description
 @onready var equip_button = $Use
@@ -58,10 +59,15 @@ func update_inventory():
 
 func update_label():
 	level_label.text = "Level: %d" % player.level
-	xp_label.text = "XP: %d / %d" % [player.xp, player.level * 100]
+	gold_label.text = "Gold: %d" % player.gold
 	attack_label.text = "Attack: %d" % player.attack
 	defense_label.text = "Defense: %d" % player.defense
-	health_label.text = "Health: %d" % player.health
+	health_label.text = "Health: %d" % player.max_health
+	
+	if player.level < 30:
+		xp_label.text = "XP: %d / %d" % [player.xp, player.total_xp]
+	else:
+		xp_label.text = "Max Level"
 
 func update_description(data):
 	if data:
