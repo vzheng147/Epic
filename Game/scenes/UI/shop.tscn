@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/UI/Shop.gd" id="1_xrgkm"]
 
 [node name="Shop" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 pivot_offset = Vector2(551, -245)

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bfsjwlkun5u1a"]
+
+[ext_resource type="Texture2D" uid="uid://b8wl350dnbv4n" path="res://assets/Equipment/Pixel Blades Pack 1/Blades 1/Dagger_Poignard00.png" id="1_y1p37"]
+[ext_resource type="Script" path="res://scripts/Resources/item_data.gd" id="2_i8vof"]
+
+[resource]
+script = ExtResource("2_i8vof")
+type = 0
+item_name = "Worn Sword"
+item_texture = ExtResource("1_y1p37")
+price = 0
+description = "Worn Sword
+Attack: 3
+\"An unimpressive sword, but every great swordsman has to start somewhere.\""
+attack = 3
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0

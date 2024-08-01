@@ -2,15 +2,17 @@
 extends Control
 
 # "res://scripts/Resources/potion.tres"
-var equiped = ["res://scripts/Resources/sword.tres", null, null, null]
-var inventory = ["res://scripts/Resources/sword.tres", "res://scripts/Resources/sword.tres", "res://scripts/Resources/sword.tres"]
+var equiped = [null, null, null]
+var inventory = ["res://scripts/Resources/worn_sword.tres", "res://scripts/Resources/standard_sword.tres", "res://scripts/Resources/refined_sword.tres",
+"res://scripts/Resources/worn_armor.tres", "res://scripts/Resources/standard_armor.tres", "res://scripts/Resources/refined_armor.tres",
+]
 var inventory_slot_scene = preload("res://scenes/UI/slot_container.tscn")
 var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 var selected : ItemData = null
 var index : int
 
 @onready var player = get_parent()
-@onready var level_label = $Stats/Level
+@onready var level_label = $Stats/Level 
 @onready var xp_label = $Stats/XP
 @onready var attack_label = $Stats/Attack
 @onready var defense_label = $Stats/Defense
@@ -23,10 +25,10 @@ var index : int
 
 func _ready():
 	# initializing equiped
-	for i in range (4):
+	for i in range (3):
 		var slot := equiped_slot_scene.instantiate()
 		%Equiped.add_child(slot)
-	for i in range (4):
+	for i in range (3):
 		if equiped[i]:
 			add_item_to_equiped(load(equiped[i]), i)
 			
@@ -123,7 +125,7 @@ func _input(event):
 	
 
 func _on_use_pressed():
-	match selected.type: # {WEAPON, ARMOR, ACCESSORY, SPIRIT}
+	match selected.type: # {WEAPON, ARMOdR, ACCESSORY}
 		0: 
 			if equiped[0]:
 				remove_item_from_equiped(0) 
@@ -136,10 +138,6 @@ func _on_use_pressed():
 			if equiped[2]:
 				remove_item_from_equiped(2) 
 			add_item_to_equiped(selected, 2)
-		3:  
-			if equiped[3]:
-				remove_item_from_equiped(3) 
-			add_item_to_equiped(selected, 3)
 			
 	update_description(null)
 	equip_button.visible = false
@@ -158,7 +156,7 @@ func _on_discard_pressed():
 	update_inventory()
 	
 	# remove the item from equiped
-	for i in range (4):
+	for i in range (3):
 		if removed == equiped[i]:
 			remove_item_from_equiped(i)
 	

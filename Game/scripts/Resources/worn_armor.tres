@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://kd36pfm8cifx"]
+
+[ext_resource type="Texture2D" uid="uid://c5nidjjckkjye" path="res://assets/Equipment/Pixel Armor Pack 1 Medieval/Armor1_Medieval/Chainmail_Crusader00.png" id="1_ae8gb"]
+[ext_resource type="Script" path="res://scripts/Resources/item_data.gd" id="2_s4kn0"]
+
+[resource]
+script = ExtResource("2_s4kn0")
+type = 0
+item_name = "Worn Armor"
+item_texture = ExtResource("1_ae8gb")
+price = 0
+description = "Worn Armor
+Defense: 1
+Health: 10
+\"An unimpressive armor, but every great swordsman has to start somewhere.\""
+attack = 0
+defense = 1
+health = 10
+heal_amount = 0
+success_chance = 0

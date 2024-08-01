@@ -1,8 +1,28 @@
-[gd_scene load_steps=16 format=3 uid="uid://cg71whtwrqrm6"]
+[gd_scene load_steps=18 format=3 uid="uid://cg71whtwrqrm6"]
 
 [ext_resource type="Script" path="res://scripts/Collectables/copper_chest.gd" id="1_6ccsj"]
+[ext_resource type="Script" path="res://scripts/Resources/item_data.gd" id="2_1v2tc"]
 [ext_resource type="Texture2D" uid="uid://c7inapapawlkg" path="res://assets/sprites/Animated Chests/Chests.png" id="2_b6bec"]
-[ext_resource type="Resource" uid="uid://bl2odb4ul4xh3" path="res://scripts/Resources/armor.tres" id="2_o6q3t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ndh25"]
+load_path = "res://.godot/imported/Screenshot 2024-07-23 at 7.20.08 PM.png-9d3aa81ad5a4b37bccbccce8c2f5ec03.ctex"
+
+[sub_resource type="Resource" id="Resource_sjr88"]
+script = ExtResource("2_1v2tc")
+type = 1
+item_name = "Basic Armor"
+item_texture = SubResource("CompressedTexture2D_ndh25")
+price = 10
+description = "Basic Armor 
+Defense: 5
+Health: 50
+
+"
+attack = 0
+defense = 5
+health = 50
+heal_amount = 0
+success_chance = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnba2"]
 atlas = ExtResource("2_b6bec")
@@ -92,7 +112,7 @@ size = Vector2(29, 21)
 
 [node name="copper_chest" type="Node2D"]
 script = ExtResource("1_6ccsj")
-drop = ExtResource("2_o6q3t")
+drop = SubResource("Resource_sjr88")
 
 [node name="chest_sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

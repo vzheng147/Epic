@@ -32,8 +32,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var level = 1
 var xp = 2000
 var total_xp = 10
-var gold = 200
-var attack = 5
+var gold = 20
+var attack = 3
 var defense = 1
 var max_health = 100
 var health = max_health
@@ -159,7 +159,7 @@ func _input(event):
 		await animated_sprite.animation_finished
 		var instance = spinning_sword.instantiate()
 		instance.spawnPosition = global_position
-		instance.damage = attack * 1.2
+		instance.damage = attack * .65
 		instance.flip = animated_sprite.flip_h
 			
 		get_parent().add_child(instance)

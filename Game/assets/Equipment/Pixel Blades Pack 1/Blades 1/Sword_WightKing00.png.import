@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://crs7sa3t3vnlp"
+path="res://.godot/imported/Sword_WightKing00.png-4c55d10abe9146a4607f55fbc9764540.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/Equipment/Pixel Blades Pack 1/Blades 1/Sword_WightKing00.png"
+dest_files=["res://.godot/imported/Sword_WightKing00.png-4c55d10abe9146a4607f55fbc9764540.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
