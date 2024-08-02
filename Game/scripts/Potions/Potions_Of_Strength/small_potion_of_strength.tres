@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://sfi4mmn12wvk"]
+
+[ext_resource type="Texture2D" uid="uid://djkbcjrdlclnl" path="res://scripts/Potions/Potion_Assets/Screenshot 2024-08-02 at 1.26.15 PM.png" id="1_nxyyi"]
+[ext_resource type="Script" path="res://scripts/Potions/item_data.gd" id="2_ae83s"]
+
+[resource]
+script = ExtResource("2_ae83s")
+type = 3
+item_name = "Small Potion of Strength"
+item_texture = ExtResource("1_nxyyi")
+price = 0
+description = "Small Potion of Strength
++ 2 Attack
+Permanent stat increase once used."
+attack = 2
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0

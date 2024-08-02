@@ -5,7 +5,13 @@ extends Control
 var equiped = [null, null, null]
 var inventory = ["res://scripts/Resources/worn_sword.tres", "res://scripts/Resources/standard_sword.tres", "res://scripts/Resources/refined_sword.tres",
 "res://scripts/Resources/worn_armor.tres", "res://scripts/Resources/standard_armor.tres", "res://scripts/Resources/refined_armor.tres",
-]
+"res://scripts/Resources/ring_of_cyclops.tres", "res://scripts/Resources/ring_of_sorrow.tres", "res://scripts/Resources/ring_of_blood.tres",
+"res://scripts/Resources/shadowborne.tres", "res://scripts/Resources/dragonslayer.tres", "res://scripts/Resources/ring_of_ember.tres",
+"res://scripts/Potions/Potions_Of_Vitality/large_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Vitality/medium_potion_of_vitality.tres",
+"res://scripts/Potions/Potions_Of_Vitality/small_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Strength/large_potion_of_strength.tres",
+"res://scripts/Potions/Potions_Of_Strength/medium_potion_of_strength.tres", "res://scripts/Potions/Potions_Of_Strength/small_potion_of_strength.tres",
+"res://scripts/Potions/Potions_Of_Fortitude/large_potion_of_fortitude.tres", "res://scripts/Potions/Potions_Of_Fortitude/medium_potion_of_fortitude.tres",
+"res://scripts/Potions/Potions_Of_Fortitude/small_potion_of_fortitude.tres"]
 var inventory_slot_scene = preload("res://scenes/UI/slot_container.tscn")
 var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 var selected : ItemData = null
@@ -95,8 +101,8 @@ func add_item_to_equiped(equipment, index):
 	player.attack += equipment.attack
 	player.defense += equipment.defense
 	player.health += equipment.health
+	player.max_health += equipment.health
 	
-	update_label()
 
 
 func remove_item_from_equiped(index):
@@ -114,6 +120,7 @@ func remove_item_from_equiped(index):
 	player.attack -= equipment.attack
 	player.defense -= equipment.defense
 	player.health -= equipment.health
+	player.max_health -= equipment.health
 	
 	update_label()
 	
@@ -138,10 +145,22 @@ func _on_use_pressed():
 			if equiped[2]:
 				remove_item_from_equiped(2) 
 			add_item_to_equiped(selected, 2)
+		3:
+			player.attack += selected.attack
+			player.defense += selected.defense
+			player.health += selected.health
+			player.max_health += selected.health
+			
+			inventory.remove_at(index)
+			reset_inventory_data()
+			update_inventory()
+			
 			
 	update_description(null)
+	update_label()
 	equip_button.visible = false
 	discard_button.visible = false
+
 
 
 func _on_discard_pressed():

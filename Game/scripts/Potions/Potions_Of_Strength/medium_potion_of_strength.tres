@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://qcmfinpfrpbb"]
+
+[ext_resource type="Texture2D" uid="uid://dvda81qkq75dy" path="res://scripts/Potions/Potion_Assets/Screenshot 2024-08-02 at 1.27.03 PM.png" id="1_1qawh"]
+[ext_resource type="Script" path="res://scripts/Potions/item_data.gd" id="2_tns4y"]
+
+[resource]
+script = ExtResource("2_tns4y")
+type = 3
+item_name = "Medium Potion of Strength"
+item_texture = ExtResource("1_1qawh")
+price = 0
+description = "Medium Potion of Strength
++ 5 Attack
+Permanent stat increase once used."
+attack = 5
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0

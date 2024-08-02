@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cc6jqadjbbu7"]
+
+[ext_resource type="Texture2D" uid="uid://c7vaeec7ts3j6" path="res://scripts/Potions/Potion_Assets/Screenshot 2024-08-02 at 1.31.05 PM.png" id="1_steno"]
+[ext_resource type="Script" path="res://scripts/Potions/item_data.gd" id="2_gtwn0"]
+
+[resource]
+script = ExtResource("2_gtwn0")
+type = 3
+item_name = ""
+item_texture = ExtResource("1_steno")
+price = 0
+description = "Small Potion of Vitality
++ 10 Health
+Permanent stat increase once used."
+attack = 0
+defense = 0
+health = 10
+heal_amount = 0
+success_chance = 0

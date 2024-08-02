@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://2w1d0d6u72rc"]
+
+[ext_resource type="Texture2D" uid="uid://4ydhpqrf4fse" path="res://scripts/Potions/Potion_Assets/Screenshot 2024-08-02 at 1.27.56 PM.png" id="1_d0rev"]
+[ext_resource type="Script" path="res://scripts/Potions/item_data.gd" id="2_p4i7m"]
+
+[resource]
+script = ExtResource("2_p4i7m")
+type = 3
+item_name = "Large Potion of Strength"
+item_texture = ExtResource("1_d0rev")
+price = 0
+description = "Large Potion of Strength
++ 15 Attack
+Permanent stat increase once used."
+attack = 15
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0
