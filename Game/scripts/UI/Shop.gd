@@ -17,7 +17,10 @@ func _ready():
 	update_shop()
 	update_gold()
 		
-
+func _input(event):
+	if event.is_action_pressed("Interact"):
+		visible = !visible
+	
 func reset_shop_data():
 	for i in range (24):
 		var removedSlot = %Grid.get_child(i)

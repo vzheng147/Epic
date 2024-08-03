@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://qso1hw2vwksw"]
+
+[ext_resource type="Texture2D" uid="uid://nmhxirtiwp1t" path="res://assets/ocean-and-clouds-free-pixel-art-backgrounds/Ocean_8/6.png" id="1_7ia6c"]
+[ext_resource type="Script" path="res://scripts/parallax_background.gd" id="1_e1f5u"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_e1f5u")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2300, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(1167, 648)
+texture = ExtResource("1_7ia6c")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(334, 963.5)
+scale = Vector2(2.27206, 3.94375)

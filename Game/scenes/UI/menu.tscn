@@ -1,34 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckptwiqi8pq81"]
+[gd_scene load_steps=3 format=3 uid="uid://ckptwiqi8pq81"]
 
 [ext_resource type="Script" path="res://scripts/UI/menu.gd" id="1_dmsl7"]
+[ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/parallax_background_1.tscn" id="2_oprds"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_dmsl7")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 793.0
-offset_top = 212.0
-offset_right = 1143.0
-offset_bottom = 362.0
+offset_left = 795.0
+offset_top = 150.0
+offset_right = 1195.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 40
 text = "Play
 "
 
+[node name="Guide" type="Button" parent="."]
+offset_left = 795.0
+offset_top = 400.0
+offset_right = 1195.0
+offset_bottom = 575.0
+theme_override_font_sizes/font_size = 40
+text = "Guide
+"
+
 [node name="Credits" type="Button" parent="."]
-offset_left = 796.0
-offset_top = 418.0
-offset_right = 1146.0
-offset_bottom = 568.0
+offset_left = 795.0
+offset_top = 650.0
+offset_right = 1195.0
+offset_bottom = 825.0
+theme_override_font_sizes/font_size = 40
 text = "Credits
 "
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 796.0
-offset_top = 608.0
-offset_right = 1146.0
-offset_bottom = 758.0
+offset_left = 795.0
+offset_top = 900.0
+offset_right = 1195.0
+offset_bottom = 1075.0
+theme_override_font_sizes/font_size = 40
 text = "Quit
 "
 
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_oprds")]
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Guide" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

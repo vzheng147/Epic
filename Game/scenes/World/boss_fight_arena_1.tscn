@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bt58by38n1j5u"]
+[gd_scene load_steps=17 format=3 uid="uid://bt58by38n1j5u"]
 
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="2_74gyj"]
 [ext_resource type="PackedScene" uid="uid://c8wdvlhvu2pwq" path="res://scenes/Enemy/rat_boss.tscn" id="3_37ebo"]
 [ext_resource type="Texture2D" uid="uid://drh6od8ywq6yp" path="res://assets/sprites/world_tileset.png" id="3_58k38"]
 [ext_resource type="PackedScene" uid="uid://i8fgr6wlasra" path="res://scenes/Build/pharmacy.tscn" id="4_1btjc"]
 [ext_resource type="PackedScene" uid="uid://cg71whtwrqrm6" path="res://scenes/Collectables/copper_chest.tscn" id="5_77gw0"]
+[ext_resource type="Resource" uid="uid://ccpfq67ngbtin" path="res://scripts/Equipment/Weapon/blade_of_despair.tres" id="6_gupj5"]
 [ext_resource type="PackedScene" uid="uid://drcow4tc76c5n" path="res://scenes/Trap/ground_spike.tscn" id="6_stsvf"]
 [ext_resource type="PackedScene" uid="uid://bf2djtdop23a1" path="res://scenes/Trap/falling_rock.tscn" id="7_3xx0x"]
 [ext_resource type="PackedScene" uid="uid://52ec065hrrvx" path="res://scenes/Trap/spinning_spike.tscn" id="8_mk6s6"]
@@ -441,9 +442,7 @@ position = Vector2(286, -8)
 
 [node name="copper_chest" parent="." instance=ExtResource("5_77gw0")]
 position = Vector2(62, 3)
-
-[node name="copper_chest2" parent="." instance=ExtResource("5_77gw0")]
-position = Vector2(45, -6)
+drop = ExtResource("6_gupj5")
 
 [node name="Spike" parent="." instance=ExtResource("6_stsvf")]
 position = Vector2(169, 18)
