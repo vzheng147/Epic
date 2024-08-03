@@ -6,9 +6,9 @@ extends Control
 @onready var description = $ColorRect/Description
 @onready var gold = $ColorRect2/Gold
 
-var shop = ["res://scripts/Resources/armor.tres", "res://scripts/Resources/armor.tres"]
+var shop = ["res://scripts/Equipment/Weapon/worn_sword.tres"]
 var selected : ItemData
-var index : int
+var selected_index : int
 
 func _ready():
 	for i in range(24):
@@ -64,7 +64,7 @@ func _on_buy_pressed():
 	player.inventory.update_label()
 	
 	# update the shop data and interface
-	shop.remove_at(index)
+	shop.remove_at(selected_index)
 	reset_shop_data()
 	update_shop()
 	update_gold()

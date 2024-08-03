@@ -35,12 +35,12 @@ var total_xp = 10
 var gold = 20
 var attack = 3
 var defense = 1
-var max_health = 100
+var max_health = 120
 var health = max_health
 
 
 func _ready():
-	health_bar.value = health
+	health_bar.value = 100
 	
 func level_up():
 	level += 1
@@ -49,6 +49,7 @@ func level_up():
 	attack += 2
 	defense += 1
 	health += 10
+	max_health += 10
 	
 	match level:
 		2: total_xp = 25
@@ -90,7 +91,9 @@ func deal_damage(damage):
 
 func take_damage(damage):
 	damage = damage - defense
-	health -= damage
+	print(max_health)
+	health = health - damage
+
 	if health_bar:
 		health_bar.value = (float(health) / max_health) * 100
 	if health <= 0:

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cmmxey8ohp2ok"]
+
+[ext_resource type="Texture2D" uid="uid://dixrfqbnsskok" path="res://assets/Equipment/Pixel Ring Pack 1/Rings 1/Ring4_BlueSteel00.png" id="1_q0h10"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_raftu"]
+
+[resource]
+script = ExtResource("2_raftu")
+type = 2
+item_name = "Ring Of Sorrow"
+item_texture = ExtResource("1_q0h10")
+price = 0
+description = "Ring Of Sorrow
+Attack: 7
+\"No regrets, just soft bitterness.\""
+attack = 7
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0

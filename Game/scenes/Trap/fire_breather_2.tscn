@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://t6tmls1vd60u"]
+
+[ext_resource type="Script" path="res://scripts/Trap/fire_trap.gd" id="1_nn3ic"]
+[ext_resource type="Texture2D" uid="uid://ddjisxd8vodsn" path="res://assets/Trap Pack 2/Fire Breather Trap/PNGs/Fire Breather Trap - Level 2.png" id="2_qnswi"]
+
+[sub_resource type="Animation" id="Animation_ftg36"]
+resource_name = "activate"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.2, 1.5, 2.1, 2.5, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_u0lex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ay01e"]
+_data = {
+"RESET": SubResource("Animation_u0lex"),
+"activate": SubResource("Animation_ftg36")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr5kb"]
+size = Vector2(58.125, 16.5)
+
+[node name="FireBreather" type="Area2D"]
+script = ExtResource("1_nn3ic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.35937, 0.624999)
+scale = Vector2(0.695508, 0.730469)
+texture = ExtResource("2_qnswi")
+hframes = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ay01e")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-19.0625, 16)
+shape = SubResource("RectangleShape2D_dr5kb")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

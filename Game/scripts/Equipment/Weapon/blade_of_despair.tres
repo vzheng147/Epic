@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ccpfq67ngbtin"]
+
+[ext_resource type="Texture2D" uid="uid://b6qkcs30hrsac" path="res://assets/Equipment/Pixel Blades Pack 1/Blades 1/Sword_CrystalCore00A.png" id="1_y7ll2"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_ubf51"]
+
+[resource]
+script = ExtResource("2_ubf51")
+type = 0
+item_name = "Blade Of Despair"
+item_texture = ExtResource("1_y7ll2")
+price = 0
+description = "Blade Of Despair
+Attack: 188
+Defense: 48
+\"Inflict dread.\""
+attack = 188
+defense = 48
+health = 0
+heal_amount = 0
+success_chance = 0

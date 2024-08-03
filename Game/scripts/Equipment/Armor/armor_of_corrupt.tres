@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cjdtpv317lcu8"]
+
+[ext_resource type="Texture2D" uid="uid://cfrxgerdimgqb" path="res://assets/Equipment/Pixel Armor Pack 1 Medieval/Armor1_Medieval/Hide_Royal00.png" id="1_1aw13"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_rfiku"]
+
+[resource]
+script = ExtResource("2_rfiku")
+type = 1
+item_name = "Armor Of Corrupt"
+item_texture = ExtResource("1_1aw13")
+price = 0
+description = "Armor Of Corrupt
+Defense: 120
+Health: 800
+\"Strike terror and spread chaos.\""
+attack = 0
+defense = 120
+health = 800
+heal_amount = 0
+success_chance = 0

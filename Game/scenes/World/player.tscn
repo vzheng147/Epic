@@ -362,6 +362,7 @@ wait_time = 8.0
 wait_time = 2.0
 
 [node name="Shop" parent="." instance=ExtResource("8_jfxgl")]
+visible = false
 offset_left = -19.0
 offset_top = -11.0
 offset_right = -19.0

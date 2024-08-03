@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dh5svffhsk2pf"]
+
+[ext_resource type="Texture2D" uid="uid://bwoqv3kipqlve" path="res://assets/Equipment/Pixel Armor Pack 1 Medieval/Armor1_Medieval/Brigandine_Gendarme00.png" id="1_qqnn7"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_wpr2q"]
+
+[resource]
+script = ExtResource("2_wpr2q")
+type = 1
+item_name = "Armor Of Storm"
+item_texture = ExtResource("1_qqnn7")
+price = 0
+description = "Armor Of Storm
+Defense: 12
+Health: 100
+\"Let the storm shield you from all harm.\""
+attack = 0
+defense = 12
+health = 100
+heal_amount = 0
+success_chance = 0

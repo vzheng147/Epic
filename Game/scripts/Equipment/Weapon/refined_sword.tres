@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dob7axdwhdbf2"]
+
+[ext_resource type="Texture2D" uid="uid://bua3vf6tcu8r3" path="res://assets/Equipment/Pixel Blades Pack 1/Blades 1/Sabre_BanditKing00.png" id="1_ibq6x"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_2edtc"]
+
+[resource]
+script = ExtResource("2_2edtc")
+type = 0
+item_name = "Refined Sword"
+item_texture = ExtResource("1_ibq6x")
+price = 0
+description = "Refined Sword
+Attack: 30
+Defense: 5
+\"Only an adept swordsman could harness its true power.\""
+attack = 30
+defense = 5
+health = 0
+heal_amount = 0
+success_chance = 0

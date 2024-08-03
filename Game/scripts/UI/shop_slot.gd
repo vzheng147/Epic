@@ -11,6 +11,6 @@ var index : int
 func _on_menu_button_pressed():
 	if not isEmpty:
 		shop_node.buy_button.visible = !shop_node.buy_button.visible
-		shop_node.index = index
+		shop_node.selected_index = index
 		shop_node.selected = data
 		shop_node.update_description(data)

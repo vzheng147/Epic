@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://11kvu2hygolh"]
+
+[ext_resource type="Texture2D" uid="uid://c46y2dgkn0113" path="res://assets/Equipment/Pixel Ring Pack 1/Rings 1/Ring1_GreenDragon00.png" id="1_i5cum"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_7qsfk"]
+
+[resource]
+script = ExtResource("2_7qsfk")
+type = 2
+item_name = "Ring Of Cyclops"
+item_texture = ExtResource("1_i5cum")
+price = 0
+description = "Ring Of Cyclops
+Attack: 55
+Defense: 15
+Health: 300
+\"My eye is upon you!\""
+attack = 55
+defense = 15
+health = 300
+heal_amount = 0
+success_chance = 0

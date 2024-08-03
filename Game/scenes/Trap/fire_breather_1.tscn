@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://gaf4vl0useq7"]
+
+[ext_resource type="Script" path="res://scripts/Trap/fire_trap.gd" id="1_48g07"]
+[ext_resource type="Texture2D" uid="uid://chcwdkndeh1d8" path="res://assets/Trap Pack 2/Fire Breather Trap/PNGs/Fire Breather Trap - Level 1.png" id="2_ob5f7"]
+
+[sub_resource type="Animation" id="Animation_cn5pq"]
+resource_name = "activate"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.8, 1.1, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_nkdpl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kbve3"]
+_data = {
+"RESET": SubResource("Animation_nkdpl"),
+"activate": SubResource("Animation_cn5pq")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iogfr"]
+radius = 7.0709
+height = 24.0509
+
+[node name="FireBreather" type="Area2D"]
+script = ExtResource("1_48g07")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kbve3")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 1.19209e-07)
+rotation = -0.778417
+shape = SubResource("CapsuleShape2D_iogfr")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.75, -6.5)
+scale = Vector2(0.828125, 0.796875)
+texture = ExtResource("2_ob5f7")
+hframes = 11
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

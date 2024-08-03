@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ns4qiqti6bye"]
+
+[ext_resource type="Texture2D" uid="uid://bgkhauwa7whwo" path="res://assets/Equipment/Pixel Blades Pack 1/Blades 1/Sword_DemonMetal00A.png" id="1_6dap4"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_6jri2"]
+
+[resource]
+script = ExtResource("2_6jri2")
+type = 0
+item_name = "Blade Of Inferno"
+item_texture = ExtResource("1_6dap4")
+price = 0
+description = "Blade Of Inferno
+Attack: 68
+Defense: 14
+\"Command the power of fire!\""
+attack = 68
+defense = 14
+health = 0
+heal_amount = 0
+success_chance = 0

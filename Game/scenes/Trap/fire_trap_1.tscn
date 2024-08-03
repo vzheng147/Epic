@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxmuqgxecl4yv"]
+
+[ext_resource type="Script" path="res://scripts/Trap/fire_trap.gd" id="1_yi04a"]
+[ext_resource type="Texture2D" uid="uid://cf1wbebs73usa" path="res://assets/Trap Pack 2/Fire Trap/PNGs/Fire Trap - Level 1.png" id="2_3v43m"]
+
+[sub_resource type="Animation" id="Animation_vqq21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ykjru"]
+resource_name = "activate"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.7, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rval"]
+_data = {
+"RESET": SubResource("Animation_vqq21"),
+"activate": SubResource("Animation_ykjru")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jopag"]
+size = Vector2(21.5, 30.4375)
+
+[node name="Fire" type="Area2D"]
+script = ExtResource("1_yi04a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
+scale = Vector2(1.42187, 1.00781)
+texture = ExtResource("2_3v43m")
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8rval")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, -6.78125)
+shape = SubResource("RectangleShape2D_jopag")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

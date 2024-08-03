@@ -1,12 +1,10 @@
 
 extends Control
 
-# "res://scripts/Resources/potion.tres"
+
 var equiped = [null, null, null]
-var inventory = ["res://scripts/Resources/worn_sword.tres", "res://scripts/Resources/standard_sword.tres", "res://scripts/Resources/refined_sword.tres",
-"res://scripts/Resources/worn_armor.tres", "res://scripts/Resources/standard_armor.tres", "res://scripts/Resources/refined_armor.tres",
-"res://scripts/Resources/ring_of_cyclops.tres", "res://scripts/Resources/ring_of_sorrow.tres", "res://scripts/Resources/ring_of_blood.tres",
-"res://scripts/Resources/shadowborne.tres", "res://scripts/Resources/dragonslayer.tres", "res://scripts/Resources/ring_of_ember.tres",
+var inventory = ["res://scripts/Equipment/Armor/refined_armor.tres", "res://scripts/Equipment/Ring/ring_of_cyclops.tres",
+"res://scripts/Equipment/Weapon/dragonslayer.tres", "res://scripts/Equipment/Weapon/shadowborne.tres",
 "res://scripts/Potions/Potions_Of_Vitality/large_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Vitality/medium_potion_of_vitality.tres",
 "res://scripts/Potions/Potions_Of_Vitality/small_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Strength/large_potion_of_strength.tres",
 "res://scripts/Potions/Potions_Of_Strength/medium_potion_of_strength.tres", "res://scripts/Potions/Potions_Of_Strength/small_potion_of_strength.tres",
@@ -15,7 +13,7 @@ var inventory = ["res://scripts/Resources/worn_sword.tres", "res://scripts/Resou
 var inventory_slot_scene = preload("res://scenes/UI/slot_container.tscn")
 var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 var selected : ItemData = null
-var index : int
+var selected_index : int
 
 @onready var player = get_parent()
 @onready var level_label = $Stats/Level 
@@ -151,7 +149,7 @@ func _on_use_pressed():
 			player.health += selected.health
 			player.max_health += selected.health
 			
-			inventory.remove_at(index)
+			inventory.remove_at(selected_index)
 			reset_inventory_data()
 			update_inventory()
 			
@@ -166,8 +164,8 @@ func _on_use_pressed():
 func _on_discard_pressed():
 	
 	# store the item to check for item in equiped
-	var removed = load(inventory[index])
-	inventory.remove_at(index)
+	var removed = load(inventory[selected_index])
+	inventory.remove_at(selected_index)
 
 	# remove the item visually and reset data
 	reset_inventory_data()

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c5py15bdpc3le"]
+
+[ext_resource type="Texture2D" uid="uid://67yjp7160sc3" path="res://assets/Equipment/Pixel Armor Pack 1 Medieval/Armor1_Medieval/FullPlate_AncientCity00.png" id="1_perlx"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_8nmjb"]
+
+[resource]
+script = ExtResource("2_8nmjb")
+type = 1
+item_name = "Armor Of Flames"
+item_texture = ExtResource("1_perlx")
+price = 0
+description = "Armor Of Flames
+Defense: 35
+Health: 450
+\"Embrace the flames.\"
+"
+attack = 0
+defense = 35
+health = 400
+heal_amount = 0
+success_chance = 0

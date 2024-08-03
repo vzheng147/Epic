@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://u3pyt7faf82a"]
+
+[ext_resource type="Script" path="res://scripts/UI/credits.gd" id="1_w04at"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_w04at")
+
+[node name="Back" type="Button" parent="."]
+offset_left = 799.0
+offset_top = 837.0
+offset_right = 1223.0
+offset_bottom = 990.0
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

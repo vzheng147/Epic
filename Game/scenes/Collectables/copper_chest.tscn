@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cg71whtwrqrm6"]
 
 [ext_resource type="Script" path="res://scripts/Collectables/copper_chest.gd" id="1_6ccsj"]
-[ext_resource type="Script" path="res://scripts/Potions/item_data.gd" id="2_1v2tc"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_1v2tc"]
 [ext_resource type="Texture2D" uid="uid://c7inapapawlkg" path="res://assets/sprites/Animated Chests/Chests.png" id="2_b6bec"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ndh25"]

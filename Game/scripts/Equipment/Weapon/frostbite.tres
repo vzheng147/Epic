@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b0fx1klvbjvff"]
+
+[ext_resource type="Texture2D" uid="uid://dwtbuni8ustc" path="res://assets/Equipment/Pixel Blades Pack 1/Blades 1/Greatsword_NorthernFrost00.png" id="1_nsdju"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_4i3yl"]
+
+[resource]
+script = ExtResource("2_4i3yl")
+type = 0
+item_name = "Frostbite"
+item_texture = ExtResource("1_nsdju")
+price = 0
+description = "Frostbite
+Attack: 85
+\"May the frost be with you.\""
+attack = 85
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dfcuhsp6arbc2"]
+
+[ext_resource type="Texture2D" uid="uid://toiki0oyxih5" path="res://assets/Equipment/Pixel Blades Pack 1/Blades 1/Dagger_Stiletto00.png" id="1_m84dg"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_1e4vf"]
+
+[resource]
+script = ExtResource("2_1e4vf")
+type = 0
+item_name = "Standard Sword"
+item_texture = ExtResource("1_m84dg")
+price = 0
+description = "Standard Sword
+Attack: 16
+\"An average sword for an average swordsman.\""
+attack = 16
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0

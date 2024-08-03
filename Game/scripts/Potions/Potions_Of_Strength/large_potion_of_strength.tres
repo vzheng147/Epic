@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://2w1d0d6u72rc"]
 
 [ext_resource type="Texture2D" uid="uid://4ydhpqrf4fse" path="res://scripts/Potions/Potion_Assets/Screenshot 2024-08-02 at 1.27.56 PM.png" id="1_d0rev"]
-[ext_resource type="Script" path="res://scripts/Potions/item_data.gd" id="2_p4i7m"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_p4i7m"]
 
 [resource]
 script = ExtResource("2_p4i7m")

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b2odyjlkyfph0"]
+
+[ext_resource type="Texture2D" uid="uid://bbgc84b1gtdvd" path="res://assets/Equipment/Pixel Ring Pack 1/Rings 1/Ring9_BlueMoonlight00.png" id="1_7i3jp"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_aswhb"]
+
+[resource]
+script = ExtResource("2_aswhb")
+type = 2
+item_name = "Ring Of Treachery"
+item_texture = ExtResource("1_7i3jp")
+price = 0
+description = "Ring Of Treachery
+Attack: 45
+Health: 200
+\"Trust is forever lost.\""
+attack = 45
+defense = 0
+health = 200
+heal_amount = 0
+success_chance = 0

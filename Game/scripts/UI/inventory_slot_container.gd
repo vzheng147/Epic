@@ -12,7 +12,7 @@ func _on_menu_button_pressed():
 	if not isEmpty:
 		inventoryNode.equip_button.visible = !inventoryNode.equip_button.visible
 		inventoryNode.discard_button.visible = !inventoryNode.discard_button.visible
-		inventoryNode.index = index
+		inventoryNode.selected_index = index
 		inventoryNode.selected = data
 		inventoryNode.update_description(data)
 

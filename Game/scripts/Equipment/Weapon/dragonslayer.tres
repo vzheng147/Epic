@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b1rpsijd7emcu"]
+
+[ext_resource type="Texture2D" uid="uid://codh2qe1m5ypb" path="res://assets/Equipment/Pixel Blades Pack 1/Blades 1/Shortsword_Spidersilk00.png" id="1_m7cm3"]
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_qth4t"]
+
+[resource]
+script = ExtResource("2_qth4t")
+type = 0
+item_name = "Dragonslayer"
+item_texture = ExtResource("1_m7cm3")
+price = 0
+description = "Dragonslayer
+Attack: 105
+\"Countless dragons have fallen before the might of this blade.\""
+attack = 105
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0
