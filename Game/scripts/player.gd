@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var one_second_heal = $OneSecondHeal
 @onready var dash_timer = $Dash_Timer
 @onready var range_timer = $Range_Timer
-@onready var spinning_sword = load("res://scenes/spinning_sword.tscn")
+@onready var spinning_sword = preload("res://scenes/spinning_sword.tscn")
 
 # state variables (do not change)
 var is_attacking = false
@@ -35,7 +35,7 @@ var total_xp = 10
 var gold = 20
 var attack = 3
 var defense = 1
-var max_health = 120
+var max_health = 700
 var health = max_health
 
 
@@ -91,7 +91,6 @@ func deal_damage(damage):
 
 func take_damage(damage):
 	damage = damage - defense
-	print(max_health)
 	health = health - damage
 
 	if health_bar:

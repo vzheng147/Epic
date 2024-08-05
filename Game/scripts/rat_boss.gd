@@ -9,6 +9,7 @@ enum State {
 }
 
 @onready var rat := $RigidBody2D/rat_sprite
+@onready var body := $RigidBody2D
 @onready var health_bar = $RigidBody2D/HealthBar
 @onready var attack_area2d := $RigidBody2D/attack_range
 @onready var skill_timer := $RigidBody2D/skill_timer
@@ -35,13 +36,13 @@ var speed: float = 85  # Rat's movement speed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_bar.value = (float(health) / max_health) * 100
+	summon_timer.start()
 	player = get_parent().get_node("Player")
 
-@onready var body = $RigidBody2D
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	rat.rotation = 0
+	# to deter rotating sprite
+	body.rotation -= body.rotation
 	match current_state:
 		State.IDLE:
 			idle_state(delta)
@@ -130,6 +131,7 @@ func skill_state(delta):
 func summon_state(delta):
 	if is_summoning:
 		return
+	print("summon")
 	is_summoning = true
 	var rat_minion_scene = preload("res://scenes/Enemy/rat_minion.tscn")
 	rat.play("summon");

@@ -353,10 +353,10 @@ position = Vector2(22.5, 9.75)
 shape = SubResource("RectangleShape2D_3oavk")
 
 [node name="skill_timer" type="Timer" parent="RigidBody2D"]
-wait_time = 4.0
+wait_time = 6.0
 
 [node name="summon_timer" type="Timer" parent="RigidBody2D"]
-wait_time = 8.0
+wait_time = 5.0
 
 [node name="HealthBar" parent="RigidBody2D" instance=ExtResource("3_4krco")]
 offset_left = -17.0

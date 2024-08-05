@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bsgilrpdfy1qp"]
+[gd_scene load_steps=22 format=3 uid="uid://b7gs3i5dliiwh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_c5wiw"]
 [ext_resource type="Texture2D" uid="uid://dwmyfwc7wgdbp" path="res://assets/sprites/new/rougelikegame-Sheet.png" id="2_kf0m4"]

@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxmuqgxecl4yv"]
+[gd_scene load_steps=7 format=3 uid="uid://di0kbnielklpr"]
 
-[ext_resource type="Script" path="res://scripts/Trap/fire_trap.gd" id="1_yi04a"]
-[ext_resource type="Texture2D" uid="uid://cf1wbebs73usa" path="res://assets/Trap Pack 2/Fire Trap/PNGs/Fire Trap - Level 1.png" id="2_3v43m"]
+[ext_resource type="Script" path="res://scripts/Trap/sandworm.gd" id="1_ao0wb"]
+[ext_resource type="Texture2D" uid="uid://cy7dllh7ohfw4" path="res://assets/Trap Pack 2/Sandworm Trap/PNGs/Sandworm trap - Level 1.png" id="2_whqxi"]
 
-[sub_resource type="Animation" id="Animation_vqq21"]
+[sub_resource type="Animation" id="Animation_wm2vs"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -30,9 +30,9 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_ykjru"]
+[sub_resource type="Animation" id="Animation_kd8hj"]
 resource_name = "activate"
-length = 1.3
+length = 2.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -41,10 +41,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.7, 0.9, 1, 1.1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.6, 0.8, 1.1, 1.4, 1.6, 1.8, 2, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8]
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -53,39 +53,39 @@ tracks/1/path = NodePath("CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
+"times": PackedFloat32Array(0, 0.8, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rval"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0i1u"]
 _data = {
-"RESET": SubResource("Animation_vqq21"),
-"activate": SubResource("Animation_ykjru")
+"RESET": SubResource("Animation_wm2vs"),
+"activate": SubResource("Animation_kd8hj")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jopag"]
-size = Vector2(21.5, 30.4375)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cskq2"]
+size = Vector2(23, 24)
 
-[node name="Fire" type="Area2D"]
-script = ExtResource("1_yi04a")
+[node name="Sandworm" type="Area2D"]
+script = ExtResource("1_ao0wb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -19)
-scale = Vector2(1.42187, 1.00781)
-texture = ExtResource("2_3v43m")
-hframes = 9
+position = Vector2(-2.5, -2)
+scale = Vector2(0.84375, 0.875)
+texture = ExtResource("2_whqxi")
+hframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8rval")
+"": SubResource("AnimationLibrary_q0i1u")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.75, -6.78125)
-shape = SubResource("RectangleShape2D_jopag")
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_cskq2")
 disabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -78,6 +78,7 @@ libraries = {
 }
 
 [node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-1, 0)
 scale = Vector2(1.1875, 1.01562)
 texture = ExtResource("2_k6h04")
