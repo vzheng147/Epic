@@ -16,6 +16,7 @@ enum State {
 @onready var summon_timer := $RigidBody2D/summon_timer
 
 # initializing game-state variables (do not change!)
+var rat_minion_scene = preload("res://scenes/Enemy/rat_minion.tscn")
 var player : CharacterBody2D = null
 var current_state : State = State.IDLE
 var player_in_attack_range : bool = false
@@ -133,7 +134,6 @@ func summon_state(delta):
 		return
 	print("summon")
 	is_summoning = true
-	var rat_minion_scene = preload("res://scenes/Enemy/rat_minion.tscn")
 	rat.play("summon");
 	await rat.animation_finished	
 	var rat_minion_instance = rat_minion_scene.instantiate()

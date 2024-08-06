@@ -6,11 +6,16 @@ enum State {
 	ATTACKING
 }
 
-@onready var rat = $rat_sprite
-@onready var attack_area2d = $attack_range
 
-var max_health = 300
-var health
+@export var respawn_time : int
+@export var respawn_location : Vector2
+@export var sight_range : Area2D
+
+@onready var root_scene = get_parent()
+@onready var body = $RigidBody2D
+@onready var rat = $RigidBody2D/rat_sprite
+@onready var attack_area2d = $RigidBody2D/attack_range
+@onready var health_bar = $RigidBody2D/HealthBar
 
 # initializing game-state variables (do not change!)
 var player : CharacterBody2D = null
@@ -19,21 +24,49 @@ var player_in_attack_range : bool = false
 var is_attacking : bool = false
 
 # Adjust these ranges as per your game design
+var max_health : int = 200
+var health : int = max_health
+var attack : int = 50
+var defense : int = 5
 var chase_range: float = 500
 var attack_range: float = 30
 var speed: float = 85  # Rat's movement speed
 
-
-func isEnemya():
-	pass
-	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_node("Player")
+	health_bar.value = (float(health) / max_health) * 100
 	health = max_health
+	global_position = respawn_location
+
+
+func take_damage(damage):
+	damage = damage - defense
+	health -= damage
+	if health_bar:
+		health_bar.value = (float(health) / max_health) * 100
+	if health <= 0:
+		rat.stop()
+		rat.play("death")
+		await rat.animation_finished
+		root_scene.spawn(scene_file_path, respawn_location, respawn_time)
+		queue_free()
+		
+	
+
+func deal_damage(target, damage):
+	if target.name == "Player":
+		target.take_damage(damage)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	body.rotation -= body.rotation
+	
+	if not sight_range.player_in_range:
+		current_state = State.IDLE
+		
 	match current_state:
 		State.IDLE:
 			idle_state(delta)
@@ -102,3 +135,5 @@ func _on_attack_range_body_entered(body):
 func _on_attack_range_body_exited(body):
 	if body.name == "Player":
 		player_in_attack_range = false
+
+

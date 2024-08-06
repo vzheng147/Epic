@@ -7,10 +7,11 @@ bg_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 bg_color = Color(0.838493, 0.197884, 0.180875, 1)
 
 [node name="HealthBar" type="ProgressBar"]
-offset_left = -151.0
-offset_top = -44.0
-offset_right = 133.0
-offset_bottom = -21.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 82.0
+offset_bottom = 15.0
+scale = Vector2(0.2, 0.2)
 theme_override_styles/background = SubResource("StyleBoxFlat_rqdnr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_271e2")
 value = 50.0

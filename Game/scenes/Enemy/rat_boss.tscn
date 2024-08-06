@@ -362,7 +362,6 @@ wait_time = 5.0
 offset_left = -17.0
 offset_top = -11.0
 offset_right = 113.0
-offset_bottom = 15.0
 scale = Vector2(0.3, 0.3)
 
 [connection signal="body_entered" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_entered"]
