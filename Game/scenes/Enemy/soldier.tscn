@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bgu17r0xr1rfa"]
+[gd_scene load_steps=42 format=3 uid="uid://bgu17r0xr1rfa"]
 
 [ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="1_hbb5f"]
 [ext_resource type="Script" path="res://scripts/Enemy/soldier.gd" id="1_nu851"]
@@ -151,7 +151,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -220,7 +220,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"run",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -243,32 +243,57 @@ animations = [{
 }],
 "loop": false,
 "name": &"skill",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewqpp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0omg4"]
+size = Vector2(31, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d03eg"]
+size = Vector2(24, 32)
 
 [node name="Soldier" type="Node2D"]
 script = ExtResource("1_nu851")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
-[node name="HealthBar" parent="RigidBody2D" instance=ExtResource("1_hbb5f")]
-offset_left = -7.0
-offset_right = 83.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
 texture_filter = 1
+position = Vector2(0, -11)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_fy3bk")
-animation = &"attack"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_ewqpp")
 
-[node name="Area2D" type="Area2D" parent="RigidBody2D"]
+[node name="attack_range" type="Area2D" parent="RigidBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
-position = Vector2(28, 7)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/attack_range"]
+position = Vector2(13.5, -17)
 shape = SubResource("RectangleShape2D_0omg4")
+
+[node name="skill_range" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/skill_range"]
+position = Vector2(17, -16)
+shape = SubResource("RectangleShape2D_d03eg")
+
+[node name="HealthBar" parent="RigidBody2D" instance=ExtResource("1_hbb5f")]
+offset_left = -15.0
+offset_top = -38.0
+offset_right = 140.0
+offset_bottom = 5.0
+theme_override_font_sizes/font_size = 25
+
+[node name="Skill" type="Timer" parent="RigidBody2D"]
+wait_time = 4.0
+
+[connection signal="body_entered" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="RigidBody2D/skill_range" to="." method="_on_skill_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/skill_range" to="." method="_on_skill_range_body_exited"]
+[connection signal="timeout" from="RigidBody2D/Skill" to="." method="_on_skill_timeout"]

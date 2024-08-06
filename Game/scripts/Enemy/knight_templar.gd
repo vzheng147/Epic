@@ -37,8 +37,8 @@ var health : int = max_health
 var attack : int = 50
 var defense : int = 5
 var chase_range: float = 500
-var attack_range: float = 28
-var skill_range: float = 30
+var attack_range: float = 30
+var skill_range: float = 35
 var speed: float = 85  # Rat's movement speed
 
 # Called when the node enters the scene tree for the first time.

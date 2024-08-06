@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://7lx5ykc3ydht"]
+[gd_scene load_steps=36 format=3 uid="uid://7lx5ykc3ydht"]
 
 [ext_resource type="Texture2D" uid="uid://dlsqeklj32i3a" path="res://assets/sprites/Ratfolk Axe Sprite Sheet.png" id="1_hhqaw"]
 [ext_resource type="Script" path="res://scripts/rat_minion.gd" id="1_wylcd"]
@@ -75,22 +75,6 @@ region = Rect2(192, 128, 64, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cltu1"]
 atlas = ExtResource("1_hhqaw")
 region = Rect2(256, 128, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dmddd"]
-atlas = ExtResource("1_hhqaw")
-region = Rect2(0, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dm3vh"]
-atlas = ExtResource("1_hhqaw")
-region = Rect2(64, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pe8gb"]
-atlas = ExtResource("1_hhqaw")
-region = Rect2(128, 96, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0312x"]
-atlas = ExtResource("1_hhqaw")
-region = Rect2(192, 96, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbps4"]
 atlas = ExtResource("1_hhqaw")
@@ -205,23 +189,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dmddd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dm3vh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pe8gb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0312x")
-}],
-"loop": false,
-"name": &"hurt",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_lbps4")
 }, {
 "duration": 1.0,
@@ -290,10 +257,8 @@ texture_filter = 1
 position = Vector2(0, -20)
 scale = Vector2(1.0625, 1.21875)
 sprite_frames = SubResource("SpriteFrames_3vm5g")
-animation = &"attack"
+animation = &"run"
 autoplay = "idle"
-frame = 11
-frame_progress = 1.0
 
 [node name="attack_range" type="Area2D" parent="RigidBody2D"]
 

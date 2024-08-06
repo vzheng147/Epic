@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bt58by38n1j5u"]
+[gd_scene load_steps=26 format=3 uid="uid://bt58by38n1j5u"]
 
 [ext_resource type="Script" path="res://scripts/World/world.gd" id="1_hfts0"]
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="2_74gyj"]
@@ -18,12 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://bjecsichhig3f" path="res://scenes/Trap/sandworm_2.tscn" id="16_rndiu"]
 [ext_resource type="PackedScene" uid="uid://di0kbnielklpr" path="res://scenes/Trap/sandworm_1.tscn" id="17_nkrqs"]
 [ext_resource type="PackedScene" uid="uid://cpdcy7la1w1np" path="res://scenes/Trap/arrow_trap_1.tscn" id="18_65dm1"]
-[ext_resource type="PackedScene" uid="uid://7lx5ykc3ydht" path="res://scenes/Enemy/rat_minion.tscn" id="19_8pt3b"]
 [ext_resource type="PackedScene" uid="uid://b4qolo6x8s1ai" path="res://scenes/Trap/arrow_trap_2.tscn" id="19_71nkm"]
 [ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/parallax_background_1.tscn" id="20_sjcxd"]
 [ext_resource type="Script" path="res://scripts/World/enemy_aggression_range.gd" id="22_2wn6f"]
-[ext_resource type="PackedScene" uid="uid://c7latg728gkxa" path="res://scenes/Enemy/knight.tscn" id="23_po8wl"]
-[ext_resource type="PackedScene" uid="uid://cqeqwyhcry7pk" path="res://scenes/Enemy/armored_axeman.tscn" id="24_y305n"]
+[ext_resource type="PackedScene" uid="uid://b7bwa8ti4go1g" path="res://scenes/Enemy/minotaur_boss.tscn" id="22_jsd53"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3e1k"]
 texture = ExtResource("3_58k38")
@@ -508,12 +506,6 @@ damage = 80
 [node name="ArrowTrap2" parent="." instance=ExtResource("19_71nkm")]
 position = Vector2(174, 143)
 
-[node name="rat_minion" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("19_8pt3b")]
-position = Vector2(575, 15)
-respawn_time = 2
-respawn_location = Vector2(550, 2.08165e-12)
-sight_range = NodePath("../Area2D")
-
 [node name="ParallaxBackground" parent="." instance=ExtResource("20_sjcxd")]
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -523,11 +515,8 @@ script = ExtResource("22_2wn6f")
 position = Vector2(474, -16)
 shape = SubResource("RectangleShape2D_x08il")
 
-[node name="Knight" parent="." instance=ExtResource("23_po8wl")]
-position = Vector2(197, 12)
-
-[node name="Armored Axeman" parent="." instance=ExtResource("24_y305n")]
-position = Vector2(305, 12)
+[node name="minotaur_boss" parent="." instance=ExtResource("22_jsd53")]
+position = Vector2(517, 12)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

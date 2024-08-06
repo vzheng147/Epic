@@ -26,9 +26,9 @@ color = Color(0.196078, 0.196078, 0.196078, 0.784314)
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
 offset_left = 116.0
-offset_top = 95.0
+offset_top = 80.0
 offset_right = 762.0
-offset_bottom = 617.0
+offset_bottom = 602.0
 theme_override_font_sizes/normal_font_size = 40
 text = "
 Zheng, Vincent
@@ -39,7 +39,9 @@ longxiweng20@gmail.com
 
 Lin, Shui
 shuilin9108@gmail.com
-"
+
+Han, Yvette
+Zhilin.Han@stonybrook.edu"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0

@@ -4,22 +4,33 @@ enum State {
 	IDLE,
 	CHASE,
 	ATTACK,
-	SWIRL
+	SWIRL,
+	FIRE
 }
 
 # variables for the child nodes
-@onready var minotaur = $minotaur_sprite
-@onready var attack_1_area2d = $attack_1_range
-@onready var attack_2_area2d = $attack_2_range
-@onready var swirl_area2d = $swirl_range
+@onready var body = $RigidBody2D
+@onready var minotaur = $RigidBody2D/minotaur_sprite
+@onready var attack_1_area2d = $RigidBody2D/attack_1_range
+@onready var attack_2_area2d = $RigidBody2D/attack_2_range
+@onready var swirl_area2d = $RigidBody2D/swirl_range
 @onready var swirl_timer = $swirl_cooldown
+@onready var fire_timer = $fire_timer
 @onready var health_bar = $RigidBody2D/HealthBar
+@onready var fire1 = $Fire
+@onready var fire2 = $Fire2
+@onready var fire3 = $Fire3
+@onready var fire4 = $Fire4
+@onready var fire5 = $Fire5
+@onready var fire6 = $Fire6
 
 # initializing game-state variables (do not change!)
 var player : CharacterBody2D = null
 var current_state : State = State.IDLE
 var is_attacking : bool = false
+var is_using_fire : bool = false
 var swirl_ready : bool = true
+var fire_ready : bool = true
 var in_attack_1_range = false
 var in_attack_2_range = false
 var in_swirl_range = false
@@ -34,17 +45,22 @@ var attack_range: float = 35 # switches from Chase to Attack
 var speed: float = 85  # Minotaur's movement speed
 var swirl_range = 44 # range that Minotaur will use swirl
 var charge_range = 150 # range that Minotaur will use charge
-var eruption_range = 200 # range that Minotaur will use eruption
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_bar.value = (float(health) / max_health) * 100
+	fire1.damage = 0
+	fire2.damage = 0
+	fire3.damage = 0
+	fire4.damage = 0
+	fire5.damage = 0
 	player = get_parent().get_node("Player")
 	
-@onready var body= $RigidBody2D
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	body.rotation -= body.rotation
+	
 	match current_state:
 		State.IDLE:
 			idle_state(delta)
@@ -54,6 +70,8 @@ func _process(delta):
 			attack_state(delta)
 		State.SWIRL:
 			swirl_state(delta)
+		State.FIRE:
+			fire_state(delta)
 	flip_towards_player()
 
 func take_damage(damage):
@@ -79,14 +97,14 @@ func idle_state(delta):
 func chase_state(delta):
 	minotaur.play("run")
 	move_towards_player(delta)
-	if player_in_range(swirl_range) and swirl_ready:
+	if fire_ready:
+		current_state = State.FIRE
+	elif player_in_range(swirl_range) and swirl_ready:
 		current_state = State.SWIRL
 	elif player_in_range(attack_range):
 		current_state = State.ATTACK
 	elif not player_in_range(chase_range):
 		current_state = State.IDLE
-
-
 
 func attack_state(delta):
 	
@@ -126,7 +144,52 @@ func swirl_state(delta):
 	
 	is_attacking = false
 	current_state = State.CHASE
+	
+func fire_state(delta):
+	
+	if is_using_fire:
+		return
+	
+	is_using_fire = true
+	minotaur.play("fire")
+	await minotaur.animation_finished
+	
+	activate_fire()
+	is_using_fire = false
+	fire_ready = false
+	fire_timer.start()
+	current_state = State.CHASE
 
+func activate_fire():
+	fire1.visible = true
+	fire2.visible = true
+	fire3.visible = true
+	fire4.visible = true
+	fire5.visible = true
+	fire6.visible = true
+	
+	fire1.damage = attack * 1.8
+	fire2.damage = attack * 1.8
+	fire3.damage = attack * 1.8
+	fire4.damage = attack * 1.8
+	fire5.damage = attack * 1.8
+	fire6.damage = attack * 1.8
+	
+	await get_tree().create_timer(4.0).timeout
+	
+	fire1.visible = false
+	fire2.visible = false
+	fire3.visible = false
+	fire4.visible = false
+	fire5.visible = false
+	fire6.visible = false
+	
+	fire1.damage = 0
+	fire2.damage = 0
+	fire3.damage = 0
+	fire4.damage = 0
+	fire5.damage = 0
+	fire6.damage = 0
 
 func player_in_range(range: float) -> bool:
 	return position.distance_to(player.position) < range
@@ -169,11 +232,16 @@ func _on_attack_2_range_body_exited(body):
 	if body == player:
 		in_attack_2_range = false
 
-func _on_swirl_cooldown_timeout():
-	swirl_ready = true
 
 func _on_swirl_range_body_entered(body):
 	in_swirl_range = true
 
 func _on_swirl_range_body_exited(body):
 	in_swirl_range = false
+
+
+func _on_swirl_cooldown_timeout():
+	swirl_ready = true
+	
+func _on_fire_timer_timeout():
+	fire_ready = true

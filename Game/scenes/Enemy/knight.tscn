@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c7latg728gkxa"]
+[gd_scene load_steps=48 format=3 uid="uid://c7latg728gkxa"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/knight.gd" id="1_mxl44"]
 [ext_resource type="Texture2D" uid="uid://l4x7nlh5b0q2" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight/Knight/Knight-Idle.png" id="1_vvoxl"]
@@ -178,7 +178,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -247,7 +247,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"run",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -285,13 +285,18 @@ animations = [{
 }],
 "loop": false,
 "name": &"skill",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3dao7"]
 radius = 9.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5qdv"]
+size = Vector2(46, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wg8"]
+size = Vector2(25, 34)
 
 [node name="Knight" type="Node2D"]
 script = ExtResource("1_mxl44")
@@ -303,7 +308,7 @@ texture_filter = 1
 position = Vector2(1, -11)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_60u1b")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
 
 [node name="HealthBar" parent="RigidBody2D" instance=ExtResource("2_mgqye")]
@@ -314,11 +319,26 @@ offset_bottom = -14.0
 scale = Vector2(0.3, 0.3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(2, -14)
+position = Vector2(2, -12)
 shape = SubResource("CapsuleShape2D_3dao7")
 
-[node name="Area2D" type="Area2D" parent="RigidBody2D"]
+[node name="skill_range" type="Area2D" parent="RigidBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
-position = Vector2(18, -10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/skill_range"]
+position = Vector2(32, -21)
+shape = SubResource("RectangleShape2D_y5qdv")
+
+[node name="attack_range" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/attack_range"]
+position = Vector2(20.5, -17)
 shape = SubResource("RectangleShape2D_s7wg8")
+
+[node name="Skill" type="Timer" parent="RigidBody2D"]
+wait_time = 5.0
+
+[connection signal="body_entered" from="RigidBody2D/skill_range" to="." method="_on_skill_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/skill_range" to="." method="_on_skill_range_body_exited"]
+[connection signal="body_entered" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="RigidBody2D/Skill" to="." method="_on_skill_timeout"]

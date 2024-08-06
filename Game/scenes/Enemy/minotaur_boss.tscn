@@ -1,8 +1,9 @@
-[gd_scene load_steps=65 format=3 uid="uid://b7bwa8ti4go1g"]
+[gd_scene load_steps=66 format=3 uid="uid://b7bwa8ti4go1g"]
 
 [ext_resource type="Script" path="res://minotaur_boss.gd" id="1_wevah"]
 [ext_resource type="Texture2D" uid="uid://b42n5r3ytpfss" path="res://assets/sprites/Minotaur - Sprite Sheet.png" id="2_6id5q"]
 [ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_7ta87"]
+[ext_resource type="PackedScene" uid="uid://b2i80at3jmubk" path="res://scenes/Trap/fire_trap_2.tscn" id="4_6nca3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgma8"]
 radius = 19.0
@@ -87,6 +88,30 @@ region = Rect2(384, 864, 96, 96)
 atlas = ExtResource("2_6id5q")
 region = Rect2(480, 864, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_44s2f"]
+atlas = ExtResource("2_6id5q")
+region = Rect2(0, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvwu7"]
+atlas = ExtResource("2_6id5q")
+region = Rect2(96, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d71w2"]
+atlas = ExtResource("2_6id5q")
+region = Rect2(192, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xige"]
+atlas = ExtResource("2_6id5q")
+region = Rect2(288, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww2tr"]
+atlas = ExtResource("2_6id5q")
+region = Rect2(384, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sujkn"]
+atlas = ExtResource("2_6id5q")
+region = Rect2(480, 480, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dayqk"]
 atlas = ExtResource("2_6id5q")
 region = Rect2(0, 768, 96, 96)
@@ -170,30 +195,6 @@ region = Rect2(576, 96, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_63yom"]
 atlas = ExtResource("2_6id5q")
 region = Rect2(672, 96, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_44s2f"]
-atlas = ExtResource("2_6id5q")
-region = Rect2(0, 480, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yvwu7"]
-atlas = ExtResource("2_6id5q")
-region = Rect2(96, 480, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d71w2"]
-atlas = ExtResource("2_6id5q")
-region = Rect2(192, 480, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2xige"]
-atlas = ExtResource("2_6id5q")
-region = Rect2(288, 480, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ww2tr"]
-atlas = ExtResource("2_6id5q")
-region = Rect2(384, 480, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sujkn"]
-atlas = ExtResource("2_6id5q")
-region = Rect2(480, 480, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l615k"]
 atlas = ExtResource("2_6id5q")
@@ -310,6 +311,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_44s2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvwu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d71w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xige")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww2tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sujkn")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_dayqk")
 }, {
 "duration": 1.0,
@@ -393,29 +417,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_44s2f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yvwu7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d71w2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2xige")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ww2tr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sujkn")
-}],
-"loop": false,
-"name": &"stomp",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_l615k")
 }, {
 "duration": 1.0,
@@ -466,45 +467,75 @@ position = Vector2(0, -20)
 shape = SubResource("CircleShape2D_lgma8")
 
 [node name="HealthBar" parent="RigidBody2D" instance=ExtResource("2_7ta87")]
-offset_left = -47.0
-offset_top = -68.0
-offset_right = 44.0
-offset_bottom = -45.0
+offset_left = -19.0
+offset_top = -50.0
+offset_right = 231.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 30
 
-[node name="minotaur_sprite" type="AnimatedSprite2D" parent="."]
+[node name="minotaur_sprite" type="AnimatedSprite2D" parent="RigidBody2D"]
 position = Vector2(3, -15)
 sprite_frames = SubResource("SpriteFrames_7n7m5")
-animation = &"death"
+animation = &"fire"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
+metadata/_edit_lock_ = true
 
-[node name="attack_1_range" type="Area2D" parent="."]
+[node name="attack_1_range" type="Area2D" parent="RigidBody2D"]
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_1_range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/attack_1_range"]
 position = Vector2(13, -28)
 shape = SubResource("RectangleShape2D_xxq3e")
+metadata/_edit_lock_ = true
 
-[node name="attack_2_range" type="Area2D" parent="."]
+[node name="attack_2_range" type="Area2D" parent="RigidBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_2_range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/attack_2_range"]
 position = Vector2(24, -10)
 shape = SubResource("RectangleShape2D_x4lci")
 
-[node name="charge_timer" type="Timer" parent="."]
-wait_time = 8.0
+[node name="swirl_range" type="Area2D" parent="RigidBody2D"]
 
-[node name="swirl_range" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="swirl_range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/swirl_range"]
 position = Vector2(7, -9.5)
 shape = SubResource("RectangleShape2D_3ah81")
+
+[node name="fire_timer" type="Timer" parent="."]
+wait_time = 8.0
 
 [node name="swirl_cooldown" type="Timer" parent="."]
 wait_time = 6.0
 
-[connection signal="body_entered" from="attack_1_range" to="." method="_on_attack_1_range_body_entered"]
-[connection signal="body_exited" from="attack_1_range" to="." method="_on_attack_1_range_body_exited"]
-[connection signal="body_entered" from="attack_2_range" to="." method="_on_attack_2_range_body_entered"]
-[connection signal="body_exited" from="attack_2_range" to="." method="_on_attack_2_range_body_exited"]
-[connection signal="body_entered" from="swirl_range" to="." method="_on_swirl_range_body_entered"]
-[connection signal="body_exited" from="swirl_range" to="." method="_on_swirl_range_body_exited"]
+[node name="Fire" parent="." instance=ExtResource("4_6nca3")]
+position = Vector2(-96, -8)
+damage = 50
+
+[node name="Fire2" parent="." instance=ExtResource("4_6nca3")]
+position = Vector2(-57, -8)
+damage = 50
+
+[node name="Fire3" parent="." instance=ExtResource("4_6nca3")]
+position = Vector2(60, -8)
+damage = 50
+
+[node name="Fire4" parent="." instance=ExtResource("4_6nca3")]
+position = Vector2(-18, -8)
+damage = 50
+
+[node name="Fire5" parent="." instance=ExtResource("4_6nca3")]
+position = Vector2(21, -8)
+damage = 50
+
+[node name="Fire6" parent="." instance=ExtResource("4_6nca3")]
+position = Vector2(99, -8)
+
+[connection signal="body_entered" from="RigidBody2D/attack_1_range" to="." method="_on_attack_1_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/attack_1_range" to="." method="_on_attack_1_range_body_exited"]
+[connection signal="body_entered" from="RigidBody2D/attack_2_range" to="." method="_on_attack_2_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/attack_2_range" to="." method="_on_attack_2_range_body_exited"]
+[connection signal="body_entered" from="RigidBody2D/swirl_range" to="." method="_on_swirl_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/swirl_range" to="." method="_on_swirl_range_body_exited"]
+[connection signal="timeout" from="fire_timer" to="." method="_on_fire_timer_timeout"]
 [connection signal="timeout" from="swirl_cooldown" to="." method="_on_swirl_cooldown_timeout"]

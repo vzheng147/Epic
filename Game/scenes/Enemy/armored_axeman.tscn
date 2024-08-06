@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://cqeqwyhcry7pk"]
+[gd_scene load_steps=51 format=3 uid="uid://cqeqwyhcry7pk"]
 
 [ext_resource type="Texture2D" uid="uid://b6b008sjmj8ag" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Idle.png" id="1_6uva4"]
 [ext_resource type="Script" path="res://scripts/Enemy/armored_axeman.gd" id="1_s4xds"]
 [ext_resource type="Texture2D" uid="uid://dyp73bu81jpe8" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Attack01.png" id="2_mbvgv"]
 [ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_xcist"]
+[ext_resource type="Texture2D" uid="uid://bi4vaboaig7jd" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Death.png" id="4_rqxxj"]
 [ext_resource type="Texture2D" uid="uid://cvftfe2g8ltj2" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Walk.png" id="4_vov8q"]
 [ext_resource type="Texture2D" uid="uid://14k6ro0yucom" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Attack03.png" id="5_qaxoa"]
 
@@ -42,6 +43,22 @@ region = Rect2(700, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_uf8n8"]
 atlas = ExtResource("2_mbvgv")
 region = Rect2(800, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulh0h"]
+atlas = ExtResource("4_rqxxj")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmiab"]
+atlas = ExtResource("4_rqxxj")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8heuw"]
+atlas = ExtResource("4_rqxxj")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmwdn"]
+atlas = ExtResource("4_rqxxj")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63sej"]
 atlas = ExtResource("1_6uva4")
@@ -179,9 +196,21 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulh0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmiab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8heuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmwdn")
+}],
 "loop": false,
 "name": &"death",
 "speed": 5.0
@@ -236,7 +265,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"run",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -275,40 +304,61 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2lfxm")
 }],
-"loop": true,
+"loop": false,
 "name": &"skill",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0u7xj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ptet"]
+size = Vector2(30, 31.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ojht"]
+size = Vector2(33.8333, 31.3333)
 
 [node name="Armored Axeman" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_s4xds")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
+[node name="HealthBar" parent="RigidBody2D" instance=ExtResource("2_xcist")]
+offset_left = -16.6667
+offset_top = -37.3333
+offset_right = 140.333
+offset_bottom = 0.666664
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
 texture_filter = 1
-position = Vector2(-3, -11)
+position = Vector2(-1.33333, -10.6667)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ke6b6")
-animation = &"skill"
+animation = &"death"
 autoplay = "idle"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(3, -11)
+position = Vector2(1.33334, -14.6667)
 shape = SubResource("CapsuleShape2D_0u7xj")
 
-[node name="Area2D" type="Area2D" parent="RigidBody2D"]
+[node name="attack_range" type="Area2D" parent="RigidBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
-position = Vector2(36, -20)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/attack_range"]
+position = Vector2(19.6667, -16.3333)
 shape = SubResource("RectangleShape2D_8ptet")
 
-[node name="HealthBar" parent="." instance=ExtResource("2_xcist")]
-offset_left = -9.0
-offset_top = -13.0
-offset_right = 81.0
-offset_bottom = 10.0
+[node name="skill_range" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/skill_range"]
+position = Vector2(22.4167, -16.6667)
+shape = SubResource("RectangleShape2D_8ojht")
+
+[node name="Skill" type="Timer" parent="RigidBody2D"]
+wait_time = 4.0
+
+[connection signal="body_entered" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="RigidBody2D/skill_range" to="." method="_on_skill_range_body_entered"]
+[connection signal="body_exited" from="RigidBody2D/skill_range" to="." method="_on_skill_range_body_exited"]
+[connection signal="timeout" from="RigidBody2D/Skill" to="." method="_on_skill_timeout"]
