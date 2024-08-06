@@ -22,8 +22,11 @@ var player : CharacterBody2D = null
 var current_state : State = State.IDLE
 var player_in_attack_range : bool = false
 var is_attacking : bool = false
+var is_pausing : bool = false
 
 # Adjust these ranges as per your game design
+var gold : int = 10
+var xp : int = 15
 var max_health : int = 200
 var health : int = max_health
 var attack : int = 50
@@ -50,6 +53,7 @@ func take_damage(damage):
 		rat.play("death")
 		await rat.animation_finished
 		root_scene.spawn(scene_file_path, respawn_location, respawn_time)
+		player.gain_gold_and_xp(gold, xp)
 		queue_free()
 		
 	
@@ -64,29 +68,39 @@ func _process(delta):
 	
 	body.rotation -= body.rotation
 	
-	if not sight_range.player_in_range:
-		current_state = State.IDLE
-		
+	if is_pausing:
+		return
+	
 	match current_state:
 		State.IDLE:
 			idle_state(delta)
+			return
 		State.CHASING:
 			chasing_state(delta)
 		State.ATTACKING:
 			attacking_state(delta)
 	flip_towards_player()
 
-func idle_state(delta):
-	rat.play("idle")
-	if player_in_range(chase_range):
+func idle_state(delta):	
+	
+	if global_position.distance_to(respawn_location) > 5:
+		rat.play("run")
+		move_towards_idle(delta)
+	else:
+		rat.play("idle")
+		
+	if sight_range.player_in_range and player_in_range(chase_range):
 		current_state = State.CHASING
+	
 
 func chasing_state(delta):
 	rat.play("run")
 	move_towards_player(delta)
 	if player_in_range(attack_range):
 		current_state = State.ATTACKING
-	elif not player_in_range(chase_range):
+	# pauses for one second before moving back to idle position
+	elif not player_in_range(chase_range) or not sight_range.player_in_range:
+		pause(1)
 		current_state = State.IDLE
 
 func attacking_state(delta):
@@ -108,9 +122,20 @@ func player_in_range(range: float) -> bool:
 
 func move_towards_player(delta):
 	var direction = (player.position - position).normalized()
-	direction.y = 0;
+	direction.y = 0
 	position += direction * speed * delta
 
+func move_towards_idle(delta):
+	var direction = (respawn_location - position).normalized()
+	direction.y = 0
+	
+	# ensure the sprite is facing the right way
+	if direction.x > 0:
+		rat.flip_h = false
+	else:
+		rat.flip_h = true
+		
+	position += direction * speed * delta
 
 # Function to flip the Area2D horizontally
 func flip_area2d_horizontally(area: Area2D, flip: bool):
@@ -126,6 +151,12 @@ func flip_towards_player():
 		rat.flip_h = false
 		flip_area2d_horizontally(attack_area2d, false)
 	
+func pause(time):
+	rat.stop()
+	rat.play("idle")
+	is_pausing = true
+	await get_tree().create_timer(time).timeout
+	is_pausing = false
 
 func _on_attack_range_body_entered(body):
 	if body.name == "Player":

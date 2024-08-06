@@ -42,6 +42,13 @@ var health = max_health
 func _ready():
 	health_bar.value = 100
 	
+
+func gain_gold_and_xp(gold_gained, xp_gained):
+	gold += gold_gained
+	xp += xp_gained
+	inventory.update_label()
+	
+	
 func level_up():
 	level += 1
 	xp -= total_xp

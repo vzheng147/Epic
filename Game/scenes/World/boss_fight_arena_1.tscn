@@ -507,9 +507,9 @@ damage = 80
 position = Vector2(174, 143)
 
 [node name="rat_minion" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("19_8pt3b")]
-position = Vector2(401, 16)
+position = Vector2(575, 15)
 respawn_time = 2
-respawn_location = Vector2(250, 2.08165e-12)
+respawn_location = Vector2(550, 2.08165e-12)
 sight_range = NodePath("../Area2D")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("20_sjcxd")]
@@ -518,7 +518,7 @@ sight_range = NodePath("../Area2D")
 script = ExtResource("22_2wn6f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(224, -18)
+position = Vector2(474, -16)
 shape = SubResource("RectangleShape2D_x08il")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
