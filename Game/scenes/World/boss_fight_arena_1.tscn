@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bt58by38n1j5u"]
+[gd_scene load_steps=28 format=3 uid="uid://bt58by38n1j5u"]
 
 [ext_resource type="Script" path="res://scripts/World/world.gd" id="1_hfts0"]
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="2_74gyj"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://b4qolo6x8s1ai" path="res://scenes/Trap/arrow_trap_2.tscn" id="19_71nkm"]
 [ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/parallax_background_1.tscn" id="20_sjcxd"]
 [ext_resource type="Script" path="res://scripts/World/enemy_aggression_range.gd" id="22_2wn6f"]
+[ext_resource type="PackedScene" uid="uid://c7latg728gkxa" path="res://scenes/Enemy/knight.tscn" id="23_po8wl"]
+[ext_resource type="PackedScene" uid="uid://cqeqwyhcry7pk" path="res://scenes/Enemy/armored_axeman.tscn" id="24_y305n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3e1k"]
 texture = ExtResource("3_58k38")
@@ -454,7 +456,7 @@ position = Vector2(62, 3)
 drop = ExtResource("6_gupj5")
 
 [node name="Spike" parent="." instance=ExtResource("6_stsvf")]
-position = Vector2(226, 118)
+position = Vector2(264, 18)
 damage = 10
 
 [node name="Falling_Rock" parent="." instance=ExtResource("7_3xx0x")]
@@ -484,7 +486,7 @@ position = Vector2(594, 127)
 damage = 50
 
 [node name="FireBreather2" parent="." instance=ExtResource("13_51pc6")]
-position = Vector2(133, 97)
+position = Vector2(219, -4)
 damage = 100
 
 [node name="Stomper" parent="." instance=ExtResource("15_6eboa")]
@@ -520,6 +522,12 @@ script = ExtResource("22_2wn6f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(474, -16)
 shape = SubResource("RectangleShape2D_x08il")
+
+[node name="Knight" parent="." instance=ExtResource("23_po8wl")]
+position = Vector2(197, 12)
+
+[node name="Armored Axeman" parent="." instance=ExtResource("24_y305n")]
+position = Vector2(305, 12)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

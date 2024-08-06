@@ -22,8 +22,8 @@ var is_recovering = false
 var is_healing_one = false
 
 
-var SPEED = 130.0
-var JUMP_VELOCITY = -350.0
+var SPEED = 145.0
+var JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -141,7 +141,7 @@ func _input(event):
 		var original_speed = SPEED
 		var original_jump = JUMP_VELOCITY
 		SPEED = SPEED * 2.2
-		JUMP_VELOCITY += -50
+		JUMP_VELOCITY += -60
 		
 		await get_tree().create_timer(1.0).timeout
 	

@@ -303,7 +303,6 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j00qv"]
 radius = 6.0
-height = 26.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t8yk"]
 bg_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
@@ -312,34 +311,32 @@ bg_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 bg_color = Color(0.838493, 0.197884, 0.180875, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1efqh"]
-size = Vector2(20, 12)
+size = Vector2(23, 13)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_0hjod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -13)
-scale = Vector2(0.463333, 0.5)
+position = Vector2(-1, -15)
+scale = Vector2(0.528541, 0.578125)
 sprite_frames = SubResource("SpriteFrames_ilihh")
-animation = &"range"
+animation = &"idle"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 7
-position = Vector2(0, -12)
+position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_j00qv")
 
 [node name="Inventory" parent="." instance=ExtResource("4_5u5gl")]
 visible = false
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -12.0
-offset_top = -34.0
-offset_right = 72.0
-offset_bottom = -11.0
+offset_left = -15.0
+offset_top = -39.0
+offset_right = 85.0
+offset_bottom = -16.0
 scale = Vector2(0.3, 0.3)
 theme_override_styles/background = SubResource("StyleBoxFlat_5t8yk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eu12n")
@@ -348,7 +345,7 @@ value = 50.0
 [node name="attack_range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
-position = Vector2(19, -8)
+position = Vector2(20.5, -8.5)
 shape = SubResource("RectangleShape2D_1efqh")
 
 [node name="Recover_Timer" type="Timer" parent="."]
@@ -357,9 +354,10 @@ wait_time = 8.0
 [node name="OneSecondHeal" type="Timer" parent="."]
 
 [node name="Dash_Timer" type="Timer" parent="."]
+wait_time = 4.0
 
 [node name="Range_Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 
 [node name="Shop" parent="." instance=ExtResource("8_jfxgl")]
 visible = false
