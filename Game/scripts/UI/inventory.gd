@@ -3,7 +3,8 @@ extends Control
 
 
 var equiped = [null, null, null]
-var inventory = ["res://scripts/Equipment/Armor/refined_armor.tres", "res://scripts/Equipment/Ring/ring_of_cyclops.tres",
+var inventory = ["res://scripts/Miscellaneous Resource/intelligence_letter.tres",
+"res://scripts/Equipment/Armor/refined_armor.tres", "res://scripts/Equipment/Ring/ring_of_cyclops.tres",
 "res://scripts/Equipment/Weapon/dragonslayer.tres", "res://scripts/Equipment/Weapon/shadowborne.tres",
 "res://scripts/Potions/Potions_Of_Vitality/large_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Vitality/medium_potion_of_vitality.tres",
 "res://scripts/Potions/Potions_Of_Vitality/small_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Strength/large_potion_of_strength.tres",
@@ -130,7 +131,7 @@ func _input(event):
 	
 
 func _on_use_pressed():
-	match selected.type: # {WEAPON, ARMOdR, ACCESSORY}
+	match selected.type: # {WEAPON, ARMOdR, ACCESSORY, POTION, LETTER}
 		0: 
 			if equiped[0]:
 				remove_item_from_equiped(0) 
@@ -152,6 +153,9 @@ func _on_use_pressed():
 			inventory.remove_at(selected_index)
 			reset_inventory_data()
 			update_inventory()
+		4:
+			player.letter.visible = true
+			visible = false
 			
 			
 	update_description(null)

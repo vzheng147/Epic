@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://bgu17r0xr1rfa"]
 
-[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="1_hbb5f"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="1_hbb5f"]
 [ext_resource type="Script" path="res://scripts/Enemy/soldier.gd" id="1_nu851"]
 [ext_resource type="Texture2D" uid="uid://vdyy1rfnanar" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Soldier/Soldier/Soldier-Attack01.png" id="2_sjg7g"]
 [ext_resource type="Texture2D" uid="uid://kni8biuwxxnc" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Soldier/Soldier/Soldier-Attack02.png" id="3_nlbvc"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Enemy/knight.gd" id="1_mxl44"]
 [ext_resource type="Texture2D" uid="uid://l4x7nlh5b0q2" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight/Knight/Knight-Idle.png" id="1_vvoxl"]
 [ext_resource type="Texture2D" uid="uid://cebc5u86884h4" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight/Knight/Knight-Attack01.png" id="2_3tb2b"]
-[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_mgqye"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="2_mgqye"]
 [ext_resource type="Texture2D" uid="uid://cduah03bdlibq" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight/Knight/Knight-Death.png" id="3_n8t4u"]
 [ext_resource type="Texture2D" uid="uid://b4k3s66nl8d43" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight/Knight/Knight-Walk.png" id="5_ewm0v"]
 [ext_resource type="Texture2D" uid="uid://bw43pqcsmgame" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight/Knight/Knight-Attack03.png" id="6_7x6lo"]

@@ -454,7 +454,7 @@ position = Vector2(62, 3)
 drop = ExtResource("6_gupj5")
 
 [node name="Spike" parent="." instance=ExtResource("6_stsvf")]
-position = Vector2(264, 18)
+position = Vector2(216, 113)
 damage = 10
 
 [node name="Falling_Rock" parent="." instance=ExtResource("7_3xx0x")]
@@ -484,7 +484,7 @@ position = Vector2(594, 127)
 damage = 50
 
 [node name="FireBreather2" parent="." instance=ExtResource("13_51pc6")]
-position = Vector2(219, -4)
+position = Vector2(139, 126)
 damage = 100
 
 [node name="Stomper" parent="." instance=ExtResource("15_6eboa")]
@@ -500,7 +500,7 @@ position = Vector2(402, 148)
 damage = 30
 
 [node name="ArrowTrap" parent="." instance=ExtResource("18_65dm1")]
-position = Vector2(268.25, -101)
+position = Vector2(88, -87)
 rotation = -0.523599
 scale = Vector2(0.911459, 0.875)
 damage = 80
@@ -515,8 +515,9 @@ position = Vector2(474, -16)
 shape = SubResource("RectangleShape2D_x08il")
 
 [node name="ArrowTrap2" parent="." instance=ExtResource("22_2vqbl")]
-position = Vector2(308, -1)
+position = Vector2(156.75, 103.999)
 rotation = 0.523599
+scale = Vector2(0.982274, 1.47877)
 
 [node name="Zilth" parent="." instance=ExtResource("22_k672s")]
 position = Vector2(444, 16)

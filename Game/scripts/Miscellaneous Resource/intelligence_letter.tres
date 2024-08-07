@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://csh1wsqi0ckig"]
+
+[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="1_6lwcj"]
+[ext_resource type="Texture2D" uid="uid://drkh3o60dh2eg" path="res://scripts/Miscellaneous Resource/Screenshot 2024-08-07 at 7.15.21 PM.png" id="1_ngu05"]
+
+[resource]
+script = ExtResource("1_6lwcj")
+type = 4
+item_name = "Intelligence Letter"
+item_texture = ExtResource("1_ngu05")
+price = 0
+description = "Intelligence Letter
+\"This is the letter returned by your scouts about the Castle.\""
+attack = 0
+defense = 0
+health = 0
+heal_amount = 0
+success_chance = 0

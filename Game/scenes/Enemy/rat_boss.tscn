@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/rat_boss.gd" id="1_dr3b0"]
 [ext_resource type="Texture2D" uid="uid://e5y1cdo3tnp5" path="res://assets/sprites/Ratfolk Warrior Sprite Sheet.png" id="1_poo8x"]
-[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="3_4krco"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="3_4krco"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cpho5"]
 radius = 16.0

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b6b008sjmj8ag" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Idle.png" id="1_6uva4"]
 [ext_resource type="Script" path="res://scripts/Enemy/armored_axeman.gd" id="1_s4xds"]
 [ext_resource type="Texture2D" uid="uid://dyp73bu81jpe8" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Attack01.png" id="2_mbvgv"]
-[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_xcist"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="2_xcist"]
 [ext_resource type="Texture2D" uid="uid://bi4vaboaig7jd" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Death.png" id="4_rqxxj"]
 [ext_resource type="Texture2D" uid="uid://cvftfe2g8ltj2" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Walk.png" id="4_vov8q"]
 [ext_resource type="Texture2D" uid="uid://14k6ro0yucom" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Armored Axeman/Armored Axeman/Armored Axeman-Attack03.png" id="5_qaxoa"]

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bfwu1vcxvfq3x" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight Templar/Knight Templar/Knight Templar-Idle.png" id="3_cbh2r"]
 [ext_resource type="Texture2D" uid="uid://0duvj8lqaagm" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight Templar/Knight Templar/Knight Templar-Walk01.png" id="4_xujdb"]
 [ext_resource type="Texture2D" uid="uid://ce0qpyldnlpwk" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Knight Templar/Knight Templar/Knight Templar-Attack03.png" id="5_1lb1l"]
-[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="6_20qfs"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="6_20qfs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vugc"]
 

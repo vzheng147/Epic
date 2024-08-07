@@ -1,7 +1,7 @@
 [gd_scene load_steps=69 format=3 uid="uid://bkb853gksa1dc"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/zilth.gd" id="1_0n55w"]
-[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_ol2lt"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="2_ol2lt"]
 [ext_resource type="Texture2D" uid="uid://b7vudqtpb54jf" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Swordsman/Swordsman/Swordsman-Attack01.png" id="2_slq21"]
 [ext_resource type="Texture2D" uid="uid://dpss1nnh6cqox" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Swordsman/Swordsman/Swordsman-Attack02.png" id="3_wp8qq"]
 [ext_resource type="Texture2D" uid="uid://bhki8yehvxyvr" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Swordsman/Swordsman/Swordsman-Death.png" id="4_j7nkp"]

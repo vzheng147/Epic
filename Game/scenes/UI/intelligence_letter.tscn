@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxcc3ue5fvmkx"]
+
+[ext_resource type="Script" path="res://scripts/Miscellaneous Resource/intelligence_letter.gd" id="1_t5v1q"]
+
+[node name="Letter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_t5v1q")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 118.0
+offset_right = 195.0
+offset_bottom = 156.0
+text = "Close"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -204.0
+offset_top = -145.0
+offset_right = 195.0
+offset_bottom = 118.0
+color = Color(0.196078, 0.196078, 0.196078, 0.784314)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "
+The first-floor guardian is Zilth, the Blade of Stonely Bruq. Renowned for her mastery of physics and computation, she is the architect behind all the traps within the castle. Be careful of the arrow traps at her disposal!
+
+Lance, the Horseman, guards the second floor. His swift movements in battle can catch opponents off guard. Be wary, as Zilth has deployed arrow traps to assist him.
+
+On the third floor, you will face the Minotaur. His fiery aura makes him a formidable adversary, burning anyone who comes too close. Watch for moments when his aura diminishes to strike.
+
+Little is known about the fourth and fifth floors, as our scouts have never made it that far. It is up to you, the Raven, to venture forth."
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

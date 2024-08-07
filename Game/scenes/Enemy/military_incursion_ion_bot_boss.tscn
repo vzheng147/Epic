@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/military_incursion_ion_bot_boss.gd" id="1_avay6"]
 [ext_resource type="Texture2D" uid="uid://bmpsthu425hok" path="res://assets/sprites/Military Incursion Bot Sprites/Military Incursion Bot Sprite Sheet.png" id="2_87u3c"]
-[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_hxuno"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="2_hxuno"]
 [ext_resource type="Texture2D" uid="uid://bqn0j1f7lxjkc" path="res://assets/sprites/Military Incursion Bot Sprites/Death Beam Sprite Sheet.png" id="3_5ussc"]
 [ext_resource type="Texture2D" uid="uid://b471mguwxpglj" path="res://assets/sprites/Military Incursion Bot Sprites/Death Beam Spawn Sprite Sheet.png" id="4_gt3k5"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/cyclops_boss.gd" id="1_52cm1"]
 [ext_resource type="Texture2D" uid="uid://im68qh2imk8y" path="res://assets/sprites/Cyclops Sprite Sheet.png" id="2_kv26t"]
-[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_mqbik"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="2_mqbik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aletv"]
 radius = 19.0

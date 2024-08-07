@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://d3o16yirjiwgd"]
+[gd_scene load_steps=52 format=3 uid="uid://d3o16yirjiwgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0hjod"]
 [ext_resource type="Texture2D" uid="uid://dwmyfwc7wgdbp" path="res://assets/sprites/new/rougelikegame-Sheet.png" id="2_h0jss"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjh8wxdo6qxtg" path="res://scenes/UI/inventory.tscn" id="4_5u5gl"]
 [ext_resource type="Texture2D" uid="uid://cqooof82uq0j4" path="res://assets/sprites/new/epic_run.png" id="4_rhvro"]
 [ext_resource type="Texture2D" uid="uid://ohn3tqlo3o66" path="res://rangeattack-Sheet.png" id="5_8qkeq"]
+[ext_resource type="PackedScene" uid="uid://bxcc3ue5fvmkx" path="res://scenes/UI/intelligence_letter.tscn" id="7_c3j0v"]
 [ext_resource type="PackedScene" uid="uid://cpl2xsw8he3o" path="res://scenes/UI/shop.tscn" id="8_jfxgl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55s14"]
@@ -329,9 +330,6 @@ light_mask = 7
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_j00qv")
 
-[node name="Inventory" parent="." instance=ExtResource("4_5u5gl")]
-visible = false
-
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -15.0
 offset_top = -39.0
@@ -358,6 +356,11 @@ wait_time = 4.0
 
 [node name="Range_Timer" type="Timer" parent="."]
 wait_time = 4.0
+
+[node name="Letter" parent="." instance=ExtResource("7_c3j0v")]
+
+[node name="Inventory" parent="." instance=ExtResource("4_5u5gl")]
+visible = false
 
 [node name="Shop" parent="." instance=ExtResource("8_jfxgl")]
 visible = false

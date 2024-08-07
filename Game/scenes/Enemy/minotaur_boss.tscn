@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Enemy/minotaur_boss.gd" id="1_wevah"]
 [ext_resource type="Texture2D" uid="uid://b42n5r3ytpfss" path="res://assets/sprites/Minotaur - Sprite Sheet.png" id="2_6id5q"]
-[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/World/health_bar.tscn" id="2_7ta87"]
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="2_7ta87"]
 [ext_resource type="PackedScene" uid="uid://b2i80at3jmubk" path="res://scenes/Trap/fire_trap_2.tscn" id="4_6nca3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgma8"]

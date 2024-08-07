@@ -1,6 +1,8 @@
 extends CharacterBody2D
 #this is the script that will move around our character 
 @onready var inventory = $Inventory
+@onready var shop = $Shop
+@onready var letter = $Letter
 @onready var flash_animation = $FlashAnimation
 @onready var health_bar = $HealthBar
 @onready var animated_sprite = $AnimatedSprite2D
