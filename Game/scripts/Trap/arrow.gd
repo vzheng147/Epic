@@ -11,7 +11,12 @@ var rot : float
 var dir : float
 
 func _ready():
-	arrow.global_position = pos
+	var adjustment : Vector2
+	if scene_file_path == "res://scenes/Trap/arrow_1.tscn":
+		adjustment = Vector2(0, -6)
+	if scene_file_path == "res://scenes/Trap/arrow_2.tscn":
+		adjustment = Vector2(0, 5)
+	arrow.global_position = pos - adjustment
 	arrow.global_rotation = rot
 	life.start()
 

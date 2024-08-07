@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://hfnda5q7gasb"]
+
+[ext_resource type="Script" path="res://scripts/Enemy/zilth_shadow.gd" id="1_nrt2y"]
+[ext_resource type="Texture2D" uid="uid://qnmnytkna0vy" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Swordsman/Swordsman/Swordsman-Attack3.png" id="1_p07pl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k4c4"]
+atlas = ExtResource("1_p07pl")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wtux"]
+atlas = ExtResource("1_p07pl")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtm3l"]
+atlas = ExtResource("1_p07pl")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04112"]
+atlas = ExtResource("1_p07pl")
+region = Rect2(800, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aky2e"]
+atlas = ExtResource("1_p07pl")
+region = Rect2(900, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gtt1"]
+atlas = ExtResource("1_p07pl")
+region = Rect2(1000, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idkkl"]
+atlas = ExtResource("1_p07pl")
+region = Rect2(1100, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wacrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k4c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wtux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtm3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04112")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aky2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gtt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idkkl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eew7g"]
+size = Vector2(41, 20)
+
+[node name="Zilth_Shadow" type="CharacterBody2D"]
+script = ExtResource("1_nrt2y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, -11)
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_wacrp")
+autoplay = "default"
+frame_progress = 0.389075
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(28.5, -11)
+shape = SubResource("RectangleShape2D_eew7g")
+
+[node name="Life" type="Timer" parent="."]
+wait_time = 2.5
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Life" to="." method="_on_life_timeout"]

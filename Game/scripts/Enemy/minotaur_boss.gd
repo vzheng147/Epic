@@ -44,7 +44,6 @@ var chase_range: float = 500 # switches from Idle to Chase
 var attack_range: float = 35 # switches from Chase to Attack
 var speed: float = 85  # Minotaur's movement speed
 var swirl_range = 44 # range that Minotaur will use swirl
-var charge_range = 150 # range that Minotaur will use charge
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
