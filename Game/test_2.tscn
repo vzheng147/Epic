@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4aoetyk34g7o"]
+
+[ext_resource type="PackedScene" uid="uid://c8lymd255yg6p" path="res://cannon.tscn" id="1_03rgo"]
+
+[node name="test2" type="Node2D"]
+
+[node name="cannon" parent="." instance=ExtResource("1_03rgo")]
+position = Vector2(455, 260)
+rotation = 0.523599

@@ -11,8 +11,9 @@ func _ready():
 
 func shoot():
 	var instance = arrow.instantiate()
-	instance.flip = flip
+	instance.dir = global_rotation + 1.57
+	instance.rot = global_rotation
+	instance.pos = global_position
 	instance.damage = damage
-	instance.spawnPosition = global_position
 	get_parent().add_child(instance)
 		

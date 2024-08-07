@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 @onready var arrow = $Sprite2D
 @onready var life = $Life
@@ -6,25 +6,28 @@ extends Area2D
 @export var SPEED = 325
 
 var damage : int
-var spawnPosition : Vector2
-var flip : bool
+var pos : Vector2
+var rot : float
+var dir : float
 
 func _ready():
-	global_position = spawnPosition
-	arrow.flip_h = flip
+	arrow.global_position = pos
+	arrow.global_rotation = rot
 	life.start()
 
-func _process(delta):
-	if not flip:
-		position += Vector2(-SPEED, 0) * delta
-	if flip:
-		position += Vector2(SPEED, 0) * delta
+func _physics_process(delta):
+	
+	velocity = Vector2(0, SPEED).rotated(dir)
 
-func _on_body_entered(body):
-	if body.name == "Player":
-		player.take_damage(damage)
-	queue_free()
+	move_and_slide()
 
 
 func _on_life_timeout():
+	queue_free()
+
+
+func _on_area_2d_body_entered(body):
+	print("HI")
+	if body.name == "Player":
+		player.take_damage(damage)
 	queue_free()
