@@ -10,7 +10,7 @@ item_name = "Intelligence Letter"
 item_texture = ExtResource("1_ngu05")
 price = 0
 description = "Intelligence Letter
-\"This is the letter returned by your scouts about the Castle.\""
+\"This is the letter returned by your scouts concerning Darkfort.\""
 attack = 0
 defense = 0
 health = 0

@@ -226,7 +226,7 @@ func flip_towards_player():
 	else:
 		zilth.flip_h = false
 		flip_area2d_horizontally(attack_area2d, false)
-		flip_area2d_horizontally(skill_area2d, true)
+		flip_area2d_horizontally(skill_area2d, false)
 
 
 
