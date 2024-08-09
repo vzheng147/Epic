@@ -231,10 +231,13 @@ func flip_towards_player():
 
 
 func _on_attack_range_body_entered(body):
-	in_attack_range = true
+	if body.name == "Player":
+		in_attack_range = true
+
 
 func _on_attack_range_body_exited(body):
-	in_attack_range = false
+	if body.name == "Player":
+		in_attack_range = false
 
 
 func _on_skill_timeout():
@@ -242,11 +245,13 @@ func _on_skill_timeout():
 
 
 func _on_skill_range_body_entered(body):
-	in_skill_range = true
+	if body.name == "Player":
+		in_skill_range = true
 
 
 func _on_skill_range_body_exited(body):
-	in_skill_range = false
+	if body.name == "Player":
+		in_skill_range = false
 
 
 func _on_arrows_timeout():

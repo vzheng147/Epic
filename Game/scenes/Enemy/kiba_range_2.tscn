@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://vy1xkkthnpcw"]
+
+[ext_resource type="Script" path="res://scripts/Enemy/kiba_range_2.gd" id="1_f347h"]
+[ext_resource type="Texture2D" uid="uid://bw0krrbt5owel" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Werewolf/Werewolf(Split Effects)/Werewolf-Attack02_Effect.png" id="2_06i1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdetk"]
+size = Vector2(8, 29.5)
+
+[node name="Kiba_Range" type="CharacterBody2D"]
+script = ExtResource("1_f347h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_06i1l")
+region_enabled = true
+region_rect = Rect2(734, 0, 76, 87)
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_hdetk")
+
+[node name="Life" type="Timer" parent="."]
+wait_time = 2.5
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Life" to="." method="_on_life_timeout"]

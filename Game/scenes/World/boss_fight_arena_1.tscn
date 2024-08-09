@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/parallax_background_1.tscn" id="20_sjcxd"]
 [ext_resource type="PackedScene" uid="uid://b4qolo6x8s1ai" path="res://scenes/Trap/arrow_trap_2.tscn" id="22_2vqbl"]
 [ext_resource type="Script" path="res://scripts/World/enemy_aggression_range.gd" id="22_2wn6f"]
-[ext_resource type="PackedScene" uid="uid://ch1o87s0ixhnf" path="res://scenes/Enemy/lance.tscn" id="23_lysdm"]
+[ext_resource type="PackedScene" uid="uid://dqf5s8nyygymc" path="res://scenes/Enemy/kiba.tscn" id="22_wldgl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3e1k"]
 texture = ExtResource("3_58k38")
@@ -519,8 +519,8 @@ position = Vector2(156.75, 103.999)
 rotation = 0.523599
 scale = Vector2(0.982274, 1.47877)
 
-[node name="Lance" parent="." instance=ExtResource("23_lysdm")]
-position = Vector2(288, 16)
+[node name="Kiba" parent="." instance=ExtResource("22_wldgl")]
+position = Vector2(319, 14)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
