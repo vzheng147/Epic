@@ -134,7 +134,7 @@ func skill_state(delta):
 	
 	kiba.play("skill")
 	
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(.9).timeout
 	var player_back : int
 	if player.animated_sprite.flip_h == false:
 		player_back = -30

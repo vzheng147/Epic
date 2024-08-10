@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7dq1u6b6mtvi"]
+
+[ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="1_sqspg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvbra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyyb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggtdt"]
+
+[node name="Armored_Skeleton" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="HealthBar" parent="RigidBody2D" instance=ExtResource("1_sqspg")]
+offset_left = -11.0
+offset_top = -26.0
+offset_right = 134.0
+offset_bottom = 9.0
+
+[node name="attack_range" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/attack_range"]
+position = Vector2(-47, 23)
+shape = SubResource("RectangleShape2D_uvbra")
+
+[node name="skill_range" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/skill_range"]
+position = Vector2(-16, 44)
+shape = SubResource("RectangleShape2D_tyyb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-45, -35)
+shape = SubResource("RectangleShape2D_ggtdt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+
+[node name="Skill" type="Timer" parent="."]

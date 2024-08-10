@@ -233,10 +233,12 @@ func _on_attack_2_range_body_exited(body):
 
 
 func _on_swirl_range_body_entered(body):
-	in_swirl_range = true
+	if body == player:
+		in_swirl_range = true
 
 func _on_swirl_range_body_exited(body):
-	in_swirl_range = false
+	if body == player:
+		in_swirl_range = false
 
 
 func _on_swirl_cooldown_timeout():
