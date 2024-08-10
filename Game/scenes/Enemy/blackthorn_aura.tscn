@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://bft84mt85akri"]
+
+[ext_resource type="Texture2D" uid="uid://dre2pvgunl2af" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Orc rider/Orc rider(Split Effects)/Orc rider-Attack03_Effect.png" id="1_8wkiv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn4dd"]
+atlas = ExtResource("1_8wkiv")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbrhj"]
+atlas = ExtResource("1_8wkiv")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvegw"]
+atlas = ExtResource("1_8wkiv")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdpqu"]
+atlas = ExtResource("1_8wkiv")
+region = Rect2(800, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4hnv"]
+atlas = ExtResource("1_8wkiv")
+region = Rect2(900, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lo5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn4dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbrhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvegw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdpqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4hnv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[node name="blackthorn_aura" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, 15.025)
+scale = Vector2(0.9, 0.4595)
+sprite_frames = SubResource("SpriteFrames_0lo5r")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.116774
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, 35)
+scale = Vector2(0.9, 0.459)
+sprite_frames = SubResource("SpriteFrames_0lo5r")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.359996
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, 49.975)
+scale = Vector2(0.9, 0.4595)
+sprite_frames = SubResource("SpriteFrames_0lo5r")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.553589

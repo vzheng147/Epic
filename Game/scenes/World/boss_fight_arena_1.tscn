@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/parallax_background_1.tscn" id="20_sjcxd"]
 [ext_resource type="PackedScene" uid="uid://b4qolo6x8s1ai" path="res://scenes/Trap/arrow_trap_2.tscn" id="22_2vqbl"]
 [ext_resource type="Script" path="res://scripts/World/enemy_aggression_range.gd" id="22_2wn6f"]
-[ext_resource type="PackedScene" uid="uid://btqxg2k2gop0j" path="res://scenes/Enemy/archer.tscn" id="22_aldwn"]
+[ext_resource type="PackedScene" uid="uid://ctws7bjev4qir" path="res://scenes/Enemy/blackthorn.tscn" id="22_vab4n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3e1k"]
 texture = ExtResource("3_58k38")
@@ -436,7 +436,7 @@ size = Vector2(237, 66)
 script = ExtResource("1_hfts0")
 
 [node name="Player" parent="." instance=ExtResource("2_74gyj")]
-position = Vector2(118, -6)
+position = Vector2(286, 21)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
@@ -519,10 +519,8 @@ position = Vector2(156.75, 103.999)
 rotation = 0.523599
 scale = Vector2(0.982274, 1.47877)
 
-[node name="Archer" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("22_aldwn")]
-position = Vector2(476, 16)
-respawn_location = Vector2(550, 12)
-sight_range = NodePath("../Area2D")
+[node name="Blackthorn" parent="." instance=ExtResource("22_vab4n")]
+position = Vector2(416, 26)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

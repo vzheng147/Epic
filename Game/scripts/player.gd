@@ -170,7 +170,7 @@ func _input(event):
 		await animated_sprite.animation_finished
 		var instance = spinning_sword.instantiate()
 		instance.spawnPosition = global_position
-		instance.damage = attack * .65
+		instance.damage = attack * 1.35
 		instance.flip = animated_sprite.flip_h
 			
 		get_parent().add_child(instance)

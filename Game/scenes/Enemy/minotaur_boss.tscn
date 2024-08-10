@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="2_7ta87"]
 [ext_resource type="PackedScene" uid="uid://b2i80at3jmubk" path="res://scenes/Trap/fire_trap_2.tscn" id="4_6nca3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lgma8"]
-radius = 19.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjhpo"]
+size = Vector2(27, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v45qy"]
 atlas = ExtResource("2_6id5q")
@@ -382,7 +382,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cq6ur")
 }],
-"loop": true,
+"loop": false,
 "name": &"prepare",
 "speed": 10.0
 }, {
@@ -463,23 +463,22 @@ script = ExtResource("1_wevah")
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0, -20)
-shape = SubResource("CircleShape2D_lgma8")
+position = Vector2(-0.5, -16)
+shape = SubResource("RectangleShape2D_rjhpo")
+metadata/_edit_lock_ = true
 
 [node name="HealthBar" parent="RigidBody2D" instance=ExtResource("2_7ta87")]
-offset_left = -19.0
-offset_top = -50.0
-offset_right = 231.0
-offset_bottom = -8.0
+offset_left = -18.0
+offset_top = -53.0
+offset_right = 197.0
+offset_bottom = -11.0
 theme_override_font_sizes/font_size = 30
 
 [node name="minotaur_sprite" type="AnimatedSprite2D" parent="RigidBody2D"]
 position = Vector2(3, -15)
 sprite_frames = SubResource("SpriteFrames_7n7m5")
-animation = &"fire"
+animation = &"run"
 autoplay = "idle"
-frame = 5
-frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="attack_1_range" type="Area2D" parent="RigidBody2D"]
@@ -508,27 +507,36 @@ wait_time = 8.0
 [node name="swirl_cooldown" type="Timer" parent="."]
 wait_time = 6.0
 
+[node name="range_timer" type="Timer" parent="."]
+wait_time = 3.5
+
 [node name="Fire" parent="." instance=ExtResource("4_6nca3")]
+visible = false
 position = Vector2(-96, -8)
 damage = 50
 
 [node name="Fire2" parent="." instance=ExtResource("4_6nca3")]
+visible = false
 position = Vector2(-57, -8)
 damage = 50
 
 [node name="Fire3" parent="." instance=ExtResource("4_6nca3")]
+visible = false
 position = Vector2(60, -8)
 damage = 50
 
 [node name="Fire4" parent="." instance=ExtResource("4_6nca3")]
+visible = false
 position = Vector2(-18, -8)
 damage = 50
 
 [node name="Fire5" parent="." instance=ExtResource("4_6nca3")]
+visible = false
 position = Vector2(21, -8)
 damage = 50
 
 [node name="Fire6" parent="." instance=ExtResource("4_6nca3")]
+visible = false
 position = Vector2(99, -8)
 
 [connection signal="body_entered" from="RigidBody2D/attack_1_range" to="." method="_on_attack_1_range_body_entered"]
@@ -539,3 +547,4 @@ position = Vector2(99, -8)
 [connection signal="body_exited" from="RigidBody2D/swirl_range" to="." method="_on_swirl_range_body_exited"]
 [connection signal="timeout" from="fire_timer" to="." method="_on_fire_timer_timeout"]
 [connection signal="timeout" from="swirl_cooldown" to="." method="_on_swirl_cooldown_timeout"]
+[connection signal="timeout" from="range_timer" to="." method="_on_range_timer_timeout"]

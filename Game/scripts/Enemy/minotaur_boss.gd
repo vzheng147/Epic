@@ -5,6 +5,7 @@ enum State {
 	CHASE,
 	ATTACK,
 	SWIRL,
+	RANGE,
 	FIRE
 }
 
@@ -16,7 +17,9 @@ enum State {
 @onready var swirl_area2d = $RigidBody2D/swirl_range
 @onready var swirl_timer = $swirl_cooldown
 @onready var fire_timer = $fire_timer
+@onready var range_timer = $range_timer
 @onready var health_bar = $RigidBody2D/HealthBar
+@onready var range = preload("res://scenes/Enemy/minotaur_range.tscn")
 @onready var fire1 = $Fire
 @onready var fire2 = $Fire2
 @onready var fire3 = $Fire3
@@ -31,6 +34,7 @@ var is_attacking : bool = false
 var is_using_fire : bool = false
 var swirl_ready : bool = true
 var fire_ready : bool = true
+var range_ready : bool = true
 var in_attack_1_range = false
 var in_attack_2_range = false
 var in_swirl_range = false
@@ -42,7 +46,7 @@ var attack : int = 75
 var defense : int = 10
 var chase_range: float = 500 # switches from Idle to Chase
 var attack_range: float = 35 # switches from Chase to Attack
-var speed: float = 85  # Minotaur's movement speed
+var speed: float = 97  # Minotaur's movement speed
 var swirl_range = 44 # range that Minotaur will use swirl
 
 # Called when the node enters the scene tree for the first time.
@@ -71,6 +75,8 @@ func _process(delta):
 			swirl_state(delta)
 		State.FIRE:
 			fire_state(delta)
+		State.RANGE:
+			range_state(delta)
 	flip_towards_player()
 
 func take_damage(damage):
@@ -96,7 +102,9 @@ func idle_state(delta):
 func chase_state(delta):
 	minotaur.play("run")
 	move_towards_player(delta)
-	if fire_ready:
+	if range_ready:
+		current_state = State.RANGE
+	elif fire_ready:
 		current_state = State.FIRE
 	elif player_in_range(swirl_range) and swirl_ready:
 		current_state = State.SWIRL
@@ -117,12 +125,12 @@ func attack_state(delta):
 		minotaur.play("attack2")
 		await minotaur.animation_finished
 		if in_attack_1_range:
-			player.take_damage(10)
+			player.take_damage(attack)
 	else:
 		minotaur.play("attack1")  
 		await minotaur.animation_finished
 		if in_attack_2_range:
-			player.take_damage(20)
+			player.take_damage(attack * 1.15)
 	
 	is_attacking = false
 	current_state = State.CHASE
@@ -139,7 +147,7 @@ func swirl_state(delta):
 	swirl_ready = false
 	
 	if in_swirl_range:
-		player.take_damage(50)
+		player.take_damage(attack * 3.25)
 	
 	is_attacking = false
 	current_state = State.CHASE
@@ -158,6 +166,23 @@ func fire_state(delta):
 	fire_ready = false
 	fire_timer.start()
 	current_state = State.CHASE
+
+func range_state(delta):
+	
+	if is_attacking:
+		return
+		
+	is_attacking = true
+	minotaur.play("prepare")
+
+	await minotaur.animation_finished
+	range_attack_1()
+	
+	is_attacking = false
+	range_ready = false
+	range_timer.start()
+	current_state = State.CHASE
+	
 
 func activate_fire():
 	fire1.visible = true
@@ -189,6 +214,14 @@ func activate_fire():
 	fire4.damage = 0
 	fire5.damage = 0
 	fire6.damage = 0
+
+func range_attack_1():
+	var instance = range.instantiate()
+	instance.flip = minotaur.flip_h
+	instance.damage = attack * 2.15
+	instance.spawnPosition = minotaur.global_position + Vector2(0, 10)
+	get_parent().add_child(instance)
+	
 
 func player_in_range(range: float) -> bool:
 	return position.distance_to(player.position) < range
@@ -246,3 +279,7 @@ func _on_swirl_cooldown_timeout():
 	
 func _on_fire_timer_timeout():
 	fire_ready = true
+
+
+func _on_range_timer_timeout():
+	range_ready = true

@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7eq11xvbj6f5"]
+
+[ext_resource type="Script" path="res://scripts/Enemy/minotaur_range.gd" id="1_7tf6w"]
+[ext_resource type="Texture2D" uid="uid://2a0qyf0ho2" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Magic(Projectile)/Wizard-Attack02_Effect.png" id="2_6av07"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q13hw"]
+atlas = ExtResource("2_6av07")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5comu"]
+atlas = ExtResource("2_6av07")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh5rt"]
+atlas = ExtResource("2_6av07")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1morj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q13hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5comu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh5rt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5bvs"]
+radius = 8.66667
+
+[node name="Minotaur_Range" type="CharacterBody2D"]
+script = ExtResource("1_7tf6w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, -15)
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_1morj")
+frame_progress = 0.508653
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(3.33333, 1.33333)
+shape = SubResource("CircleShape2D_o5bvs")
+
+[node name="Life" type="Timer" parent="."]
+wait_time = 2.5
+
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
