@@ -331,10 +331,10 @@ script = ExtResource("1_flh6l")
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="HealthBar" parent="RigidBody2D" instance=ExtResource("2_mep6g")]
-offset_left = 3.0
-offset_top = -75.0
-offset_right = 148.0
-offset_bottom = -40.0
+offset_left = -15.0
+offset_top = -39.0
+offset_right = 140.0
+offset_bottom = -4.0
 
 [node name="attack_range" type="Area2D" parent="RigidBody2D"]
 

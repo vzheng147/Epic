@@ -34,7 +34,9 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 15
 text = "Lord Raven:
 
-Darkfort is a formidable fortress with five imposing levels, each more dangerous than the last. The highest floor holds a legendary potion. It is no easy task to reach it, as every level is protected by a formidable guardian.
+Darkfort is a formidable fortress with five imposing levels, each more dangerous than the last. The highest floor holds an \"Orc\" potion that Blackthorn (the Orc King) would use to turn every living thing into an Orc. We must reach it and destroy the potion. 
+
+It is no easy task to reach it, as every level is protected by a formidable guardian. Corrupted by the potion, they will die to support Blackthorn and execute all intruders. Here are some intelligence we gathered about the guardians.
 
 The first-floor guardian is Zilth, the Blade of Stonely Bruq. Renowned for her mastery of physics and computation, she is the architect behind all the traps within the castle. Be careful of the arrow traps at her disposal!
 
@@ -43,7 +45,13 @@ Lance, the Horseman, guards the second floor. His swift movements in battle can 
 On the third floor, you will face the Minotaur. His fiery aura makes him a formidable adversary, burning anyone who comes too close. Watch for moments when his aura diminishes to strike.
 
 Kiba, the werewolf, lurks on the fourth floor. A deadly ambusher, Kiba can vanish in the blink of an eye and reappear right behind you. His swift, silent movements make him almost impossible to detect until it's too late. Stay vigilant.
-"
+
+Blackthorn, the Orc King, awaits on the highest level of Darkfort. He is a towering figure of unmatched strength. Mounted on a beast as fearsome as he is, Blackthorn commands the power of the Orc potion, radiating a deadly aura that drains the life force of those who dare approach. His beast charges with terrifying speed, leaving little time for reaction. He is the last line of defense.
+
+Lord Raven, it is up to you to disrupt the dark ambition of Blackthron.
+
+Regards,
+Scout Han"
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

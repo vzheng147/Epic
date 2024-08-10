@@ -105,14 +105,15 @@ func chasing_state(delta):
 	sprite.play("run")
 	move_towards_player(delta)
 	
-	if player_in_range(skill_range) and skill_ready:
+	# pauses for one second before moving back to idle position
+	if not player_in_range(chase_range) or not sight_range.player_in_range:
+		pause(.5)
+		current_state = State.IDLE
+	elif player_in_range(skill_range) and skill_ready:
 		current_state = State.SKILL
 	elif player_in_range(attack_range):
 		current_state = State.ATTACKING
-	# pauses for one second before moving back to idle position
-	elif not player_in_range(chase_range) or not sight_range.player_in_range:
-		pause(.5)
-		current_state = State.IDLE
+
 
 func attacking_state(delta):
 	if is_attacking:
