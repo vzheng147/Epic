@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://caepf1wy36n3f"]
+
+[ext_resource type="Script" path="res://scripts/World/door.gd" id="1_x8bog"]
+
+[sub_resource type="Animation" id="Animation_m83rc"]
+resource_name = "default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_jl7rq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fb2j7"]
+_data = {
+"RESET": SubResource("Animation_jl7rq"),
+"default": SubResource("Animation_m83rc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iyud"]
+size = Vector2(23, 36.25)
+
+[node name="door" type="Area2D"]
+script = ExtResource("1_x8bog")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2.4, -35.45)
+scale = Vector2(0.197222, 0.303319)
+vframes = 2
+region_rect = Rect2(0, 0, 198, 538)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fb2j7")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-58, -20)
+shape = SubResource("RectangleShape2D_2iyud")
+
+[node name="Description" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

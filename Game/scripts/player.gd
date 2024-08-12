@@ -267,3 +267,5 @@ func _on_dash_timer_timeout():
 
 func _on_range_timer_timeout():
 	range_ready = true
+
+

@@ -202,12 +202,12 @@ func lance_state(delta):
 	blackthorn.play("special")
 	
 	var original_speed = speed
-	speed = speed + 70
+	speed = speed + 62
 	
 	damage_timer.start()
 	aura.visible = true
 	blackthorn.play("run")
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.8).timeout
 	
 	blackthorn.stop()
 	aura.visible = false
@@ -405,5 +405,5 @@ func _on_kiba_timeout():
 
 func _on_damage_timeout():
 	if is_charging and in_skill_range:
-		player.take_damage(attack * .65)
+		player.take_damage(attack * .6)
 		damage_timer.start()

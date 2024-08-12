@@ -315,7 +315,7 @@ bg_color = Color(0.838493, 0.197884, 0.180875, 1)
 size = Vector2(23, 13)
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 5
+z_index = 100
 script = ExtResource("1_0hjod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -358,16 +358,24 @@ wait_time = 4.0
 wait_time = 4.0
 
 [node name="Letter" parent="." instance=ExtResource("7_c3j0v")]
+offset_top = -40.0
+offset_bottom = -40.0
 
 [node name="Inventory" parent="." instance=ExtResource("4_5u5gl")]
 visible = false
+offset_top = -40.0
+offset_bottom = -40.0
 
 [node name="Shop" parent="." instance=ExtResource("8_jfxgl")]
 visible = false
 offset_left = -19.0
-offset_top = -11.0
+offset_top = -51.0
 offset_right = -19.0
-offset_bottom = -11.0
+offset_bottom = -51.0
+
+[node name="Focus" type="Camera2D" parent="."]
+offset = Vector2(2.08165e-12, -40)
+zoom = Vector2(3, 3)
 
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
