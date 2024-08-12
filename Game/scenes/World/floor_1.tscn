@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bekix4dprjvt" path="res://dungeon_sidescroller-Raou/Tilesetv3.png" id="1_rt7qw"]
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="2_d5eq5"]
 [ext_resource type="Script" path="res://scripts/World/death_zone.gd" id="3_yem8w"]
-[ext_resource type="Texture2D" uid="uid://cyb41icorcj5n" path="res://assets/darkfort_background.jpeg" id="4_em4ya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nctt"]
 texture = ExtResource("1_rt7qw")
@@ -2114,6 +2113,9 @@ sources/0 = SubResource("TileSetAtlasSource_4nctt")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t1y1x"]
 distance = -191.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n3mny"]
+load_path = "res://.godot/imported/darkfort_background.jpeg-5d5f70d8af53ca74d3d705713836121a.ctex"
+
 [node name="Floor_1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2132,6 +2134,6 @@ shape = SubResource("WorldBoundaryShape2D_t1y1x")
 
 [node name="DarkfortBackground" type="Sprite2D" parent="."]
 position = Vector2(605, -48)
-texture = ExtResource("4_em4ya")
+texture = SubResource("CompressedTexture2D_n3mny")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

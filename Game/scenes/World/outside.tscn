@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvfqjwyohkk52"]
+[gd_scene load_steps=10 format=3 uid="uid://bvfqjwyohkk52"]
 
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="1_o0037"]
 [ext_resource type="Texture2D" uid="uid://bekix4dprjvt" path="res://dungeon_sidescroller-Raou/Tilesetv3.png" id="2_3we3l"]
 [ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/parallax_background_1.tscn" id="3_gkwr2"]
 [ext_resource type="PackedScene" uid="uid://caepf1wy36n3f" path="res://scenes/World/door.tscn" id="4_josan"]
+[ext_resource type="PackedScene" uid="uid://b5ffu6tmv6681" path="res://scenes/Build/weaponry.tscn" id="5_eu43l"]
+[ext_resource type="Resource" uid="uid://ccpfq67ngbtin" path="res://scripts/Equipment/Weapon/blade_of_despair.tres" id="6_6f2y6"]
+[ext_resource type="PackedScene" uid="uid://i8fgr6wlasra" path="res://scenes/Build/pharmacy.tscn" id="7_s1ers"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eohfa"]
 texture = ExtResource("2_3we3l")
@@ -2154,3 +2157,11 @@ layer_0/tile_data = PackedInt32Array(1114180, 65536, 14, 1114181, 65536, 14, 111
 
 [node name="door" parent="." instance=ExtResource("4_josan")]
 position = Vector2(1301, 275)
+description = "Entrance to DarkFort!"
+
+[node name="Shop" parent="." instance=ExtResource("5_eu43l")]
+position = Vector2(982, 273)
+items = Array[Resource]([ExtResource("6_6f2y6")])
+
+[node name="Shop2" parent="." instance=ExtResource("7_s1ers")]
+position = Vector2(1110, 274)

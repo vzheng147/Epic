@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://b4qolo6x8s1ai" path="res://scenes/Trap/arrow_trap_2.tscn" id="22_2vqbl"]
 [ext_resource type="Script" path="res://scripts/World/enemy_aggression_range.gd" id="22_2wn6f"]
 [ext_resource type="PackedScene" uid="uid://ctws7bjev4qir" path="res://scenes/Enemy/blackthorn.tscn" id="22_vab4n"]
-[ext_resource type="Texture2D" uid="uid://cyb41icorcj5n" path="res://assets/darkfort_background.jpeg" id="23_i3me5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3e1k"]
 texture = ExtResource("3_58k38")
@@ -433,6 +432,9 @@ sources/0 = SubResource("TileSetAtlasSource_w3e1k")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x08il"]
 size = Vector2(237, 66)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n3mny"]
+load_path = "res://.godot/imported/darkfort_background.jpeg-5d5f70d8af53ca74d3d705713836121a.ctex"
+
 [node name="boss_fight_arena_1" type="Node2D"]
 script = ExtResource("1_hfts0")
 
@@ -522,7 +524,7 @@ position = Vector2(416, 26)
 
 [node name="DarkfortBackground" type="Sprite2D" parent="."]
 position = Vector2(495, -124)
-texture = ExtResource("23_i3me5")
+texture = SubResource("CompressedTexture2D_n3mny")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

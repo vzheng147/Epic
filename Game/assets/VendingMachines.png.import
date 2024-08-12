@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyb41icorcj5n"
-path="res://.godot/imported/darkfort_background.jpeg-5d5f70d8af53ca74d3d705713836121a.ctex"
+uid="uid://b8rd0hugxbdrx"
+path="res://.godot/imported/VendingMachines.png-1165a6739c478c145c4fe43cd057d2ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/darkfort_background.jpeg"
-dest_files=["res://.godot/imported/darkfort_background.jpeg-5d5f70d8af53ca74d3d705713836121a.ctex"]
+source_file="res://assets/VendingMachines.png"
+dest_files=["res://.godot/imported/VendingMachines.png-1165a6739c478c145c4fe43cd057d2ca.ctex"]
 
 [params]
 

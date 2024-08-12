@@ -8,10 +8,6 @@ extends Area2D
 @onready var label = $Description
 
 var in_range : bool = false
-
-func _onready():
-	label.text = description
-	
 	
 func _input(event):
 	if in_range and event.is_action_pressed("Interact"):
@@ -21,13 +17,16 @@ func _input(event):
 
 
 func _on_body_entered(body):
-	label.visible = true
-	in_range = true
+	if body.name == "Player":
+		label.text = description
+		label.visible = true
+		in_range = true
 	
 
 func _on_body_exited(body):
-	label.visible = false
-	in_range = false
+	if body.name == "Player":
+		label.visible = false
+		in_range = false
 	
 
 
