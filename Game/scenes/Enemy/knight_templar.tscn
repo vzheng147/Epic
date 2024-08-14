@@ -303,10 +303,10 @@ script = ExtResource("1_ir7ck")
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="HealthBar" parent="RigidBody2D" instance=ExtResource("6_20qfs")]
-offset_left = -9.0
-offset_top = -23.0
-offset_right = 81.0
-offset_bottom = 0.0
+offset_left = -16.0
+offset_top = -42.6667
+offset_right = 148.0
+offset_bottom = -7.66667
 
 [node name="Skill" type="Timer" parent="RigidBody2D"]
 wait_time = 4.0
@@ -314,6 +314,7 @@ wait_time = 4.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0, -14.6667)
 shape = SubResource("CapsuleShape2D_1vugc")
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
 texture_filter = 1
@@ -324,6 +325,7 @@ animation = &"skill"
 autoplay = "idle"
 frame = 10
 frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="attack_range" type="Area2D" parent="RigidBody2D"]
 

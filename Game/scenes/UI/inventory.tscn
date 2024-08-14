@@ -149,5 +149,14 @@ offset_bottom = 154.0
 scale = Vector2(0.9, 0.9)
 text = "Discard"
 
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 153.0
+offset_top = -155.0
+offset_right = 215.0
+offset_bottom = -124.0
+text = "Close"
+
 [connection signal="pressed" from="Use" to="." method="_on_use_pressed"]
 [connection signal="pressed" from="Discard" to="." method="_on_discard_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

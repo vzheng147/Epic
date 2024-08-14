@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://u3pyt7faf82a"]
+[gd_scene load_steps=3 format=3 uid="uid://duww5iqtxk24m"]
 
-[ext_resource type="Script" path="res://scripts/UI/credits.gd" id="1_w04at"]
-[ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/Background/parallax_background_1.tscn" id="2_ajwie"]
+[ext_resource type="Script" path="res://scripts/UI/guide.gd" id="1_004ob"]
+[ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/Background/parallax_background_1.tscn" id="2_8po1k"]
 
-[node name="Credits" type="Node2D"]
-script = ExtResource("1_w04at")
+[node name="Guide" type="Node2D"]
+script = ExtResource("1_004ob")
 
 [node name="Back" type="Button" parent="."]
 offset_left = 799.0
@@ -14,7 +14,7 @@ offset_bottom = 990.0
 theme_override_font_sizes/font_size = 60
 text = "Back"
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_ajwie")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_8po1k")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 570.0
@@ -26,22 +26,23 @@ color = Color(0.196078, 0.196078, 0.196078, 0.784314)
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
 offset_left = 116.0
-offset_top = 80.0
+offset_top = 116.0
 offset_right = 762.0
-offset_bottom = 602.0
+offset_bottom = 638.0
 theme_override_font_sizes/normal_font_size = 40
-text = "
-Zheng, Vincent
-vzheng147@gmail.com
+text = "'A' - move left
+'D' - move right
+'Space' - jump
 
-Weng, Ari
-longxiweng20@gmail.com
+'J' - basic attack
+'K' - temporary speed boost
+'L' - ranged-attack
 
-Lin, Shui
-shuilin9108@gmail.com
+Note: 'K' and 'L' both have 4 second cooldowns.
 
-Han, Yvette
-Zhilin.Han@stonybrook.edu"
+'V' - inventory open / close
+'W' - interact with vending machine or with doors
+"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
@@ -50,7 +51,7 @@ offset_top = 33.0
 offset_right = 676.0
 offset_bottom = 93.0
 theme_override_font_sizes/normal_font_size = 40
-text = "Game Credits:"
+text = "Player Guide:"
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0

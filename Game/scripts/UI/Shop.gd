@@ -71,3 +71,4 @@ func _on_buy_pressed():
 	update_description(null)
 	buy_button.visible = false
 	
+

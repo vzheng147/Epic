@@ -133,7 +133,7 @@ func attack_state(delta):
 	current_state = State.CHASE
 	
 func range_state(delta):
-	if (is_attacking):
+	if is_attacking:
 		return
 		
 	is_attacking = true
@@ -143,12 +143,14 @@ func range_state(delta):
 		deal_damage(player, attack * 1.5)
 	range_attack()
 	
-	await get_tree().create_timer(.5).timeout
+	if get_tree():
+		await get_tree().create_timer(0.5).timeout
 	if in_skill_range:
 		deal_damage(player, attack * 1.5)
 	range_attack()
 	
-	await get_tree().create_timer(.5).timeout
+	if get_tree():
+		await get_tree().create_timer(0.5).timeout
 	if in_skill_range:
 		deal_damage(player, attack * 1.5)
 	range_attack()

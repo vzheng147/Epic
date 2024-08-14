@@ -27,6 +27,7 @@ var selected_index : int
 @onready var description_label = $D_background/Description
 @onready var equip_button = $Use
 @onready var discard_button = $Discard
+@onready var close_button = $Close
 
 func _ready():
 	# initializing equiped
@@ -186,4 +187,6 @@ func _on_discard_pressed():
 	discard_button.visible = false
 			
 	
-	
+
+func _on_close_pressed():
+	visible = false

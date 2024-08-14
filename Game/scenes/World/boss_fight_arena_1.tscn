@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bt58by38n1j5u"]
+[gd_scene load_steps=26 format=3 uid="uid://bt58by38n1j5u"]
 
 [ext_resource type="Script" path="res://scripts/World/world.gd" id="1_hfts0"]
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="2_74gyj"]
@@ -18,10 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://bjecsichhig3f" path="res://scenes/Trap/sandworm_2.tscn" id="16_rndiu"]
 [ext_resource type="PackedScene" uid="uid://di0kbnielklpr" path="res://scenes/Trap/sandworm_1.tscn" id="17_nkrqs"]
 [ext_resource type="PackedScene" uid="uid://cpdcy7la1w1np" path="res://scenes/Trap/arrow_trap_1.tscn" id="18_65dm1"]
-[ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/parallax_background_1.tscn" id="20_sjcxd"]
+[ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/Background/parallax_background_1.tscn" id="20_sjcxd"]
 [ext_resource type="PackedScene" uid="uid://b4qolo6x8s1ai" path="res://scenes/Trap/arrow_trap_2.tscn" id="22_2vqbl"]
 [ext_resource type="Script" path="res://scripts/World/enemy_aggression_range.gd" id="22_2wn6f"]
-[ext_resource type="PackedScene" uid="uid://ctws7bjev4qir" path="res://scenes/Enemy/blackthorn.tscn" id="22_vab4n"]
+[ext_resource type="PackedScene" uid="uid://btqxg2k2gop0j" path="res://scenes/Enemy/archer.tscn" id="22_j87vo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3e1k"]
 texture = ExtResource("3_58k38")
@@ -432,9 +432,6 @@ sources/0 = SubResource("TileSetAtlasSource_w3e1k")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x08il"]
 size = Vector2(237, 66)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n3mny"]
-load_path = "res://.godot/imported/darkfort_background.jpeg-5d5f70d8af53ca74d3d705713836121a.ctex"
-
 [node name="boss_fight_arena_1" type="Node2D"]
 script = ExtResource("1_hfts0")
 
@@ -519,12 +516,10 @@ position = Vector2(156.75, 103.999)
 rotation = 0.523599
 scale = Vector2(0.982274, 1.47877)
 
-[node name="Blackthorn" parent="." instance=ExtResource("22_vab4n")]
-position = Vector2(416, 26)
-
-[node name="DarkfortBackground" type="Sprite2D" parent="."]
-position = Vector2(495, -124)
-texture = SubResource("CompressedTexture2D_n3mny")
+[node name="Archer" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("22_j87vo")]
+position = Vector2(521, 15)
+respawn_location = Vector2(550, 12)
+sight_range = NodePath("../Area2D")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

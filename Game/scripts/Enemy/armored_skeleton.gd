@@ -11,6 +11,11 @@ enum State {
 @export var respawn_time : int
 @export var respawn_location : Vector2
 @export var sight_range : Area2D
+@export var max_health : int
+@export var attack: int
+@export var defense: int
+@export var gold : int = 10
+@export var xp : int = 15
 
 @onready var root_scene = get_parent()
 @onready var body = $RigidBody2D
@@ -30,12 +35,7 @@ var is_attacking : bool = false
 var is_pausing : bool = false
 
 # Adjust these ranges as per your game design
-var gold : int = 10
-var xp : int = 15
-var max_health : int = 200
 var health : int = max_health
-var attack : int = 50
-var defense : int = 5
 var chase_range: float = 500
 var attack_range: float = 28
 var skill_range: float = 30
@@ -58,7 +58,7 @@ func take_damage(damage):
 		sprite.stop()
 		sprite.play("death")
 		await sprite.animation_finished
-		root_scene.spawn(scene_file_path, sight_range, respawn_location, respawn_time)
+		root_scene.spawn(scene_file_path, sight_range, respawn_location, respawn_time, attack, defense, max_health, xp, gold)
 		player.gain_gold_and_xp(gold, xp)
 		queue_free()
 		

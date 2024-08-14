@@ -312,11 +312,10 @@ animation = &"death"
 autoplay = "idle"
 
 [node name="HealthBar" parent="RigidBody2D" instance=ExtResource("2_mgqye")]
-offset_left = -12.0
-offset_top = -37.0
-offset_right = 78.0
-offset_bottom = -14.0
-scale = Vector2(0.3, 0.3)
+offset_left = -17.0
+offset_top = -44.0
+offset_right = 153.0
+offset_bottom = -9.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(2, -12)

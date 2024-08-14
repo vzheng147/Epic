@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var inventory = $Inventory
 @onready var shop = $Shop
 @onready var letter = $Letter
+@onready var location = $Location
 @onready var flash_animation = $FlashAnimation
 @onready var health_bar = $HealthBar
 @onready var animated_sprite = $AnimatedSprite2D
@@ -32,17 +33,18 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Player Stats
 var level = 1
-var xp = 2000
+var xp = 0
 var total_xp = 10
 var gold = 20
 var attack = 3
 var defense = 1
-var max_health = 700
+var max_health = 75
 var health = max_health
 
 
 func _ready():
 	health_bar.value = 100
+	inventory.update_label()
 	
 
 func gain_gold_and_xp(gold_gained, xp_gained):
@@ -91,7 +93,11 @@ func level_up():
 		
 	inventory.update_label()
 		
-
+func update_location():
+	match get_tree().current_scene.scene_file_path:
+		"res://scenes/World/outside.tscn": location.label.text = "Location: Outside Darkfort"
+		"res://scenes/World/floor_1.tscn": location.label.text = "Location: Darkfort 1st Level"
+		"res://scenes/World/arena_1.tscn": location.label.text = "Location: 1st Guardian  (Zilth)"
 
 func deal_damage(damage):
 	for enemy in in_attack_range:
@@ -188,6 +194,9 @@ func _input(event):
 func _process(delta):
 	if level < 30 and xp > total_xp:
 		level_up()
+	update_location()
+	shop.update_gold()
+
 	
 	
 func _physics_process(delta):

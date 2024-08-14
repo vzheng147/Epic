@@ -1,7 +1,8 @@
-[gd_scene load_steps=52 format=3 uid="uid://d3o16yirjiwgd"]
+[gd_scene load_steps=53 format=3 uid="uid://d3o16yirjiwgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0hjod"]
 [ext_resource type="Texture2D" uid="uid://dwmyfwc7wgdbp" path="res://assets/sprites/new/rougelikegame-Sheet.png" id="2_h0jss"]
+[ext_resource type="PackedScene" uid="uid://bmt28umvllk45" path="res://scenes/UI/location.tscn" id="2_jws15"]
 [ext_resource type="Texture2D" uid="uid://dktu0edg15l6q" path="res://assets/sprites/attackanimation.png" id="2_w1fcr"]
 [ext_resource type="Texture2D" uid="uid://vqisuv43jvoe" path="res://assets/sprites/new/dash-Sheet.png" id="3_g5q8j"]
 [ext_resource type="PackedScene" uid="uid://cjh8wxdo6qxtg" path="res://scenes/UI/inventory.tscn" id="4_5u5gl"]
@@ -318,6 +319,8 @@ size = Vector2(23, 13)
 z_index = 100
 script = ExtResource("1_0hjod")
 
+[node name="Location" parent="." instance=ExtResource("2_jws15")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -15)
 scale = Vector2(0.528541, 0.578125)
@@ -331,10 +334,10 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_j00qv")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -15.0
-offset_top = -39.0
-offset_right = 85.0
-offset_bottom = -16.0
+offset_left = -16.0
+offset_top = -42.0
+offset_right = 94.0
+offset_bottom = -19.0
 scale = Vector2(0.3, 0.3)
 theme_override_styles/background = SubResource("StyleBoxFlat_5t8yk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eu12n")

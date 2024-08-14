@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="First Game"
-run/main_scene="res://scenes/World/outside.tscn"
+config/name="Raven"
+run/main_scene="res://scenes/UI/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

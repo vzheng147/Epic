@@ -1,6 +1,7 @@
 extends Area2D
 
-@export var destination : NodePath
+@export var destination : String
+@export var location : Vector2
 @export_multiline var description : String
 
 @onready var player = get_parent().get_node("Player")
@@ -14,6 +15,8 @@ func _input(event):
 		door.play("default")
 		await door.animation_finished
 		get_tree().change_scene_to_file(destination)
+		if location:
+			player.global_position = location
 
 
 func _on_body_entered(body):

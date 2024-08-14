@@ -246,7 +246,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewqpp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn37o"]
+size = Vector2(20, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0omg4"]
 size = Vector2(31, 33)
@@ -267,8 +268,8 @@ sprite_frames = SubResource("SpriteFrames_fy3bk")
 animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0, -14)
-shape = SubResource("CapsuleShape2D_ewqpp")
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_bn37o")
 
 [node name="attack_range" type="Area2D" parent="RigidBody2D"]
 
@@ -283,10 +284,10 @@ position = Vector2(17, -16)
 shape = SubResource("RectangleShape2D_d03eg")
 
 [node name="HealthBar" parent="RigidBody2D" instance=ExtResource("1_hbb5f")]
-offset_left = -15.0
-offset_top = -38.0
-offset_right = 140.0
-offset_bottom = 5.0
+offset_left = -18.0
+offset_top = -43.0
+offset_right = 162.0
+offset_bottom = 0.0
 
 [node name="Skill" type="Timer" parent="RigidBody2D"]
 wait_time = 4.0
