@@ -44,7 +44,7 @@ var speed: float = 85  # Rat's movement speed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_node("Player")
-	health_bar.value = (float(health) / max_health) * 100
+	health_bar.value = 100
 	health = max_health
 	global_position = respawn_location
 

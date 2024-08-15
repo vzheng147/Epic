@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://chbugvamwmrhy"]
+
+[ext_resource type="Texture2D" uid="uid://cgoknn4nnbwu3" path="res://assets/3.jpg" id="1_0h8dg"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_0h8dg")
