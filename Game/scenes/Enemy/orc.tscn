@@ -226,7 +226,7 @@ animations = [{
 "speed": 9.0
 }]
 
-[node name="Armored_Skeleton" type="Node2D"]
+[node name="Orc" type="Node2D"]
 script = ExtResource("1_mm7i3")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]

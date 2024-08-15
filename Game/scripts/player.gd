@@ -33,12 +33,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Player Stats
 var level = 1
-var xp = 0
+var xp = 200000
 var total_xp = 10
 var gold = 20
-var attack = 3
-var defense = 1
-var max_health = 1000
+var attack = 140
+var defense = 90
+var max_health = 1200
 var health = max_health
 
 
