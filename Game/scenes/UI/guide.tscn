@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://duww5iqtxk24m"]
+[gd_scene load_steps=3 format=3 uid="uid://cm8pruf5w7xpb"]
 
 [ext_resource type="Script" path="res://scripts/UI/guide.gd" id="1_004ob"]
 [ext_resource type="PackedScene" uid="uid://qso1hw2vwksw" path="res://scenes/Background/parallax_background_1.tscn" id="2_8po1k"]
@@ -25,37 +25,32 @@ color = Color(0.196078, 0.196078, 0.196078, 0.784314)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
-offset_left = 116.0
-offset_top = 116.0
-offset_right = 762.0
-offset_bottom = 638.0
+offset_left = 125.0
+offset_top = 80.0
+offset_right = 745.0
+offset_bottom = 602.0
 theme_override_font_sizes/normal_font_size = 40
-text = "'A' - move left
+text = "
+'A' - move left
 'D' - move right
 'Space' - jump
 
 'J' - basic attack
-'K' - temporary speed boost
+'K' - temporary boost
 'L' - ranged-attack
 
-Note: 'K' and 'L' both have 4 second cooldowns.
+Note: 'K' and 'L' have four second cooldowns
 
 'V' - inventory open / close
-'W' - interact with vending machine or with doors
-"
+'W' - interact with vending machine or with doors"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
-offset_left = 271.0
+offset_left = 375.0
 offset_top = 33.0
-offset_right = 676.0
+offset_right = 780.0
 offset_bottom = 93.0
 theme_override_font_sizes/normal_font_size = 40
-text = "Player Guide:"
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+text = "Guide"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

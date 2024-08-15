@@ -46,6 +46,5 @@ text = "Quit
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Guide" to="." method="_on_guide_pressed"]
-[connection signal="pressed" from="Guide" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
