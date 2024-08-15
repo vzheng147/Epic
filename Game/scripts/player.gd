@@ -38,7 +38,7 @@ var total_xp = 10
 var gold = 20
 var attack = 3
 var defense = 1
-var max_health = 75
+var max_health = 1000
 var health = max_health
 
 

@@ -34,4 +34,4 @@ func _on_life_timeout():
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		player.take_damage(damage)
-	queue_free()
+		queue_free()

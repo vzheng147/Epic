@@ -83,7 +83,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -117,8 +117,9 @@ drop = SubResource("Resource_sjr88")
 texture_filter = 1
 position = Vector2(8, -6)
 sprite_frames = SubResource("SpriteFrames_7fnrf")
-animation = &"open_chest"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.267413
 
 [node name="Area2D" type="Area2D" parent="."]
 
