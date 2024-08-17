@@ -134,6 +134,7 @@ func die():
 	print("You died!")
 	# Implement what happens when the player dies, e.g., reload the scene
 	get_tree().reload_current_scene()
+	Global.player_position = Vector2(0, 0)
 
 
 func _input(event):

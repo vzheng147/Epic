@@ -2216,6 +2216,8 @@ shape = SubResource("WorldBoundaryShape2D_5dbsx")
 
 [node name="door" parent="." instance=ExtResource("8_7uwtu")]
 position = Vector2(-840, 115)
+destination = "res://scenes/World/floor_1.tscn"
+location = Vector2(-1560, 2.08165e-12)
 
 [node name="Shop" parent="." instance=ExtResource("9_37w1v")]
 position = Vector2(-920, 114)
@@ -2323,6 +2325,7 @@ xp = 120
 
 [node name="door2" parent="." instance=ExtResource("8_7uwtu")]
 position = Vector2(913, 83)
+destination = "res://scenes/World/arena_2.tscn"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

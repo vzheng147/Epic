@@ -2760,6 +2760,12 @@ position = Vector2(-2745, -155)
 
 [node name="door" parent="." instance=ExtResource("21_mwurv")]
 position = Vector2(2073, -29)
+destination = "res://scenes/World/arena_3.tscn"
+
+[node name="door2" parent="." instance=ExtResource("21_mwurv")]
+position = Vector2(-335, 18)
+destination = "res://scenes/World/floor_2.tscn"
+location = Vector2(935, 83)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

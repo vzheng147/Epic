@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgrli2fdtpb5s"]
+[gd_scene load_steps=11 format=3 uid="uid://cgrli2fdtpb5s"]
 
 [ext_resource type="Script" path="res://scripts/World/arena_5.gd" id="1_s7pxw"]
 [ext_resource type="PackedScene" uid="uid://v8fpnnkqq54o" path="res://scenes/Background/parallax_background_3.tscn" id="2_1npxs"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="3_5ine1"]
 [ext_resource type="PackedScene" uid="uid://ctws7bjev4qir" path="res://scenes/Enemy/blackthorn.tscn" id="5_2j36x"]
 [ext_resource type="Script" path="res://scripts/World/death_zone.gd" id="6_wgjra"]
+[ext_resource type="PackedScene" uid="uid://b4qolo6x8s1ai" path="res://scenes/Trap/arrow_trap_2.tscn" id="7_lfel4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cejkl"]
 texture = ExtResource("2_vku5w")
@@ -2139,6 +2140,66 @@ script = ExtResource("6_wgjra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("WorldBoundaryShape2D_13hb3")
+
+[node name="ArrowTrap" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(-259, -401)
+rotation = 4.71239
+
+[node name="ArrowTrap2" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(-212, -400)
+rotation = 4.71239
+
+[node name="ArrowTrap3" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(-161, -400)
+rotation = 4.71239
+
+[node name="ArrowTrap4" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(-116, -402)
+rotation = 4.71239
+
+[node name="ArrowTrap5" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(-75, -409)
+rotation = 4.71239
+
+[node name="ArrowTrap6" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(-23, -416)
+rotation = 4.71239
+
+[node name="ArrowTrap7" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(30, -418)
+rotation = 4.71239
+
+[node name="ArrowTrap8" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(112, -412)
+rotation = 4.71239
+
+[node name="ArrowTrap9" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(143, -408)
+rotation = 4.71239
+
+[node name="ArrowTrap10" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(197, -399)
+rotation = 4.71239
+
+[node name="ArrowTrap11" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(249, -401)
+rotation = 4.71239
+
+[node name="ArrowTrap12" parent="." instance=ExtResource("7_lfel4")]
+visible = false
+position = Vector2(69, -421)
+rotation = 4.71239
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

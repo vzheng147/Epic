@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://7lx5ykc3ydht"]
 
 [ext_resource type="Texture2D" uid="uid://dlsqeklj32i3a" path="res://assets/sprites/Ratfolk Axe Sprite Sheet.png" id="1_hhqaw"]
-[ext_resource type="Script" path="res://scripts/rat_minion.gd" id="1_wylcd"]
+[ext_resource type="Script" path="res://scripts/Enemy/rat_minion.gd" id="1_wylcd"]
 [ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="3_7j5ap"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3t80e"]

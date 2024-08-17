@@ -16,7 +16,7 @@ func _input(event):
 		await door.animation_finished
 		get_tree().change_scene_to_file(destination)
 		if location:
-			player.global_position = location
+			Global.player_position = location
 
 
 func _on_body_entered(body):

@@ -188,6 +188,7 @@ func zilth_state(delta):
 	
 	blackthorn.play("special")
 	await blackthorn.animation_finished
+	scene.shoot()
 	
 	zilth_timer.start()
 	zilth_ready = false

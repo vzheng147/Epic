@@ -17,8 +17,10 @@ func boss_death():
 	var chest_instance = chest.instantiate()
 	chest_instance.drop = drop
 	chest_instance.global_position = Vector2(-25, 23.5)
+	Global.player_position = Vector2(0, 0)
 	add_child(chest_instance)
 	
 	
 func _on_exit_pressed():
+	Global.player_position = Vector2(1168, 250)
 	get_tree().change_scene_to_file(back)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://qso1hw2vwksw"]
 
 [ext_resource type="Texture2D" uid="uid://nmhxirtiwp1t" path="res://assets/ocean-and-clouds-free-pixel-art-backgrounds/Ocean_8/6.png" id="1_7ia6c"]
-[ext_resource type="Script" path="res://scripts/parallax_background.gd" id="1_e1f5u"]
+[ext_resource type="Script" path="res://scripts/UI/parallax_background.gd" id="1_e1f5u"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource("1_e1f5u")
