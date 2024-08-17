@@ -10,6 +10,7 @@ enum State {
 }
 
 # variables for the child nodes
+@onready var scene = get_parent()
 @onready var body = $RigidBody2D
 @onready var kiba = $RigidBody2D/AnimatedSprite2D
 @onready var attack_area2d = $RigidBody2D/attack_range
@@ -81,6 +82,7 @@ func take_damage(damage):
 		kiba.stop()
 		kiba.play("death")
 		await kiba.animation_finished
+		scene.boss_death()
 		queue_free()
 
 func deal_damage(target, damage):

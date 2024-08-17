@@ -10,6 +10,7 @@ enum State {
 }
 
 # variables for the child nodes
+@onready var scene = get_parent()
 @onready var body = $RigidBody2D
 @onready var lance = $RigidBody2D/AnimatedSprite2D
 @onready var attack_area2d = $RigidBody2D/attack_range
@@ -84,6 +85,7 @@ func take_damage(damage):
 		lance.stop()
 		lance.play("death")
 		await lance.animation_finished
+		scene.boss_death()
 		queue_free()
 
 func deal_damage(target, damage):
@@ -180,6 +182,7 @@ func arrows_state(delta):
 	
 	lance.play("arrows")
 	await lance.animation_finished
+	scene.shoot()
 	
 	arrows_timer.start()
 	arrows_ready = false

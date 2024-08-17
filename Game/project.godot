@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Raven"
-run/main_scene="res://scenes/World/floor_5.tscn"
+run/main_scene="res://scenes/World/arena_5.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

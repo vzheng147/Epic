@@ -98,7 +98,16 @@ func update_location():
 		"res://scenes/World/outside.tscn": location.label.text = "Location: Outside Darkfort"
 		"res://scenes/World/floor_1.tscn": location.label.text = "Location: Darkfort 1st Level"
 		"res://scenes/World/arena_1.tscn": location.label.text = "Location: 1st Guardian  (Zilth)"
-
+		"res://scenes/World/floor_2.tscn": location.label.text = "Location: Darkfort 2nd Level"
+		"res://scenes/World/arena_2.tscn": location.label.text = "Location: 2nd Guardian  (Lance)"
+		"res://scenes/World/floor_3.tscn": location.label.text = "Location: Darkfort 3rd Level"
+		"res://scenes/World/arena_3.tscn": location.label.text = "Location: 3rd Guardian  (Minotaur)"
+		"res://scenes/World/floor_4.tscn": location.label.text = "Location: Darkfort 4th Level"
+		"res://scenes/World/arena_4.tscn": location.label.text = "Location: 4th Guardian  (Kiba)"
+		"res://scenes/World/floor_5.tscn": location.label.text = "Location: Darkfort 5th Level"
+		"res://scenes/World/arena_5.tscn": location.label.text = "Location: 5th Guardian  (Blackthorn)"
+		
+	
 func deal_damage(damage):
 	for enemy in in_attack_range:
 		enemy.get_parent().take_damage(damage)
@@ -106,6 +115,10 @@ func deal_damage(damage):
 
 func take_damage(damage):
 	damage = damage - defense
+	
+	if damage <= 0:
+		damage = 1
+		
 	health = health - damage
 
 	if health_bar:

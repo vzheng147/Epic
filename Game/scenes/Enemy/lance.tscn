@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ch1o87s0ixhnf"]
+[gd_scene load_steps=57 format=3 uid="uid://ch1o87s0ixhnf"]
 
 [ext_resource type="Texture2D" uid="uid://cc2ve3vnys4s" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Lancer/Lancer/Lancer-Idle.png" id="1_n40fy"]
 [ext_resource type="Script" path="res://scripts/Enemy/lance.gd" id="1_uqkh3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://i883wxteywbw" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Lancer/Lancer/Lancer-Attack01.png" id="3_wegnq"]
 [ext_resource type="Texture2D" uid="uid://cndtm2sxo7c60" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Lancer/Lancer/Lancer-Attack02.png" id="4_qoctp"]
 [ext_resource type="Texture2D" uid="uid://6vogvbg6o8nm" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Lancer/Lancer/Lancer-Attack03.png" id="5_kuty6"]
+[ext_resource type="Texture2D" uid="uid://bmag0m0s3ceu3" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Lancer/Lancer/Lancer-Death.png" id="7_6i2pa"]
 [ext_resource type="Texture2D" uid="uid://dsjvbcx2j8cd8" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Lancer/Lancer/Lancer-Walk01.png" id="7_jphg6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1tc5u"]
@@ -88,6 +89,22 @@ region = Rect2(600, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kx413"]
 atlas = ExtResource("5_kuty6")
 region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nttl"]
+atlas = ExtResource("7_6i2pa")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_benph"]
+atlas = ExtResource("7_6i2pa")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ssvn"]
+atlas = ExtResource("7_6i2pa")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8husu"]
+atlas = ExtResource("7_6i2pa")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksajf"]
 atlas = ExtResource("1_n40fy")
@@ -259,6 +276,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7nttl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_benph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ssvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8husu")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ksajf")
 }, {
 "duration": 1.0,
@@ -354,9 +388,8 @@ offset_bottom = -31.0
 position = Vector2(-1.00001, -10)
 scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_a6vx1")
-animation = &"charge"
+animation = &"death"
 autoplay = "run"
-frame_progress = 0.563084
 metadata/_edit_lock_ = true
 
 [node name="skill_range" type="Area2D" parent="RigidBody2D"]

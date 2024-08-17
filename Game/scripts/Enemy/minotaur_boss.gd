@@ -10,6 +10,7 @@ enum State {
 }
 
 # variables for the child nodes
+@onready var scene = get_parent()
 @onready var body = $RigidBody2D
 @onready var minotaur = $RigidBody2D/minotaur_sprite
 @onready var attack_1_area2d = $RigidBody2D/attack_1_range
@@ -88,6 +89,7 @@ func take_damage(damage):
 		minotaur.stop()
 		minotaur.play("death")
 		await minotaur.animation_finished
+		scene.boss_death()
 		queue_free()
 
 func deal_damage(target, damage):
