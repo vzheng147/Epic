@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://kd36pfm8cifx"]
 
 [ext_resource type="Texture2D" uid="uid://c5nidjjckkjye" path="res://assets/Equipment/Pixel Armor Pack 1 Medieval/Armor1_Medieval/Chainmail_Crusader00.png" id="1_ae8gb"]
-[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_s4kn0"]
+[ext_resource type="Script" path="res://scripts/Equipment/Weapon/item_data.gd" id="2_s4kn0"]
 
 [resource]
 script = ExtResource("2_s4kn0")

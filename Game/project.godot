@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Raven"
-run/main_scene="res://scenes/World/floor_3.tscn"
+run/main_scene="res://scenes/UI/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/global.gd"
+Manager="*res://scripts/SaveManager.gd"
 
 [display]
 

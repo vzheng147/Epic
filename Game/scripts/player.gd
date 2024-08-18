@@ -44,6 +44,14 @@ var health = max_health
 
 func _ready():
 	health_bar.value = 100
+	level = Manager.level
+	xp = Manager.xp
+	total_xp = Manager.total_xp
+	gold = Manager.gold
+	attack = Manager.attack
+	defense = Manager.defense
+	max_health = Manager.max_health
+	
 	inventory.update_label()
 	
 
@@ -203,6 +211,8 @@ func _input(event):
 		# restart recover timer
 		is_recovering = false
 		recover_timer.start()
+		
+		Manager.save_game(self, inventory)
 		
 	
 func _process(delta):

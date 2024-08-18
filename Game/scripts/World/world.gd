@@ -7,6 +7,7 @@ func _ready():
 		player.global_position = Global.player_position
 	
 	
+	
 func spawn(minion, sight_range, spawn_location, spawn_time, attack, defense, health, xp, gold):
 	
 	# Instantiate the minion at a set location

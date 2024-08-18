@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://usu2xyoqep65"]
 
 [ext_resource type="Texture2D" uid="uid://bmoqw6ppmrquu" path="res://assets/Equipment/Pixel Armor Pack 1 Medieval/Armor1_Medieval/Hide_Riverfolk00.png" id="1_3uhbh"]
-[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_3qmuo"]
+[ext_resource type="Script" path="res://scripts/Equipment/Weapon/item_data.gd" id="2_3qmuo"]
 
 [resource]
 script = ExtResource("2_3qmuo")

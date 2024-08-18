@@ -31,6 +31,10 @@ var selected_index : int
 
 func _ready():
 	# initializing equiped
+	
+	inventory = Manager.inventory
+	equiped = Manager.equiped
+	
 	for i in range (3):
 		var slot := equiped_slot_scene.instantiate()
 		%Equiped.add_child(slot)
@@ -42,6 +46,8 @@ func _ready():
 	for i in range (24):
 		var slot := inventory_slot_scene.instantiate()
 		%Grid.add_child(slot)
+		
+	
 	update_inventory()
 
 func reset_inventory_data():
@@ -95,7 +101,7 @@ func add_item_to_equiped(equipment, index):
 	%Equiped.get_child(index).isEmpty = false
 	
 	# update equiped array
-	equiped[index] = equipment
+	equiped[index] = equipment.resource_path
 	
 	# update player stats
 	player.attack += equipment.attack

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c5py15bdpc3le"]
 
 [ext_resource type="Texture2D" uid="uid://67yjp7160sc3" path="res://assets/Equipment/Pixel Armor Pack 1 Medieval/Armor1_Medieval/FullPlate_AncientCity00.png" id="1_perlx"]
-[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_8nmjb"]
+[ext_resource type="Script" path="res://scripts/Equipment/Weapon/item_data.gd" id="2_8nmjb"]
 
 [resource]
 script = ExtResource("2_8nmjb")

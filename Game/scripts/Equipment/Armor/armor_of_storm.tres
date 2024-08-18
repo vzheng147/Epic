@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dh5svffhsk2pf"]
 
 [ext_resource type="Texture2D" uid="uid://bwoqv3kipqlve" path="res://assets/Equipment/Pixel Armor Pack 1 Medieval/Armor1_Medieval/Brigandine_Gendarme00.png" id="1_qqnn7"]
-[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_wpr2q"]
+[ext_resource type="Script" path="res://scripts/Equipment/Weapon/item_data.gd" id="2_wpr2q"]
 
 [resource]
 script = ExtResource("2_wpr2q")

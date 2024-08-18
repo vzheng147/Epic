@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://11kvu2hygolh"]
 
 [ext_resource type="Texture2D" uid="uid://c46y2dgkn0113" path="res://assets/Equipment/Pixel Ring Pack 1/Rings 1/Ring1_GreenDragon00.png" id="1_i5cum"]
-[ext_resource type="Script" path="res://scripts/Equipment/item_data.gd" id="2_7qsfk"]
+[ext_resource type="Script" path="res://scripts/Equipment/Weapon/item_data.gd" id="2_7qsfk"]
 
 [resource]
 script = ExtResource("2_7qsfk")
