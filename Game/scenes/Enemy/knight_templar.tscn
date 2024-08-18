@@ -218,7 +218,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1yd2n")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -321,10 +321,8 @@ texture_filter = 1
 position = Vector2(-2, -12.6667)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_asdfo")
-animation = &"skill"
+animation = &"idle"
 autoplay = "idle"
-frame = 10
-frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="attack_range" type="Area2D" parent="RigidBody2D"]

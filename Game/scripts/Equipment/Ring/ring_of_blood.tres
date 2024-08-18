@@ -8,13 +8,13 @@ script = ExtResource("2_krr1s")
 type = 2
 item_name = "Ring Of Blood"
 item_texture = ExtResource("1_njyi6")
-price = 0
+price = 600
 description = "Ring Of Blood
 Attack: 10
-Health: 1000
+Health: 300
 \"If only it had that much attack.\""
 attack = 10
 defense = 0
-health = 1000
+health = 300
 heal_amount = 0
 success_chance = 0

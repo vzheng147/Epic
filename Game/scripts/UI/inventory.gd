@@ -2,15 +2,9 @@
 extends Control
 
 
-var equiped = [null, null, null]
-var inventory = ["res://scripts/Miscellaneous Resource/intelligence_letter.tres",
-"res://scripts/Equipment/Armor/refined_armor.tres", "res://scripts/Equipment/Ring/ring_of_cyclops.tres",
-"res://scripts/Equipment/Weapon/dragonslayer.tres", "res://scripts/Equipment/Weapon/shadowborne.tres",
-"res://scripts/Potions/Potions_Of_Vitality/large_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Vitality/medium_potion_of_vitality.tres",
-"res://scripts/Potions/Potions_Of_Vitality/small_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Strength/large_potion_of_strength.tres",
-"res://scripts/Potions/Potions_Of_Strength/medium_potion_of_strength.tres", "res://scripts/Potions/Potions_Of_Strength/small_potion_of_strength.tres",
-"res://scripts/Potions/Potions_Of_Fortitude/large_potion_of_fortitude.tres", "res://scripts/Potions/Potions_Of_Fortitude/medium_potion_of_fortitude.tres",
-"res://scripts/Potions/Potions_Of_Fortitude/small_potion_of_fortitude.tres"]
+var equiped = ["res://scripts/Equipment/Weapon/worn_sword.tres", "res://scripts/Equipment/Armor/worn_armor.tres", null]
+var inventory = ["res://scripts/Miscellaneous Resource/intelligence_letter.tres", 
+"res://scripts/Equipment/Weapon/worn_sword.tres", "res://scripts/Equipment/Armor/worn_armor.tres"]
 var inventory_slot_scene = preload("res://scenes/UI/slot_container.tscn")
 var equiped_slot_scene = preload("res://scenes/UI/equiped_container.tscn")
 var selected : ItemData = null
@@ -32,8 +26,10 @@ var selected_index : int
 func _ready():
 	# initializing equiped
 	
-	inventory = Manager.inventory
-	equiped = Manager.equiped
+	if ResourceLoader.exists(Manager.SAVE_PATH):
+		Manager.load_game()
+		inventory = Manager.inventory
+		equiped = Manager.equiped
 	
 	for i in range (3):
 		var slot := equiped_slot_scene.instantiate()
@@ -109,6 +105,7 @@ func add_item_to_equiped(equipment, index):
 	player.health += equipment.health
 	player.max_health += equipment.health
 	
+	
 
 
 func remove_item_from_equiped(index):
@@ -119,7 +116,7 @@ func remove_item_from_equiped(index):
 	equipSlot.data = null
 	
 	# Update the equipped array
-	var equipment = equiped[index]
+	var equipment = load(equiped[index])
 	equiped[index] = null
 	
 	# Update player stats
@@ -130,6 +127,7 @@ func remove_item_from_equiped(index):
 	
 	update_label()
 	
+	Manager.save_game(player, self)	
 	
 
 func _input(event):
@@ -170,12 +168,12 @@ func _on_use_pressed():
 	equip_button.visible = false
 	discard_button.visible = false
 
-
+	Manager.save_game(player, self)
 
 func _on_discard_pressed():
 	
 	# store the item to check for item in equiped
-	var removed = load(inventory[selected_index])
+	var removed = inventory[selected_index]
 	inventory.remove_at(selected_index)
 
 	# remove the item visually and reset data
@@ -191,7 +189,8 @@ func _on_discard_pressed():
 	update_description(null)
 	equip_button.visible = false
 	discard_button.visible = false
-			
+	
+	Manager.save_game(player, self)	
 	
 
 func _on_close_pressed():

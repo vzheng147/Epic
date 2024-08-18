@@ -10,11 +10,11 @@ item_name = "Ring Of Ember"
 item_texture = ExtResource("1_nnain")
 price = 0
 description = "Ring Of Ember
-Attack: 20
+Attack: 24
 Defense: 10
 \"Fire! Fire! Fire!\""
-attack = 20
+attack = 24
 defense = 10
-health = 100
+health = 0
 heal_amount = 0
 success_chance = 0

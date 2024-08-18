@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://ogeycmd4esk5"]
+[gd_scene load_steps=42 format=3 uid="uid://ogeycmd4esk5"]
 
 [ext_resource type="Script" path="res://scripts/Enemy/orc.gd" id="1_mm7i3"]
 [ext_resource type="PackedScene" uid="uid://otwpin5ufu6j" path="res://scenes/UI/health_bar.tscn" id="2_brbmu"]
 [ext_resource type="Texture2D" uid="uid://bhs6rmvd8vckl" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Orc/Orc/Orc-Attack01.png" id="3_u4m43"]
 [ext_resource type="Texture2D" uid="uid://dcrmju01gd6c3" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Orc/Orc/Orc-Idle.png" id="4_4bl5l"]
+[ext_resource type="Texture2D" uid="uid://bmjjrljds7cfd" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Orc/Orc/Orc-Death.png" id="4_ou33n"]
 [ext_resource type="Texture2D" uid="uid://chfp6yw8j433v" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Orc/Orc/Orc-Walk.png" id="5_ccuw7"]
 [ext_resource type="Texture2D" uid="uid://6v3to7bxvj8e" path="res://assets/Tiny RPG Character Asset Pack v1.03 -Full 20 Characters/Characters(100x100)/Orc/Orc/Orc-Attack02.png" id="6_upm2o"]
 
@@ -39,6 +40,22 @@ region = Rect2(400, 0, 100, 100)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jpqw"]
 atlas = ExtResource("3_u4m43")
 region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6c88"]
+atlas = ExtResource("4_ou33n")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c3f8"]
+atlas = ExtResource("4_ou33n")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slluw"]
+atlas = ExtResource("4_ou33n")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqo8c"]
+atlas = ExtResource("4_ou33n")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lodp"]
 atlas = ExtResource("4_4bl5l")
@@ -145,8 +162,20 @@ animations = [{
 "name": &"attack",
 "speed": 8.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6c88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c3f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slluw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqo8c")
+}],
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -169,7 +198,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vt8ha")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -260,7 +289,7 @@ texture_filter = 1
 position = Vector2(0, -12)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_6ie0p")
-animation = &"attack"
+animation = &"idle"
 metadata/_edit_lock_ = true
 
 [node name="Skill" type="Timer" parent="."]

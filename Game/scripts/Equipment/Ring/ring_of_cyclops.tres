@@ -10,12 +10,12 @@ item_name = "Ring Of Cyclops"
 item_texture = ExtResource("1_i5cum")
 price = 0
 description = "Ring Of Cyclops
-Attack: 55
+Attack: 35
 Defense: 15
-Health: 300
+Health: 350
 \"My eye is upon you!\""
-attack = 55
+attack = 35
 defense = 15
-health = 300
+health = 350
 heal_amount = 0
 success_chance = 0

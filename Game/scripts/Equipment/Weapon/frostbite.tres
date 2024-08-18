@@ -8,11 +8,11 @@ script = ExtResource("2_4i3yl")
 type = 0
 item_name = "Frostbite"
 item_texture = ExtResource("1_nsdju")
-price = 0
+price = 600
 description = "Frostbite
-Attack: 85
+Attack: 105
 \"May the frost be with you.\""
-attack = 85
+attack = 105
 defense = 0
 health = 0
 heal_amount = 0

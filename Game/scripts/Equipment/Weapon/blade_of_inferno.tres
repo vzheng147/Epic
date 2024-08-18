@@ -11,10 +11,10 @@ item_texture = ExtResource("1_6dap4")
 price = 0
 description = "Blade Of Inferno
 Attack: 68
-Defense: 14
+Defense: 12
 \"Command the power of fire!\""
 attack = 68
-defense = 14
+defense = 12
 health = 0
 heal_amount = 0
 success_chance = 0

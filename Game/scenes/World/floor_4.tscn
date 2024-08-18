@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cggaaciaf5q8r"]
+[gd_scene load_steps=54 format=3 uid="uid://cggaaciaf5q8r"]
 
 [ext_resource type="Script" path="res://scripts/World/world.gd" id="1_0frjv"]
 [ext_resource type="PackedScene" uid="uid://3mfg0m6otvx3" path="res://scenes/Background/parallax_background_2.tscn" id="1_kv41r"]
@@ -13,14 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://cg71whtwrqrm6" path="res://scenes/Collectables/copper_chest.tscn" id="10_pks3t"]
 [ext_resource type="PackedScene" uid="uid://bf2djtdop23a1" path="res://scenes/Trap/falling_rock.tscn" id="11_pfid2"]
 [ext_resource type="PackedScene" uid="uid://66reec06pf5j" path="res://scenes/Collectables/golden_chest.tscn" id="12_8eojf"]
+[ext_resource type="Resource" uid="uid://cjdtpv317lcu8" path="res://scripts/Equipment/Armor/armor_of_corrupt.tres" id="12_8h3lv"]
 [ext_resource type="PackedScene" uid="uid://2a04tp0dey8f" path="res://scenes/Collectables/diamond_chest.tscn" id="13_c5wyp"]
 [ext_resource type="PackedScene" uid="uid://gaf4vl0useq7" path="res://scenes/Trap/fire_breather_1.tscn" id="15_4qsyh"]
+[ext_resource type="Resource" uid="uid://cvtuxot5ixdaw" path="res://scripts/Equipment/Weapon/shadowborne.tres" id="16_4ajbf"]
 [ext_resource type="PackedScene" uid="uid://i8fgr6wlasra" path="res://scenes/Build/pharmacy.tscn" id="16_sxm5j"]
 [ext_resource type="PackedScene" uid="uid://cxmuqgxecl4yv" path="res://scenes/Trap/fire_trap_1.tscn" id="17_fm8t7"]
 [ext_resource type="PackedScene" uid="uid://b4qolo6x8s1ai" path="res://scenes/Trap/arrow_trap_2.tscn" id="18_pv2sb"]
+[ext_resource type="Script" path="res://scripts/Shop/pharmacy_5.gd" id="19_uv6k3"]
 [ext_resource type="Script" path="res://scripts/World/enemy_aggression_range.gd" id="19_yjo82"]
 [ext_resource type="PackedScene" uid="uid://bp1bvmblbwj2h" path="res://scenes/Enemy/greatsword_skeleton.tscn" id="20_4ouyd"]
 [ext_resource type="PackedScene" uid="uid://dt8dywuknknh6" path="res://scenes/Enemy/skeleton_archer.tscn" id="21_c6uif"]
+[ext_resource type="Resource" uid="uid://b2odyjlkyfph0" path="res://scripts/Equipment/Ring/ring_of_treachery.tres" id="25_8m6uw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0kcf3"]
 texture = ExtResource("3_xdreb")
@@ -2455,21 +2459,27 @@ shape = SubResource("WorldBoundaryShape2D_1aux3")
 
 [node name="Ground_Spike" parent="." instance=ExtResource("7_ai1mv")]
 position = Vector2(-878, 82)
+damage = 140
 
 [node name="Ground_Spike2" parent="." instance=ExtResource("7_ai1mv")]
 position = Vector2(-802, 81)
+damage = 140
 
 [node name="Fire" parent="." instance=ExtResource("8_hd0ef")]
 position = Vector2(-977, 69)
+damage = 150
 
 [node name="Fire2" parent="." instance=ExtResource("8_hd0ef")]
 position = Vector2(-1016, 69)
+damage = 150
 
 [node name="Spinning_Spike" parent="." instance=ExtResource("9_658nx")]
 position = Vector2(-839, 65)
+damage = 100
 
 [node name="copper_chest" parent="." instance=ExtResource("10_pks3t")]
 position = Vector2(-1055, 71)
+drop = ExtResource("12_8h3lv")
 
 [node name="Falling_Rock" parent="." instance=ExtResource("11_pfid2")]
 position = Vector2(-1165, 73)
@@ -2539,24 +2549,31 @@ autoplay = "move"
 
 [node name="diamond_chest" parent="." instance=ExtResource("13_c5wyp")]
 position = Vector2(-2628, 52)
+drop = ExtResource("16_4ajbf")
 
 [node name="FireBreather" parent="." instance=ExtResource("15_4qsyh")]
 position = Vector2(-75, 254)
+damage = 200
 
 [node name="Shop" parent="." instance=ExtResource("16_sxm5j")]
 position = Vector2(-37, 274)
+script = ExtResource("19_uv6k3")
 
 [node name="Fire3" parent="." instance=ExtResource("8_hd0ef")]
 position = Vector2(-1, 261)
+damage = 200
 
 [node name="Fire4" parent="." instance=ExtResource("17_fm8t7")]
 position = Vector2(59, 261)
+damage = 150
 
 [node name="Fire5" parent="." instance=ExtResource("8_hd0ef")]
 position = Vector2(124, 262)
+damage = 150
 
 [node name="ArrowTrap" parent="." instance=ExtResource("18_pv2sb")]
 position = Vector2(306, 259)
+damage = 250
 
 [node name="Area2D2" type="Area2D" parent="."]
 script = ExtResource("19_yjo82")
@@ -2564,15 +2581,16 @@ script = ExtResource("19_yjo82")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(103, 220)
 shape = SubResource("RectangleShape2D_o8jjc")
+metadata/_edit_lock_ = true
 
 [node name="Armored_Skeleton" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("20_4ouyd")]
 position = Vector2(90, 270)
 respawn_time = 5
 respawn_location = Vector2(90, 270)
 sight_range = NodePath("../Area2D2")
-max_health = 600
-attack = 140
-defense = 30
+max_health = 650
+attack = 150
+defense = 20
 gold = 80
 xp = 200
 
@@ -2588,17 +2606,20 @@ position = Vector2(243, 273)
 respawn_time = 5
 respawn_location = Vector2(250, 270)
 sight_range = NodePath("../Area2D3")
-max_health = 600
-attack = 140
-defense = 30
+max_health = 650
+attack = 150
+defense = 20
 gold = 80
 xp = 200
+metadata/_edit_lock_ = true
 
 [node name="Fire6" parent="." instance=ExtResource("17_fm8t7")]
 position = Vector2(207, 261)
+damage = 150
 
 [node name="ArrowTrap2" parent="." instance=ExtResource("18_pv2sb")]
 position = Vector2(722, 258)
+damage = 250
 
 [node name="Skeleton_Archer" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("21_c6uif")]
 position = Vector2(511, 273)
@@ -2606,9 +2627,9 @@ respawn_time = 5
 respawn_location = Vector2(500, 260)
 sight_range = NodePath("../Area2D4")
 max_health = 400
-attack = 60
+attack = 135
 defense = 10
-gold = 30
+gold = 50
 xp = 200
 
 [node name="Skeleton_Archer2" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("21_c6uif")]
@@ -2617,9 +2638,9 @@ respawn_time = 5
 respawn_location = Vector2(550, 260)
 sight_range = NodePath("../Area2D4")
 max_health = 400
-attack = 60
+attack = 135
 defense = 10
-gold = 30
+gold = 50
 xp = 200
 
 [node name="Skeleton_Archer3" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("21_c6uif")]
@@ -2628,9 +2649,9 @@ respawn_time = 5
 respawn_location = Vector2(600, 260)
 sight_range = NodePath("../Area2D4")
 max_health = 400
-attack = 60
+attack = 135
 defense = 10
-gold = 30
+gold = 50
 xp = 200
 
 [node name="Skeleton_Archer4" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("21_c6uif")]
@@ -2639,9 +2660,9 @@ respawn_time = 5
 respawn_location = Vector2(700, 260)
 sight_range = NodePath("../Area2D4")
 max_health = 400
-attack = 60
+attack = 135
 defense = 10
-gold = 30
+gold = 50
 xp = 200
 
 [node name="Area2D4" type="Area2D" parent="."]
@@ -2657,6 +2678,7 @@ destination = "res://scenes/World/arena_4.tscn"
 
 [node name="copper_chest2" parent="." instance=ExtResource("10_pks3t")]
 position = Vector2(389, 263)
+drop = ExtResource("25_8m6uw")
 
 [node name="Skeleton_Archer5" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("21_c6uif")]
 position = Vector2(840, 272)
@@ -2664,9 +2686,9 @@ respawn_time = 5
 respawn_location = Vector2(850, 260)
 sight_range = NodePath("../Area2D5")
 max_health = 400
-attack = 60
+attack = 135
 defense = 10
-gold = 30
+gold = 60
 xp = 200
 
 [node name="Skeleton_Archer6" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("21_c6uif")]
@@ -2675,9 +2697,9 @@ respawn_time = 5
 respawn_location = Vector2(900, 260)
 sight_range = NodePath("../Area2D5")
 max_health = 400
-attack = 60
+attack = 135
 defense = 10
-gold = 30
+gold = 60
 xp = 200
 
 [node name="Skeleton_Archer7" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("21_c6uif")]
@@ -2686,9 +2708,9 @@ respawn_time = 5
 respawn_location = Vector2(950, 260)
 sight_range = NodePath("../Area2D5")
 max_health = 400
-attack = 60
+attack = 135
 defense = 10
-gold = 30
+gold = 60
 xp = 200
 
 [node name="Skeleton_Archer8" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("21_c6uif")]
@@ -2697,16 +2719,18 @@ respawn_time = 5
 respawn_location = Vector2(1000, 260)
 sight_range = NodePath("../Area2D5")
 max_health = 400
-attack = 60
+attack = 135
 defense = 10
-gold = 30
+gold = 60
 xp = 200
 
 [node name="Fire7" parent="." instance=ExtResource("8_hd0ef")]
 position = Vector2(806, 262)
+damage = 200
 
 [node name="Fire8" parent="." instance=ExtResource("8_hd0ef")]
 position = Vector2(1038, 261)
+damage = 200
 
 [node name="Area2D5" type="Area2D" parent="."]
 script = ExtResource("19_yjo82")

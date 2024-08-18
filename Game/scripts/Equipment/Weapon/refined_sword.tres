@@ -8,7 +8,7 @@ script = ExtResource("2_2edtc")
 type = 0
 item_name = "Refined Sword"
 item_texture = ExtResource("1_ibq6x")
-price = 0
+price = 150
 description = "Refined Sword
 Attack: 30
 Defense: 5

@@ -5,8 +5,7 @@ extends Node2D
 var player
 var in_range = false
 var items : Array[String] = ["res://scripts/Equipment/Armor/refined_armor.tres",
-"res://scripts/Equipment/Weapon/standard_sword.tres", "res://scripts/Equipment/Weapon/refined_sword.tres",
-"res://scripts/Equipment/Ring/ring_of_sorrow.tres"]
+"res://scripts/Equipment/Weapon/refined_sword.tres", "res://scripts/Equipment/Ring/ring_of_sorrow.tres"]
 
 
 func _ready():

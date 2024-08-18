@@ -10,11 +10,11 @@ item_name = "Blade Of Despair"
 item_texture = ExtResource("1_y7ll2")
 price = 0
 description = "Blade Of Despair
-Attack: 188
-Defense: 48
+Attack: 252
+Defense: 38
 \"Inflict dread.\""
-attack = 188
-defense = 48
+attack = 252
+defense = 38
 health = 0
 heal_amount = 0
 success_chance = 0

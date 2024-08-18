@@ -189,7 +189,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cr74v")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -265,7 +265,7 @@ texture_filter = 1
 position = Vector2(0, -11)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_fy3bk")
-animation = &"run"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0, -12)

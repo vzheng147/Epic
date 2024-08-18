@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var one_second_heal = $OneSecondHeal
 @onready var dash_timer = $Dash_Timer
 @onready var range_timer = $Range_Timer
+@onready var save_timer = $Save_Timer
 @onready var spinning_sword = preload("res://scenes/spinning_sword.tscn")
 
 # state variables (do not change)
@@ -33,27 +34,32 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Player Stats
 var level = 1
-var xp = 200000
-var total_xp = 10
-var gold = 20
-var attack = 140
-var defense = 90
-var max_health = 1200
+var xp = 0
+var total_xp = 15
+var gold = 0
+var attack = 3
+var defense = 1
+var max_health = 75
 var health = max_health
 
 
 func _ready():
-	health_bar.value = 100
-	level = Manager.level
-	xp = Manager.xp
-	total_xp = Manager.total_xp
-	gold = Manager.gold
-	attack = Manager.attack
-	defense = Manager.defense
-	max_health = Manager.max_health
+	if ResourceLoader.exists(Manager.SAVE_PATH):
+		Manager.load_game()
+		level = Manager.level
+		xp = Manager.xp
+		total_xp = Manager.total_xp
+		gold = Manager.gold
+		attack = Manager.attack
+		defense = Manager.defense
+		max_health = Manager.max_health
+		health = max_health
 	
+	health_bar.value = 100
 	inventory.update_label()
 	
+	Manager.save_game(self, inventory)
+	save_timer.start()
 
 func gain_gold_and_xp(gold_gained, xp_gained):
 	gold += gold_gained
@@ -98,7 +104,8 @@ func level_up():
 		27: total_xp = 20000
 		28: total_xp = 25000
 		29: total_xp = 30000
-		
+	
+	Manager.save_game(self, inventory)
 	inventory.update_label()
 		
 func update_location():
@@ -139,10 +146,10 @@ func take_damage(damage):
 		
 
 func die():
-	print("You died!")
 	# Implement what happens when the player dies, e.g., reload the scene
-	get_tree().reload_current_scene()
 	Global.player_position = Vector2(0, 0)
+	Manager.save_game(self, inventory)
+	get_tree().reload_current_scene()
 
 
 func _input(event):
@@ -212,7 +219,6 @@ func _input(event):
 		is_recovering = false
 		recover_timer.start()
 		
-		Manager.save_game(self, inventory)
 		
 	
 func _process(delta):
@@ -302,3 +308,6 @@ func _on_range_timer_timeout():
 	range_ready = true
 
 
+func _on_save_timer_timeout():
+	Manager.save_game(self, inventory)
+	save_timer.start()

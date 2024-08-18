@@ -8,10 +8,10 @@ script = ExtResource("1_i8ox0")
 type = 1
 item_name = "Standard Armor"
 item_texture = ExtResource("1_bnnl5")
-price = 0
+price = 35
 description = "Standard Armor
-Defense: 5
-Health: 60
+Defense: 4
+Health: 50
 \"An average armor for an average swordsman.\"
 "
 attack = 0

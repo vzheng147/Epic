@@ -188,7 +188,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sxkv6")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 8.0
 }, {
@@ -243,7 +243,5 @@ texture_filter = 1
 position = Vector2(-3, -14)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ro6qy")
-animation = &"run"
-frame = 7
-frame_progress = 1.0
+animation = &"idle"
 metadata/_edit_lock_ = true

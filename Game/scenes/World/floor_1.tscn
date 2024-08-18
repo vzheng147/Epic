@@ -2214,22 +2214,23 @@ shape = SubResource("RectangleShape2D_q44gw")
 
 [node name="Archer" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("9_6vsnl")]
 position = Vector2(-326, 36)
+respawn_time = 5
 respawn_location = Vector2(-350, 30)
 sight_range = NodePath("../Area2D2")
 max_health = 80
-attack = 30
-defense = 5
-gold = 30
+attack = 25
+gold = 20
 xp = 30
 
 [node name="Knight" parent="." node_paths=PackedStringArray("sight_range") instance=ExtResource("10_8rhay")]
 position = Vector2(-223, 32)
+respawn_time = 5
 respawn_location = Vector2(-290, 30)
 sight_range = NodePath("../Area2D2")
 max_health = 100
 attack = 20
-defense = 10
-gold = 30
+defense = 5
+gold = 20
 xp = 30
 
 [node name="Fire3" parent="." instance=ExtResource("6_m71ax")]
@@ -2315,8 +2316,8 @@ sight_range = NodePath("../Area2D4")
 max_health = 200
 attack = 45
 defense = 15
-gold = 100
-xp = 180
+gold = 50
+xp = 100
 
 [node name="Area2D3" type="Area2D" parent="."]
 script = ExtResource("8_kom4t")
@@ -2324,6 +2325,7 @@ script = ExtResource("8_kom4t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
 position = Vector2(-1009, -31)
 shape = SubResource("RectangleShape2D_br3m3")
+metadata/_edit_lock_ = true
 
 [node name="Area2D4" type="Area2D" parent="."]
 script = ExtResource("8_kom4t")
@@ -2331,6 +2333,7 @@ script = ExtResource("8_kom4t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
 position = Vector2(-1352.75, -32)
 shape = SubResource("RectangleShape2D_br3m3")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

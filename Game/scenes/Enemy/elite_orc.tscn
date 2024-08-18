@@ -217,7 +217,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eg2fg")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 8.0
 }, {
@@ -317,7 +317,7 @@ texture_filter = 1
 position = Vector2(-1, -12)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_22gg2")
-animation = &"skill"
+animation = &"idle"
 metadata/_edit_lock_ = true
 
 [node name="Skill" type="Timer" parent="."]

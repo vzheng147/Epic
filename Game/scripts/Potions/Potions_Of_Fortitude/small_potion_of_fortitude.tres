@@ -8,7 +8,7 @@ script = ExtResource("2_atoso")
 type = 3
 item_name = "Small Potion of Fortitude"
 item_texture = ExtResource("1_2oio8")
-price = 0
+price = 25
 description = "Small Potion of Fortitude
 + 1 Defense
 Permanent stat increase once used."

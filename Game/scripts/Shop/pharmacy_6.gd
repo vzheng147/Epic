@@ -4,8 +4,12 @@ extends Node2D
 
 var player
 var in_range = false
-var items : Array[String] = ["res://scripts/Equipment/Armor/standard_armor.tres",
-"res://scripts/Equipment/Weapon/standard_sword.tres"]
+var items : Array[String] = ["res://scripts/Potions/Potions_Of_Fortitude/large_potion_of_fortitude.tres",
+"res://scripts/Potions/Potions_Of_Fortitude/medium_potion_of_fortitude.tres",
+"res://scripts/Potions/Potions_Of_Strength/large_potion_of_strength.tres",
+"res://scripts/Potions/Potions_Of_Strength/medium_potion_of_strength.tres",
+"res://scripts/Potions/Potions_Of_Vitality/large_potion_of_vitality.tres",
+"res://scripts/Potions/Potions_Of_Vitality/medium_potion_of_vitality.tres"]
 
 
 func _ready():

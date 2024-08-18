@@ -36,10 +36,10 @@ var special_ready = false
 var range_ready = true
 
 # adjust these accordingly
-var max_health : int = 350
+var max_health : int = 2500
 var health : int = max_health
-var attack : int = 75
-var defense : int = 10
+var attack : int = 220
+var defense : int = 80
 var chase_range: float = 500 # switches from Idle to Chase
 var attack_range: float = 44 # switches from Chase to Attack
 var speed: float = 120  # movement speed

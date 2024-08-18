@@ -30,14 +30,14 @@ var is_charging : bool = false
 var in_attack_range = false
 var in_skill_range = false
 var skill_ready = true
-var arrows_ready = false
+var arrows_ready = true
 var charge_ready = false
 
 # adjust these accordingly
-var max_health : int = 350
+var max_health : int = 800
 var health : int = max_health
-var attack : int = 75
-var defense : int = 10
+var attack : int = 110
+var defense : int = 35
 var chase_range: float = 500 # switches from Idle to Chase
 var attack_range: float = 41 # switches from Chase to Attack
 var speed: float = 115  # movement speed
@@ -46,7 +46,6 @@ var skill_range : float = 43
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	arrows_timer.start()
 	charge_timer.start()
 	health_bar.value = (float(health) / max_health) * 100
 	player = get_parent().get_node("Player")

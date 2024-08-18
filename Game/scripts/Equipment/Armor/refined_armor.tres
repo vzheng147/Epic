@@ -8,13 +8,13 @@ script = ExtResource("2_2i10a")
 type = 1
 item_name = "Refined Armor"
 item_texture = ExtResource("1_yogr3")
-price = 0
+price = 150
 description = "Refined Armor
-Defense: 15
-Health: 200
+Defense: 12
+Health: 100
 \"An armor made for the adept swordsmen.\""
 attack = 0
-defense = 15
-health = 200
+defense = 12
+health = 100
 heal_amount = 0
 success_chance = 0

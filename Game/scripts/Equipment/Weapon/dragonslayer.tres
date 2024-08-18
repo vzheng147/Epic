@@ -10,10 +10,10 @@ item_name = "Dragonslayer"
 item_texture = ExtResource("1_m7cm3")
 price = 0
 description = "Dragonslayer
-Attack: 105
+Attack: 55
 \"Countless dragons have fallen before the might of this blade.\""
-attack = 105
-defense = 0
+attack = 55
+defense = 5
 health = 0
 heal_amount = 0
 success_chance = 0

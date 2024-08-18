@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2c8yucdsrmpv"]
+[gd_scene load_steps=10 format=3 uid="uid://b2c8yucdsrmpv"]
 
 [ext_resource type="Script" path="res://scripts/World/arena_1.gd" id="1_bgudn"]
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="1_m3kbw"]
+[ext_resource type="Resource" uid="uid://derpr3s5wp51j" path="res://scripts/Equipment/Ring/ring_of_ember.tres" id="2_4p6ps"]
 [ext_resource type="PackedScene" uid="uid://3mfg0m6otvx3" path="res://scenes/Background/parallax_background_2.tscn" id="2_e88yx"]
 [ext_resource type="Texture2D" uid="uid://bekix4dprjvt" path="res://dungeon_sidescroller-Raou/Tilesetv3.png" id="3_y6k7i"]
 [ext_resource type="PackedScene" uid="uid://bkb853gksa1dc" path="res://scenes/Enemy/zilth.tscn" id="4_e55xd"]
@@ -2112,6 +2113,7 @@ sources/0 = SubResource("TileSetAtlasSource_nnjfi")
 
 [node name="Arena_1" type="Node2D"]
 script = ExtResource("1_bgudn")
+drop = ExtResource("2_4p6ps")
 
 [node name="Player" parent="." instance=ExtResource("1_m3kbw")]
 position = Vector2(142, -35)
@@ -2137,60 +2139,72 @@ text = "Exit Boss Fight (Click!)"
 visible = false
 position = Vector2(-101, -7)
 rotation = 4.71239
+damage = 30
 
 [node name="ArrowTrap2" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(-13, -9)
 rotation = 4.71239
+damage = 30
 
 [node name="ArrowTrap3" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(62, -12)
 rotation = 4.71239
+damage = 30
 
 [node name="ArrowTrap4" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(145, -12)
 rotation = 4.71239
+damage = 30
 
 [node name="ArrowTrap5" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(222, -13)
 rotation = 4.71239
+damage = 30
 
 [node name="ArrowTrap6" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(299, -13)
 rotation = 4.71239
+damage = 30
 
 [node name="ArrowTrap7" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(374, -11)
 rotation = 4.71239
+damage = 30
 
 [node name="ArrowTrap8" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(337, -21)
 rotation = -0.523599
+damage = 30
 
 [node name="ArrowTrap9" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(-41, -6)
 rotation = 4.71239
+damage = 30
 
 [node name="ArrowTrap10" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(-69, -21)
 rotation = -1.39626
+damage = 30
 
 [node name="ArrowTrap11" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(280, -20)
 rotation = -0.785398
+damage = 30
 
 [node name="ArrowTrap12" parent="." instance=ExtResource("6_dpopv")]
 visible = false
 position = Vector2(124, -18)
 rotation = -0.785398
+damage = 30
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

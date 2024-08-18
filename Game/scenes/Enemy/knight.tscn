@@ -216,7 +216,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hrauh")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -308,7 +308,7 @@ texture_filter = 1
 position = Vector2(1, -11)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_60u1b")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="HealthBar" parent="RigidBody2D" instance=ExtResource("2_mgqye")]

@@ -12,9 +12,10 @@ price = 0
 description = "Ring Of Remorse
 Attack: 99
 Defense: 49
+Health: 399
 \"I regret everything.\""
 attack = 99
 defense = 49
-health = 0
+health = 399
 heal_amount = 0
 success_chance = 0

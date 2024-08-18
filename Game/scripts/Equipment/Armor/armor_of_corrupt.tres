@@ -10,11 +10,11 @@ item_name = "Armor Of Corrupt"
 item_texture = ExtResource("1_1aw13")
 price = 0
 description = "Armor Of Corrupt
-Defense: 120
-Health: 800
+Defense: 36
+Health: 480
 \"Strike terror and spread chaos.\""
 attack = 0
-defense = 120
-health = 800
+defense = 36
+health = 480
 heal_amount = 0
 success_chance = 0

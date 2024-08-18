@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://scripts/player_data.gd" id="1_taahb"]
+[ext_resource type="Script" path="res://scripts/player_data.gd" id="1_26ng7"]
 
 [resource]
-script = ExtResource("1_taahb")
-level = 0
+script = ExtResource("1_26ng7")
+level = 1
 xp = 0
-total_xp = 0
+total_xp = 15
 gold = 0
-attack = 495
-defense = 63
-max_health = 1100
-equiped = ["res://scripts/Equipment/Weapon/dragonslayer.tres", null, null]
-inventory = ["res://scripts/Miscellaneous Resource/intelligence_letter.tres", "res://scripts/Equipment/Armor/refined_armor.tres", "res://scripts/Equipment/Weapon/dragonslayer.tres", "res://scripts/Potions/Potions_Of_Vitality/large_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Vitality/medium_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Vitality/small_potion_of_vitality.tres", "res://scripts/Potions/Potions_Of_Strength/large_potion_of_strength.tres", "res://scripts/Potions/Potions_Of_Strength/medium_potion_of_strength.tres", "res://scripts/Potions/Potions_Of_Strength/small_potion_of_strength.tres", "res://scripts/Potions/Potions_Of_Fortitude/large_potion_of_fortitude.tres", "res://scripts/Potions/Potions_Of_Fortitude/medium_potion_of_fortitude.tres", "res://scripts/Potions/Potions_Of_Fortitude/small_potion_of_fortitude.tres"]
-scene = "res://scenes/World/floor_1.tscn"
+attack = 7
+defense = 3
+max_health = 85
+equiped = ["res://scripts/Equipment/Weapon/worn_sword.tres", "res://scripts/Equipment/Armor/worn_armor.tres", null]
+inventory = ["res://scripts/Miscellaneous Resource/intelligence_letter.tres", "res://scripts/Equipment/Weapon/worn_sword.tres", "res://scripts/Equipment/Armor/worn_armor.tres"]
+scene = "res://scenes/World/outside.tscn"

@@ -13,4 +13,6 @@ func _on_menu_button_pressed():
 		shop_node.buy_button.visible = !shop_node.buy_button.visible
 		shop_node.selected_index = index
 		shop_node.selected = data
+		shop_node.update_price()
+		shop_node.cost_container.visible = !shop_node.cost_container.visible
 		shop_node.update_description(data)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dcku80l1gi458"]
 
 [ext_resource type="Script" path="res://scripts/World/arena_4.gd" id="1_ud27b"]
+[ext_resource type="Resource" uid="uid://bsnymdsndvypn" path="res://scripts/Equipment/Ring/ring_of_remorse.tres" id="2_4hhhx"]
 [ext_resource type="Texture2D" uid="uid://bekix4dprjvt" path="res://dungeon_sidescroller-Raou/Tilesetv3.png" id="2_o5vre"]
-[ext_resource type="Resource" uid="uid://3wq861xow16i" path="res://scripts/Equipment/Ring/ring_of_blood.tres" id="2_rf8si"]
 [ext_resource type="PackedScene" uid="uid://d3o16yirjiwgd" path="res://scenes/World/player.tscn" id="2_vjod4"]
 [ext_resource type="PackedScene" uid="uid://chbugvamwmrhy" path="res://scenes/Background/parallax_background_4.tscn" id="3_7gbux"]
 [ext_resource type="PackedScene" uid="uid://dqf5s8nyygymc" path="res://scenes/Enemy/kiba.tscn" id="5_rgjmd"]
@@ -2101,7 +2101,7 @@ sources/0 = SubResource("TileSetAtlasSource_65dph")
 
 [node name="arena_4" type="Node2D"]
 script = ExtResource("1_ud27b")
-drop = ExtResource("2_rf8si")
+drop = ExtResource("2_4hhhx")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_syapr")

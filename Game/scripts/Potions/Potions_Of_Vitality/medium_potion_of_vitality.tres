@@ -8,7 +8,7 @@ script = ExtResource("2_i21xg")
 type = 3
 item_name = "Medium Potion of Vitality"
 item_texture = ExtResource("1_jg2lq")
-price = 0
+price = 100
 description = "Medium Potion of Vitality
 + 25 Health
 Permanent stat increase once used."

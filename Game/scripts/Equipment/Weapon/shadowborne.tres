@@ -10,9 +10,9 @@ item_name = "Shadowborne"
 item_texture = ExtResource("1_gqjqk")
 price = 0
 description = "Shadowborne
-Attack: 399
+Attack: 165
 \"Shadows take you!\""
-attack = 399
+attack = 165
 defense = 0
 health = 0
 heal_amount = 0

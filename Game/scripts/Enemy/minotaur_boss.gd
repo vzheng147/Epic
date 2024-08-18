@@ -41,10 +41,10 @@ var in_attack_2_range = false
 var in_swirl_range = false
 
 # adjust these accordingly
-var max_health : int = 350
+var max_health : int = 1450
 var health : int = max_health
-var attack : int = 75
-var defense : int = 10
+var attack : int = 145
+var defense : int = 60
 var chase_range: float = 500 # switches from Idle to Chase
 var attack_range: float = 35 # switches from Chase to Attack
 var speed: float = 97  # Minotaur's movement speed

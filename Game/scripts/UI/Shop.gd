@@ -5,6 +5,8 @@ extends Control
 @onready var buy_button = $Buy
 @onready var description = $ColorRect/Description
 @onready var gold = $ColorRect2/Gold
+@onready var cost_container = $ColorRect3
+@onready var cost = $ColorRect3/Cost
 
 var shop = ["res://scripts/Equipment/Weapon/worn_sword.tres"]
 var selected : ItemData
@@ -40,6 +42,9 @@ func update_shop():
 
 func update_gold():
 	gold.text = "Gold: %d" % player.gold
+	
+func update_price():
+	cost.text = "Cost: %d" % selected.price
 
 func update_description(data):
 	if data:
@@ -52,6 +57,7 @@ func _on_buy_pressed():
 	if player.gold < selected.price:
 		description.text = "You do not have enough gold!"
 		buy_button.visible = false
+		cost_container.visible = false
 		return
 	
 	# add bought item to inventory and update player gold
@@ -70,5 +76,6 @@ func _on_buy_pressed():
 	update_gold()
 	update_description(null)
 	buy_button.visible = false
+	cost_container.visible = false
 	
 

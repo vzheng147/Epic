@@ -29,13 +29,13 @@ var is_attacking : bool = false
 var in_attack_range = false
 var in_skill_range = false
 var skill_ready = true
-var arrows_ready = false
+var arrows_ready = true
 var range_ready = false
 
 # adjust these accordingly
 var max_health : int = 350
 var health : int = max_health
-var attack : int = 75
+var attack : int = 40
 var defense : int = 10
 var chase_range: float = 500 # switches from Idle to Chase
 var attack_range: float = 38 # switches from Chase to Attack
@@ -45,7 +45,6 @@ var skill_range : float = 44
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	arrows_timer.start()
 	range_timer.start()
 	health_bar.value = (float(health) / max_health) * 100
 	player = get_parent().get_node("Player")

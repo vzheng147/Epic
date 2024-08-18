@@ -8,7 +8,7 @@ script = ExtResource("2_iqnwl")
 type = 0
 item_name = "Worn Sword"
 item_texture = ExtResource("1_vai3b")
-price = 10
+price = 30
 description = "Worn Sword
 Attack: 4
 \"An unimpressive sword, but every great swordsman has to start somewhere.\""

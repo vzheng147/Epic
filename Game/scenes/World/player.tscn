@@ -360,6 +360,9 @@ wait_time = 4.0
 [node name="Range_Timer" type="Timer" parent="."]
 wait_time = 4.0
 
+[node name="Save_Timer" type="Timer" parent="."]
+wait_time = 10.0
+
 [node name="Letter" parent="." instance=ExtResource("7_c3j0v")]
 offset_top = -40.0
 offset_bottom = -40.0
@@ -386,3 +389,4 @@ zoom = Vector2(3, 3)
 [connection signal="timeout" from="OneSecondHeal" to="." method="_on_one_second_heal_timeout"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Range_Timer" to="." method="_on_range_timer_timeout"]
+[connection signal="timeout" from="Save_Timer" to="." method="_on_save_timer_timeout"]

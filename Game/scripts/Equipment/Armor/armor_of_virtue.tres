@@ -5,16 +5,16 @@
 
 [resource]
 script = ExtResource("2_3qmuo")
-type = 0
+type = 1
 item_name = "Armor Of Virtue"
 item_texture = ExtResource("1_3uhbh")
 price = 0
 description = "Armor Of Virtue
-Defense: 99
-Health: 990
+Defense: 24
+Health: 280
 \"Banish the darkness, protect the weak, and aid the righteous.\""
 attack = 0
-defense = 99
-health = 990
+defense = 24
+health = 280
 heal_amount = 0
 success_chance = 0

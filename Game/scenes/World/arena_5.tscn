@@ -2145,61 +2145,73 @@ shape = SubResource("WorldBoundaryShape2D_13hb3")
 visible = false
 position = Vector2(-259, -401)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap2" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(-212, -400)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap3" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(-161, -400)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap4" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(-116, -402)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap5" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(-75, -409)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap6" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(-23, -416)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap7" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(30, -418)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap8" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(112, -412)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap9" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(143, -408)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap10" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(197, -399)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap11" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(249, -401)
 rotation = 4.71239
+damage = 450
 
 [node name="ArrowTrap12" parent="." instance=ExtResource("7_lfel4")]
 visible = false
 position = Vector2(69, -421)
 rotation = 4.71239
+damage = 450
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -13,6 +13,7 @@ var in_range : bool = false
 func _input(event):
 	if in_range and event.is_action_pressed("Interact"):
 		door.play("default")
+		Manager.save_game(player, player.inventory)
 		await door.animation_finished
 		get_tree().change_scene_to_file(destination)
 		if location:

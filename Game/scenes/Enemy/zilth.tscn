@@ -502,7 +502,7 @@ wait_time = 7.0
 wait_time = 9.0
 
 [node name="Range" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.5
 
 [connection signal="body_entered" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="RigidBody2D/attack_range" to="." method="_on_attack_range_body_exited"]
