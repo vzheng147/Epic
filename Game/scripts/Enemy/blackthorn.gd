@@ -50,10 +50,10 @@ var minotaur_ready = true
 var kiba_ready = true
 
 # adjust these accordingly
-var max_health : int = 5000
+var max_health : int = 4000
 var health : int = max_health
-var attack : int = 450
-var defense : int = 100
+var attack : int = 320
+var defense : int = 75
 var chase_range: float = 500 # switches from Idle to Chase
 var attack_range: float = 44 # switches from Chase to Attack
 var speed: float = 105  # movement speed
@@ -172,7 +172,7 @@ func skill_state(delta):
 	await blackthorn.animation_finished
 	
 	if in_skill_range:
-		player.take_damage(attack * 2.65)
+		player.take_damage(attack * 1.9)
 	
 	skill_timer.start()
 	is_attacking = false
@@ -285,31 +285,31 @@ func activate_fire():
 func kiba_range_attack():
 	var instance = slash_2.instantiate()
 	instance.pos = blackthorn.global_position + Vector2(0, -10)
-	instance.damage = attack * .9
+	instance.damage = attack 
 	instance.rot = blackthorn.global_rotation + 3.14
 	instance.dir = blackthorn.global_rotation + 1.57
 	
 	var instance2 = slash_2.instantiate()
 	instance2.pos = blackthorn.global_position + Vector2(0, -10)
-	instance2.damage = attack * .9
+	instance2.damage = attack 
 	instance2.rot = blackthorn.global_rotation 
 	instance2.dir = blackthorn.global_rotation + 4.71
 	
 	var instance3 = slash_2.instantiate()
 	instance3.pos = blackthorn.global_position
-	instance3.damage = attack * .9
+	instance3.damage = attack 
 	instance3.rot = blackthorn.global_rotation + 4.71
 	instance3.dir = blackthorn.global_rotation + 3.14
 	
 	var instance4 = slash_2.instantiate()
 	instance4.pos = blackthorn.global_position
-	instance4.damage = attack * .9
+	instance4.damage = attack 
 	instance4.rot = blackthorn.global_rotation + 5.49
 	instance4.dir = blackthorn.global_rotation + 3.92
 	
 	var instance5 = slash_2.instantiate()
 	instance5.pos = blackthorn.global_position
-	instance5.damage = attack * .9
+	instance5.damage = attack 
 	instance5.rot = blackthorn.global_rotation + 3.92
 	instance5.dir = blackthorn.global_rotation + 2.35
 	
@@ -408,5 +408,5 @@ func _on_kiba_timeout():
 
 func _on_damage_timeout():
 	if is_charging and in_skill_range:
-		player.take_damage(attack * .6)
+		player.take_damage(attack * .95)
 		damage_timer.start()

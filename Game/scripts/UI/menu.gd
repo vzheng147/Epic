@@ -4,6 +4,7 @@ extends Node2D
 
 func _on_play_pressed():
 	Manager.load_game()
+	print(Manager.saved_scene)
 	if Manager.saved_scene:
 		get_tree().change_scene_to_file(Manager.saved_scene)
 	else:

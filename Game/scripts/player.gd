@@ -37,9 +37,9 @@ var level = 1
 var xp = 0
 var total_xp = 15
 var gold = 0
-var attack = 3
-var defense = 1
-var max_health = 75
+var attack = 5
+var defense = 3
+var max_health = 100
 var health = max_health
 
 
@@ -71,39 +71,39 @@ func level_up():
 	level += 1
 	xp -= total_xp
 	
-	attack += 2
-	defense += 1
-	health += 10
-	max_health += 10
+	attack += 4
+	defense += 2
+	health += 15
+	max_health += 15
 	
 	match level:
 		2: total_xp = 25
 		3: total_xp = 40
 		4: total_xp = 80
-		5: total_xp = 150
-		6: total_xp = 250
-		7: total_xp = 400
-		8: total_xp = 600
-		9: total_xp = 800
-		10: total_xp = 1000
-		11: total_xp = 1500
-		12: total_xp = 2000
-		13: total_xp = 2500
-		14: total_xp = 3000
-		15: total_xp = 4000
-		16: total_xp = 5000
-		17: total_xp = 6000
-		19: total_xp = 7000
-		20: total_xp = 8000
-		21: total_xp = 9000
-		22: total_xp = 10000
-		23: total_xp = 12000
-		24: total_xp = 14000
-		25: total_xp = 16000
-		26: total_xp = 18000
-		27: total_xp = 20000
-		28: total_xp = 25000
-		29: total_xp = 30000
+		5: total_xp = 100
+		6: total_xp = 150
+		7: total_xp = 200
+		8: total_xp = 250
+		9: total_xp = 300
+		10: total_xp = 350
+		11: total_xp = 400
+		12: total_xp = 450
+		13: total_xp = 500
+		14: total_xp = 550
+		15: total_xp = 600
+		16: total_xp = 650
+		17: total_xp = 700
+		19: total_xp = 750
+		20: total_xp = 800
+		21: total_xp = 1000
+		22: total_xp = 1200
+		23: total_xp = 1400
+		24: total_xp = 1600
+		25: total_xp = 1800
+		26: total_xp = 2000
+		27: total_xp = 3000
+		28: total_xp = 4000
+		29: total_xp = 5000
 	
 	Manager.save_game(self, inventory)
 	inventory.update_label()

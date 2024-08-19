@@ -2,7 +2,7 @@ extends Node
 
 class_name SaveManager
 
-const SAVE_PATH = "res://scripts/save.tres"
+const SAVE_PATH = "user://save.tres"
 
 var data : PlayerData
 var saved_scene : String
